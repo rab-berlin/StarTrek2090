@@ -1,4 +1,4 @@
-# sim_m2.py - schnelles Regelmodell von startrek-m02 (1 Torpedo, Zeit nach 42 Aktionen; gegen den Emulator geprueft: sim_check.py)
+# sim_m2.py - schnelles Regelmodell von startrek-m02 (1 Basis, 2 Torpedos, Zeit nach 51 Aktionen; gegen den Emulator geprueft: sim_check.py)
 import random
 
 
@@ -8,6 +8,7 @@ def rotl(v):
 
 class Ref:
     """Referenzmodell der Galaxie aus M0-M5."""
+    ONE_BASE = False      # True: eine Basis im Quadranten Q = sB (startrek-m02 ab der Variante mit 1 Basis)
 
     def __init__(self, M):
         self.rows = M[0:4]
@@ -16,7 +17,7 @@ class Ref:
     def quad(self, qx, qy):
         Q = qy * 4 + qx
         kal = (self.rows[qy] >> qx) & 1
-        base = ((Q + self.sB) & 7) == 0
+        base = (Q == self.sB) if self.ONE_BASE else ((Q + self.sB) & 7) == 0
         ks = rotl((Q + self.sK) & 0xF)
         bs = (ks + 8) & 0xF if base else ks
         s1 = rotl((ks + self.sB) & 0xF)
@@ -42,9 +43,11 @@ VEC = {v: k for k, v in DIRS.items()}
 class Sim:
     """Ein Spiel. Galaxie aus D = RD, E = RE beim RUN; Schaden 2 * (0..15)."""
 
-    def __init__(self, D, E, rng, dmg=None, tlimit=43, tmax=1):
-        self.tlimit, self.tmax = tlimit, tmax
+    def __init__(self, D, E, rng, dmg=None, tlimit=52, tmax=2, bases=1, navcost=3, senscost=16, sensbase=True):
+        self.tlimit, self.tmax, self.bases, self.navcost, self.senscost = tlimit, tmax, bases, navcost, senscost
         self.ref = Ref([D, E, D ^ 15, E ^ 15, D, E] + [0] * 10)
+        self.ref.ONE_BASE = (bases == 1)
+        self.sensbase = sensbase      # Sensor zeigt die Basis auch neben einem Klingonen (eigene Farbe)
         self.rng = rng
         self.dmg = dmg or (lambda: 2 * rng.randrange(16))
         self.x = self.y = 0
@@ -93,7 +96,7 @@ class Sim:
                     self.log.append(('andocken',))
                 break
             self.x, self.y = cx, cy
-            self.energy -= 3
+            self.energy -= self.navcost
             if self.energy < 0:
                 self.result = 'energie'; return True
         self.actions += 1
@@ -102,14 +105,14 @@ class Sim:
 
     def sensor(self):
         if self.result: return False
-        self.energy -= 16
+        self.energy -= self.senscost
         if self.energy < 0:
             self.result = 'energie'; return True
         qx, qy = self.x >> 2, self.y >> 2
         out = {}
         for dq in (-1, 1):
             q = self.ref.quad((qx + dq) & 3, qy)
-            out[(qx + dq) & 3, qy] = 'K' if q['kal'] else ('B' if q['base'] else '-')
+            out[(qx + dq) & 3, qy] = ('KB' if self.sensbase and q['base'] else 'K') if q['kal'] else ('B' if q['base'] else '-')
         self.actions += 1
         self._tick()
         self.sens = out

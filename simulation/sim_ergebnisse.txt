@@ -1,4 +1,4 @@
-== Strategien, alte Werte (3 Torpedos, 63 Aktionen), 4 Verlaeufe je Galaxie
+== Strategien, 2 Basen, alte Werte (3 Torpedos, 63 Aktionen), 4 Verlaeufe je Galaxie
 Zufall                               Sieg   0.0%  Energie 100.0%  Zeit   0.0%  haengt  0.0%  Aktionen Q1/Med/Q3 0/0/0  Andocken 0.0  Klingonen uebrig bei Niederlage 7.3  (0s)
 Sucher (ohne Sensor)                 Sieg  84.2%  Energie   5.8%  Zeit  10.1%  haengt  0.0%  Aktionen Q1/Med/Q3 35/41/47  Andocken 4.0  Klingonen uebrig bei Niederlage 3.7  (16s)
 Sucher, Torpedo zuerst               Sieg  95.8%  Energie   4.2%  Zeit   0.0%  haengt  0.0%  Aktionen Q1/Med/Q3 27/29/31  Andocken 1.8  Klingonen uebrig bei Niederlage 4.4  (9s)
@@ -11,7 +11,7 @@ Kenner (Scout + Gegenzeilen-Regel)   Sieg  95.3%  Energie   4.7%  Zeit   0.0%  h
 Bester Mensch: Kenner, Torpedo zuerst, tankt bei 5 Sieg  99.3%  Energie   0.7%  Zeit   0.0%  haengt  0.0%  Aktionen Q1/Med/Q3 26/27/30  Andocken 3.0  Klingonen uebrig bei Niederlage 4.3  (12s)
 Allwissend                           Sieg  99.6%  Energie   0.4%  Zeit   0.0%  haengt  0.0%  Aktionen Q1/Med/Q3 18/19/20  Andocken 1.8  Klingonen uebrig bei Niederlage 1.8  (8s)
 
-== Startaufstellungen und Schaden/Zeit-Varianten (alte Werte)
+== Startaufstellungen und Schaden/Zeit-Varianten (2 Basen, alte Werte)
 Galaxien: 256 Siegquote gesamt 0.997
 Klingone im Startquadranten: {0: (128, 1.0), 1: (128, 0.994)}
 Abstand naechste Basis (Quadranten): {0: (32, 0.992), 1: (160, 0.998), 2: (64, 0.996)}
@@ -39,7 +39,7 @@ Zeitlimit 32                           Bester Mensch                Sieg  81.0% 
 Zeitlimit 32                           Scout, Torpedo statt Umweg   Sieg  61.8%  Energie   3.9%  Zeit  34.3%
 Zeitlimit 32                           Sucher ohne Sensor           Sieg   5.7%  Energie   6.2%  Zeit  88.1%
 
-== Varianten Torpedos/Zeitlimit, 1 Verlauf je Galaxie
+== Varianten Torpedos/Zeitlimit (2 Basen), 1 Verlauf je Galaxie
 Heute: 3 Torpedos, 64 Aktionen     Bester Mensch                Sieg  99.2% Energie   0.8% Zeit   0.0%  Phaser 0.1 Torpedos 7.9
 Heute: 3 Torpedos, 64 Aktionen     Scout, Phaser zuerst         Sieg  61.7% Energie   5.9% Zeit  32.4%  Phaser 6.0 Torpedos 0.8
 Heute: 3 Torpedos, 64 Aktionen     Scout, Torpedo statt Umweg   Sieg  93.8% Energie   6.2% Zeit   0.0%  Phaser 4.0 Torpedos 3.8
@@ -66,7 +66,7 @@ Heute: 3 Torpedos, 64 Aktionen     Sucher, tankt spaet          Sieg  83.6% Ener
 1 Torpedo, 37 Aktionen (ADDI 7)    Sucher ohne Sensor           Sieg  17.6% Energie   7.0% Zeit  75.4%  Phaser 5.1 Torpedos 0.9
 1 Torpedo, 37 Aktionen (ADDI 7)    Sucher, tankt spaet          Sieg  31.2% Energie  25.4% Zeit  43.4%  Phaser 3.3 Torpedos 2.7
 
-== Strategien, neue Werte (1 Torpedo, 42 Aktionen), 1 Verlauf je Galaxie
+== Strategien, 2 Basen, 1 Torpedo, 42 Aktionen, 1 Verlauf je Galaxie
 Zufall                               Sieg   0.0%  Energie 100.0%  Zeit   0.0%  haengt  0.0%  Aktionen Q1/Med/Q3 0/0/0  Andocken 0.0  Klingonen uebrig bei Niederlage 7.4  (0s)
 Sucher (ohne Sensor)                 Sieg  37.1%  Energie   8.6%  Zeit  54.3%  haengt  0.0%  Aktionen Q1/Med/Q3 33/36/38  Andocken 3.4  Klingonen uebrig bei Niederlage 2.5  (3s)
 Sucher, Torpedo zuerst               Sieg  76.2%  Energie  10.2%  Zeit  13.7%  haengt  0.0%  Aktionen Q1/Med/Q3 32/34/37  Andocken 2.9  Klingonen uebrig bei Niederlage 3.0  (3s)
@@ -78,3 +78,222 @@ Scout, tankt schon bei 5 Pixeln      Sieg  81.2%  Energie   4.7%  Zeit  14.1%  h
 Kenner (Scout + Gegenzeilen-Regel)   Sieg  86.3%  Energie  11.3%  Zeit   2.3%  haengt  0.0%  Aktionen Q1/Med/Q3 28/30/34  Andocken 3.0  Klingonen uebrig bei Niederlage 4.5  (3s)
 Bester Mensch: Kenner, Torpedo zuerst, tankt bei 5 Sieg  84.4%  Energie   7.8%  Zeit   7.8%  haengt  0.0%  Aktionen Q1/Med/Q3 30/34/36  Andocken 4.0  Klingonen uebrig bei Niederlage 3.4  (4s)
 Allwissend                           Sieg  99.6%  Energie   0.4%  Zeit   0.0%  haengt  0.0%  Aktionen Q1/Med/Q3 21/24/26  Andocken 2.6  Klingonen uebrig bei Niederlage 1.0  (2s)
+
+== 1 Basis: Raster Torpedos/Zeit/Flugkosten, Sensor wie bisher (Klingone verdeckt Basis), 1 Verlauf je Galaxie
+1 Torp | 42 Akt | Flug 3 | Sensor 16 | Sucher ohne Sensor                         Sieg  23.8% Energie  49.2% Zeit  27.0% Median 36
+1 Torp | 42 Akt | Flug 3 | Sensor 16 | Scout, Torpedo statt Umweg, tankt bei 5    Sieg  49.2% Energie  39.5% Zeit  11.3% Median 35.0
+1 Torp | 42 Akt | Flug 3 | Sensor 16 | Scout, sucht Basis sofort, tankt bei 5     Sieg  51.2% Energie  36.7% Zeit  12.1% Median 36
+1 Torp | 42 Akt | Flug 3 | Sensor 16 | Kenner, Torpedo zuerst, sucht Basis sofort Sieg  52.0% Energie  34.8% Zeit  13.3% Median 34
+1 Torp | 42 Akt | Flug 3 | Sensor 16 | Allwissend                                 Sieg  95.7% Energie   4.3% Zeit   0.0% Median 24
+1 Torp | 42 Akt | Flug 2 | Sensor 16 | Sucher ohne Sensor                         Sieg  29.3% Energie  40.2% Zeit  30.5% Median 37
+1 Torp | 42 Akt | Flug 2 | Sensor 16 | Scout, Torpedo statt Umweg, tankt bei 5    Sieg  57.8% Energie  32.4% Zeit   9.8% Median 35.0
+1 Torp | 42 Akt | Flug 2 | Sensor 16 | Scout, sucht Basis sofort, tankt bei 5     Sieg  56.6% Energie  31.6% Zeit  11.7% Median 35
+1 Torp | 42 Akt | Flug 2 | Sensor 16 | Kenner, Torpedo zuerst, sucht Basis sofort Sieg  57.0% Energie  28.5% Zeit  14.5% Median 34.0
+1 Torp | 42 Akt | Flug 2 | Sensor 16 | Allwissend                                 Sieg  98.4% Energie   1.2% Zeit   0.4% Median 23.0
+1 Torp | 51 Akt | Flug 3 | Sensor 16 | Sucher ohne Sensor                         Sieg  37.9% Energie  49.2% Zeit  12.9% Median 39
+1 Torp | 51 Akt | Flug 3 | Sensor 16 | Scout, Torpedo statt Umweg, tankt bei 5    Sieg  60.2% Energie  39.5% Zeit   0.4% Median 36.5
+1 Torp | 51 Akt | Flug 3 | Sensor 16 | Scout, sucht Basis sofort, tankt bei 5     Sieg  62.1% Energie  36.7% Zeit   1.2% Median 37
+1 Torp | 51 Akt | Flug 3 | Sensor 16 | Kenner, Torpedo zuerst, sucht Basis sofort Sieg  63.3% Energie  35.5% Zeit   1.2% Median 36.0
+1 Torp | 51 Akt | Flug 3 | Sensor 16 | Allwissend                                 Sieg  95.7% Energie   4.3% Zeit   0.0% Median 24
+1 Torp | 51 Akt | Flug 2 | Sensor 16 | Sucher ohne Sensor                         Sieg  47.3% Energie  40.2% Zeit  12.5% Median 39
+1 Torp | 51 Akt | Flug 2 | Sensor 16 | Scout, Torpedo statt Umweg, tankt bei 5    Sieg  67.2% Energie  32.4% Zeit   0.4% Median 36.0
+1 Torp | 51 Akt | Flug 2 | Sensor 16 | Scout, sucht Basis sofort, tankt bei 5     Sieg  67.2% Energie  31.6% Zeit   1.2% Median 36.0
+1 Torp | 51 Akt | Flug 2 | Sensor 16 | Kenner, Torpedo zuerst, sucht Basis sofort Sieg  69.5% Energie  28.5% Zeit   2.0% Median 36.0
+1 Torp | 51 Akt | Flug 2 | Sensor 16 | Allwissend                                 Sieg  98.8% Energie   1.2% Zeit   0.0% Median 23
+1 Torp | 63 Akt | Flug 3 | Sensor 16 | Sucher ohne Sensor                         Sieg  43.8% Energie  49.2% Zeit   7.0% Median 41.0
+1 Torp | 63 Akt | Flug 3 | Sensor 16 | Scout, Torpedo statt Umweg, tankt bei 5    Sieg  60.5% Energie  39.5% Zeit   0.0% Median 37
+1 Torp | 63 Akt | Flug 3 | Sensor 16 | Scout, sucht Basis sofort, tankt bei 5     Sieg  63.3% Energie  36.7% Zeit   0.0% Median 37.0
+1 Torp | 63 Akt | Flug 3 | Sensor 16 | Kenner, Torpedo zuerst, sucht Basis sofort Sieg  64.5% Energie  35.5% Zeit   0.0% Median 36
+1 Torp | 63 Akt | Flug 3 | Sensor 16 | Allwissend                                 Sieg  95.7% Energie   4.3% Zeit   0.0% Median 24
+1 Torp | 63 Akt | Flug 2 | Sensor 16 | Sucher ohne Sensor                         Sieg  53.5% Energie  40.2% Zeit   6.2% Median 40
+1 Torp | 63 Akt | Flug 2 | Sensor 16 | Scout, Torpedo statt Umweg, tankt bei 5    Sieg  67.6% Energie  32.4% Zeit   0.0% Median 36
+1 Torp | 63 Akt | Flug 2 | Sensor 16 | Scout, sucht Basis sofort, tankt bei 5     Sieg  68.4% Energie  31.6% Zeit   0.0% Median 36
+1 Torp | 63 Akt | Flug 2 | Sensor 16 | Kenner, Torpedo zuerst, sucht Basis sofort Sieg  71.5% Energie  28.5% Zeit   0.0% Median 36
+1 Torp | 63 Akt | Flug 2 | Sensor 16 | Allwissend                                 Sieg  98.8% Energie   1.2% Zeit   0.0% Median 23
+2 Torp | 42 Akt | Flug 3 | Sensor 16 | Sucher ohne Sensor                         Sieg  25.8% Energie  49.2% Zeit  25.0% Median 36.5
+2 Torp | 42 Akt | Flug 3 | Sensor 16 | Scout, Torpedo statt Umweg, tankt bei 5    Sieg  64.5% Energie  34.4% Zeit   1.2% Median 33
+2 Torp | 42 Akt | Flug 3 | Sensor 16 | Scout, sucht Basis sofort, tankt bei 5     Sieg  66.0% Energie  32.4% Zeit   1.6% Median 33
+2 Torp | 42 Akt | Flug 3 | Sensor 16 | Kenner, Torpedo zuerst, sucht Basis sofort Sieg  68.8% Energie  30.9% Zeit   0.4% Median 30.0
+2 Torp | 42 Akt | Flug 3 | Sensor 16 | Allwissend                                 Sieg  99.2% Energie   0.8% Zeit   0.0% Median 21.0
+2 Torp | 42 Akt | Flug 2 | Sensor 16 | Sucher ohne Sensor                         Sieg  34.0% Energie  37.1% Zeit  28.9% Median 35
+2 Torp | 42 Akt | Flug 2 | Sensor 16 | Scout, Torpedo statt Umweg, tankt bei 5    Sieg  70.3% Energie  28.5% Zeit   1.2% Median 32.0
+2 Torp | 42 Akt | Flug 2 | Sensor 16 | Scout, sucht Basis sofort, tankt bei 5     Sieg  70.3% Energie  27.3% Zeit   2.3% Median 32.0
+2 Torp | 42 Akt | Flug 2 | Sensor 16 | Kenner, Torpedo zuerst, sucht Basis sofort Sieg  76.6% Energie  22.3% Zeit   1.2% Median 30.0
+2 Torp | 42 Akt | Flug 2 | Sensor 16 | Allwissend                                 Sieg  99.6% Energie   0.4% Zeit   0.0% Median 20
+2 Torp | 51 Akt | Flug 3 | Sensor 16 | Sucher ohne Sensor                         Sieg  39.1% Energie  49.2% Zeit  11.7% Median 39.0
+2 Torp | 51 Akt | Flug 3 | Sensor 16 | Scout, Torpedo statt Umweg, tankt bei 5    Sieg  65.6% Energie  34.4% Zeit   0.0% Median 33.0
+2 Torp | 51 Akt | Flug 3 | Sensor 16 | Scout, sucht Basis sofort, tankt bei 5     Sieg  67.6% Energie  32.4% Zeit   0.0% Median 34
+2 Torp | 51 Akt | Flug 3 | Sensor 16 | Kenner, Torpedo zuerst, sucht Basis sofort Sieg  69.1% Energie  30.9% Zeit   0.0% Median 30
+2 Torp | 51 Akt | Flug 3 | Sensor 16 | Allwissend                                 Sieg  99.2% Energie   0.8% Zeit   0.0% Median 21.0
+2 Torp | 51 Akt | Flug 2 | Sensor 16 | Sucher ohne Sensor                         Sieg  50.8% Energie  37.1% Zeit  12.1% Median 39.0
+2 Torp | 51 Akt | Flug 2 | Sensor 16 | Scout, Torpedo statt Umweg, tankt bei 5    Sieg  71.5% Energie  28.5% Zeit   0.0% Median 32
+2 Torp | 51 Akt | Flug 2 | Sensor 16 | Scout, sucht Basis sofort, tankt bei 5     Sieg  72.7% Energie  27.3% Zeit   0.0% Median 32.0
+2 Torp | 51 Akt | Flug 2 | Sensor 16 | Kenner, Torpedo zuerst, sucht Basis sofort Sieg  77.7% Energie  22.3% Zeit   0.0% Median 30
+2 Torp | 51 Akt | Flug 2 | Sensor 16 | Allwissend                                 Sieg  99.6% Energie   0.4% Zeit   0.0% Median 20
+2 Torp | 63 Akt | Flug 3 | Sensor 16 | Sucher ohne Sensor                         Sieg  44.1% Energie  49.2% Zeit   6.6% Median 39
+2 Torp | 63 Akt | Flug 3 | Sensor 16 | Scout, Torpedo statt Umweg, tankt bei 5    Sieg  65.6% Energie  34.4% Zeit   0.0% Median 33.0
+2 Torp | 63 Akt | Flug 3 | Sensor 16 | Scout, sucht Basis sofort, tankt bei 5     Sieg  67.6% Energie  32.4% Zeit   0.0% Median 34
+2 Torp | 63 Akt | Flug 3 | Sensor 16 | Kenner, Torpedo zuerst, sucht Basis sofort Sieg  69.1% Energie  30.9% Zeit   0.0% Median 30
+2 Torp | 63 Akt | Flug 3 | Sensor 16 | Allwissend                                 Sieg  99.2% Energie   0.8% Zeit   0.0% Median 21.0
+2 Torp | 63 Akt | Flug 2 | Sensor 16 | Sucher ohne Sensor                         Sieg  56.6% Energie  37.1% Zeit   6.2% Median 39
+2 Torp | 63 Akt | Flug 2 | Sensor 16 | Scout, Torpedo statt Umweg, tankt bei 5    Sieg  71.5% Energie  28.5% Zeit   0.0% Median 32
+2 Torp | 63 Akt | Flug 2 | Sensor 16 | Scout, sucht Basis sofort, tankt bei 5     Sieg  72.7% Energie  27.3% Zeit   0.0% Median 32.0
+2 Torp | 63 Akt | Flug 2 | Sensor 16 | Kenner, Torpedo zuerst, sucht Basis sofort Sieg  77.7% Energie  22.3% Zeit   0.0% Median 30
+2 Torp | 63 Akt | Flug 2 | Sensor 16 | Allwissend                                 Sieg  99.6% Energie   0.4% Zeit   0.0% Median 20
+3 Torp | 42 Akt | Flug 3 | Sensor 16 | Sucher ohne Sensor                         Sieg  25.8% Energie  48.4% Zeit  25.8% Median 36.0
+3 Torp | 42 Akt | Flug 3 | Sensor 16 | Scout, Torpedo statt Umweg, tankt bei 5    Sieg  67.6% Energie  31.6% Zeit   0.8% Median 32
+3 Torp | 42 Akt | Flug 3 | Sensor 16 | Scout, sucht Basis sofort, tankt bei 5     Sieg  67.6% Energie  31.2% Zeit   1.2% Median 33
+3 Torp | 42 Akt | Flug 3 | Sensor 16 | Kenner, Torpedo zuerst, sucht Basis sofort Sieg  75.4% Energie  24.6% Zeit   0.0% Median 28
+3 Torp | 42 Akt | Flug 3 | Sensor 16 | Allwissend                                 Sieg 100.0% Energie   0.0% Zeit   0.0% Median 19.0
+3 Torp | 42 Akt | Flug 2 | Sensor 16 | Sucher ohne Sensor                         Sieg  34.8% Energie  36.3% Zeit  28.9% Median 35
+3 Torp | 42 Akt | Flug 2 | Sensor 16 | Scout, Torpedo statt Umweg, tankt bei 5    Sieg  70.7% Energie  28.5% Zeit   0.8% Median 32
+3 Torp | 42 Akt | Flug 2 | Sensor 16 | Scout, sucht Basis sofort, tankt bei 5     Sieg  73.4% Energie  25.8% Zeit   0.8% Median 32.0
+3 Torp | 42 Akt | Flug 2 | Sensor 16 | Kenner, Torpedo zuerst, sucht Basis sofort Sieg  81.2% Energie  18.8% Zeit   0.0% Median 28.5
+3 Torp | 42 Akt | Flug 2 | Sensor 16 | Allwissend                                 Sieg  99.6% Energie   0.4% Zeit   0.0% Median 19
+3 Torp | 51 Akt | Flug 3 | Sensor 16 | Sucher ohne Sensor                         Sieg  39.8% Energie  48.4% Zeit  11.7% Median 38.0
+3 Torp | 51 Akt | Flug 3 | Sensor 16 | Scout, Torpedo statt Umweg, tankt bei 5    Sieg  68.4% Energie  31.6% Zeit   0.0% Median 32
+3 Torp | 51 Akt | Flug 3 | Sensor 16 | Scout, sucht Basis sofort, tankt bei 5     Sieg  68.8% Energie  31.2% Zeit   0.0% Median 33.0
+3 Torp | 51 Akt | Flug 3 | Sensor 16 | Kenner, Torpedo zuerst, sucht Basis sofort Sieg  75.4% Energie  24.6% Zeit   0.0% Median 28
+3 Torp | 51 Akt | Flug 3 | Sensor 16 | Allwissend                                 Sieg 100.0% Energie   0.0% Zeit   0.0% Median 19.0
+3 Torp | 51 Akt | Flug 2 | Sensor 16 | Sucher ohne Sensor                         Sieg  52.0% Energie  36.3% Zeit  11.7% Median 38
+3 Torp | 51 Akt | Flug 2 | Sensor 16 | Scout, Torpedo statt Umweg, tankt bei 5    Sieg  71.5% Energie  28.5% Zeit   0.0% Median 32
+3 Torp | 51 Akt | Flug 2 | Sensor 16 | Scout, sucht Basis sofort, tankt bei 5     Sieg  74.2% Energie  25.8% Zeit   0.0% Median 32.0
+3 Torp | 51 Akt | Flug 2 | Sensor 16 | Kenner, Torpedo zuerst, sucht Basis sofort Sieg  81.2% Energie  18.8% Zeit   0.0% Median 28.5
+3 Torp | 51 Akt | Flug 2 | Sensor 16 | Allwissend                                 Sieg  99.6% Energie   0.4% Zeit   0.0% Median 19
+3 Torp | 63 Akt | Flug 3 | Sensor 16 | Sucher ohne Sensor                         Sieg  44.9% Energie  48.4% Zeit   6.6% Median 40
+3 Torp | 63 Akt | Flug 3 | Sensor 16 | Scout, Torpedo statt Umweg, tankt bei 5    Sieg  68.4% Energie  31.6% Zeit   0.0% Median 32
+3 Torp | 63 Akt | Flug 3 | Sensor 16 | Scout, sucht Basis sofort, tankt bei 5     Sieg  68.8% Energie  31.2% Zeit   0.0% Median 33.0
+3 Torp | 63 Akt | Flug 3 | Sensor 16 | Kenner, Torpedo zuerst, sucht Basis sofort Sieg  75.4% Energie  24.6% Zeit   0.0% Median 28
+3 Torp | 63 Akt | Flug 3 | Sensor 16 | Allwissend                                 Sieg 100.0% Energie   0.0% Zeit   0.0% Median 19.0
+3 Torp | 63 Akt | Flug 2 | Sensor 16 | Sucher ohne Sensor                         Sieg  57.8% Energie  36.3% Zeit   5.9% Median 39.0
+3 Torp | 63 Akt | Flug 2 | Sensor 16 | Scout, Torpedo statt Umweg, tankt bei 5    Sieg  71.5% Energie  28.5% Zeit   0.0% Median 32
+3 Torp | 63 Akt | Flug 2 | Sensor 16 | Scout, sucht Basis sofort, tankt bei 5     Sieg  74.2% Energie  25.8% Zeit   0.0% Median 32.0
+3 Torp | 63 Akt | Flug 2 | Sensor 16 | Kenner, Torpedo zuerst, sucht Basis sofort Sieg  81.2% Energie  18.8% Zeit   0.0% Median 28.5
+3 Torp | 63 Akt | Flug 2 | Sensor 16 | Allwissend                                 Sieg  99.6% Energie   0.4% Zeit   0.0% Median 19
+1 Torp | 42 Akt | Flug 3 | Sensor  0 | Sucher ohne Sensor                         Sieg  23.8% Energie  49.2% Zeit  27.0% Median 36
+1 Torp | 42 Akt | Flug 3 | Sensor  0 | Scout, Torpedo statt Umweg, tankt bei 5    Sieg  57.8% Energie  33.2% Zeit   9.0% Median 34.5
+1 Torp | 42 Akt | Flug 3 | Sensor  0 | Scout, sucht Basis sofort, tankt bei 5     Sieg  64.8% Energie  25.4% Zeit   9.8% Median 35.0
+1 Torp | 42 Akt | Flug 3 | Sensor  0 | Kenner, Torpedo zuerst, sucht Basis sofort Sieg  59.4% Energie  28.9% Zeit  11.7% Median 34.0
+1 Torp | 42 Akt | Flug 3 | Sensor  0 | Allwissend                                 Sieg  95.7% Energie   4.3% Zeit   0.0% Median 24
+1 Torp | 63 Akt | Flug 3 | Sensor  0 | Sucher ohne Sensor                         Sieg  43.8% Energie  49.2% Zeit   7.0% Median 41.0
+1 Torp | 63 Akt | Flug 3 | Sensor  0 | Scout, Torpedo statt Umweg, tankt bei 5    Sieg  66.8% Energie  33.2% Zeit   0.0% Median 35
+1 Torp | 63 Akt | Flug 3 | Sensor  0 | Scout, sucht Basis sofort, tankt bei 5     Sieg  74.6% Energie  25.4% Zeit   0.0% Median 36
+1 Torp | 63 Akt | Flug 3 | Sensor  0 | Kenner, Torpedo zuerst, sucht Basis sofort Sieg  70.7% Energie  29.3% Zeit   0.0% Median 35
+1 Torp | 63 Akt | Flug 3 | Sensor  0 | Allwissend                                 Sieg  95.7% Energie   4.3% Zeit   0.0% Median 24
+3 Torp | 42 Akt | Flug 3 | Sensor  0 | Sucher ohne Sensor                         Sieg  25.8% Energie  48.4% Zeit  25.8% Median 36.0
+3 Torp | 42 Akt | Flug 3 | Sensor  0 | Scout, Torpedo statt Umweg, tankt bei 5    Sieg  73.0% Energie  25.8% Zeit   1.2% Median 31
+3 Torp | 42 Akt | Flug 3 | Sensor  0 | Scout, sucht Basis sofort, tankt bei 5     Sieg  79.7% Energie  19.9% Zeit   0.4% Median 31.0
+3 Torp | 42 Akt | Flug 3 | Sensor  0 | Kenner, Torpedo zuerst, sucht Basis sofort Sieg  81.2% Energie  18.8% Zeit   0.0% Median 28.5
+3 Torp | 42 Akt | Flug 3 | Sensor  0 | Allwissend                                 Sieg 100.0% Energie   0.0% Zeit   0.0% Median 19.0
+3 Torp | 63 Akt | Flug 3 | Sensor  0 | Sucher ohne Sensor                         Sieg  44.9% Energie  48.4% Zeit   6.6% Median 40
+3 Torp | 63 Akt | Flug 3 | Sensor  0 | Scout, Torpedo statt Umweg, tankt bei 5    Sieg  74.2% Energie  25.8% Zeit   0.0% Median 31.0
+3 Torp | 63 Akt | Flug 3 | Sensor  0 | Scout, sucht Basis sofort, tankt bei 5     Sieg  80.1% Energie  19.9% Zeit   0.0% Median 31
+3 Torp | 63 Akt | Flug 3 | Sensor  0 | Kenner, Torpedo zuerst, sucht Basis sofort Sieg  81.2% Energie  18.8% Zeit   0.0% Median 28.5
+3 Torp | 63 Akt | Flug 3 | Sensor  0 | Allwissend                                 Sieg 100.0% Energie   0.0% Zeit   0.0% Median 19.0
+
+== 1 Basis: dasselbe Raster, Sensor zeigt Klingone und Basis (Farbe B)
+1 Torp | 42 Akt | Flug 3 | SensBasis 1 | Sucher ohne Sensor                         Sieg  23.8% Energie  49.2% Zeit  27.0% Median 36
+1 Torp | 42 Akt | Flug 3 | SensBasis 1 | Scout, Torpedo statt Umweg, tankt bei 5    Sieg  61.3% Energie  27.0% Zeit  11.7% Median 35
+1 Torp | 42 Akt | Flug 3 | SensBasis 1 | Scout, sucht Basis sofort, tankt bei 5     Sieg  64.8% Energie  20.7% Zeit  14.5% Median 35.0
+1 Torp | 42 Akt | Flug 3 | SensBasis 1 | Kenner, Torpedo zuerst, sucht Basis sofort Sieg  62.1% Energie  22.3% Zeit  15.6% Median 34
+1 Torp | 42 Akt | Flug 3 | SensBasis 1 | Allwissend                                 Sieg  95.7% Energie   4.3% Zeit   0.0% Median 24
+1 Torp | 42 Akt | Flug 2 | SensBasis 1 | Sucher ohne Sensor                         Sieg  29.3% Energie  40.2% Zeit  30.5% Median 37
+1 Torp | 42 Akt | Flug 2 | SensBasis 1 | Scout, Torpedo statt Umweg, tankt bei 5    Sieg  68.4% Energie  19.5% Zeit  12.1% Median 34
+1 Torp | 42 Akt | Flug 2 | SensBasis 1 | Scout, sucht Basis sofort, tankt bei 5     Sieg  70.3% Energie  15.6% Zeit  14.1% Median 35.0
+1 Torp | 42 Akt | Flug 2 | SensBasis 1 | Kenner, Torpedo zuerst, sucht Basis sofort Sieg  66.0% Energie  18.0% Zeit  16.0% Median 34
+1 Torp | 42 Akt | Flug 2 | SensBasis 1 | Allwissend                                 Sieg  98.4% Energie   1.2% Zeit   0.4% Median 23.0
+1 Torp | 51 Akt | Flug 3 | SensBasis 1 | Sucher ohne Sensor                         Sieg  37.9% Energie  49.2% Zeit  12.9% Median 39
+1 Torp | 51 Akt | Flug 3 | SensBasis 1 | Scout, Torpedo statt Umweg, tankt bei 5    Sieg  72.7% Energie  27.0% Zeit   0.4% Median 36.0
+1 Torp | 51 Akt | Flug 3 | SensBasis 1 | Scout, sucht Basis sofort, tankt bei 5     Sieg  77.7% Energie  20.7% Zeit   1.6% Median 37
+1 Torp | 51 Akt | Flug 3 | SensBasis 1 | Kenner, Torpedo zuerst, sucht Basis sofort Sieg  75.8% Energie  23.0% Zeit   1.2% Median 36.0
+1 Torp | 51 Akt | Flug 3 | SensBasis 1 | Allwissend                                 Sieg  95.7% Energie   4.3% Zeit   0.0% Median 24
+1 Torp | 51 Akt | Flug 2 | SensBasis 1 | Sucher ohne Sensor                         Sieg  47.3% Energie  40.2% Zeit  12.5% Median 39
+1 Torp | 51 Akt | Flug 2 | SensBasis 1 | Scout, Torpedo statt Umweg, tankt bei 5    Sieg  79.3% Energie  19.5% Zeit   1.2% Median 36
+1 Torp | 51 Akt | Flug 2 | SensBasis 1 | Scout, sucht Basis sofort, tankt bei 5     Sieg  82.4% Energie  15.6% Zeit   2.0% Median 36
+1 Torp | 51 Akt | Flug 2 | SensBasis 1 | Kenner, Torpedo zuerst, sucht Basis sofort Sieg  80.1% Energie  18.0% Zeit   2.0% Median 36
+1 Torp | 51 Akt | Flug 2 | SensBasis 1 | Allwissend                                 Sieg  98.8% Energie   1.2% Zeit   0.0% Median 23
+1 Torp | 63 Akt | Flug 3 | SensBasis 1 | Sucher ohne Sensor                         Sieg  43.8% Energie  49.2% Zeit   7.0% Median 41.0
+1 Torp | 63 Akt | Flug 3 | SensBasis 1 | Scout, Torpedo statt Umweg, tankt bei 5    Sieg  73.0% Energie  27.0% Zeit   0.0% Median 36
+1 Torp | 63 Akt | Flug 3 | SensBasis 1 | Scout, sucht Basis sofort, tankt bei 5     Sieg  79.3% Energie  20.7% Zeit   0.0% Median 37
+1 Torp | 63 Akt | Flug 3 | SensBasis 1 | Kenner, Torpedo zuerst, sucht Basis sofort Sieg  77.0% Energie  23.0% Zeit   0.0% Median 36
+1 Torp | 63 Akt | Flug 3 | SensBasis 1 | Allwissend                                 Sieg  95.7% Energie   4.3% Zeit   0.0% Median 24
+1 Torp | 63 Akt | Flug 2 | SensBasis 1 | Sucher ohne Sensor                         Sieg  53.5% Energie  40.2% Zeit   6.2% Median 40
+1 Torp | 63 Akt | Flug 2 | SensBasis 1 | Scout, Torpedo statt Umweg, tankt bei 5    Sieg  80.5% Energie  19.5% Zeit   0.0% Median 36.0
+1 Torp | 63 Akt | Flug 2 | SensBasis 1 | Scout, sucht Basis sofort, tankt bei 5     Sieg  84.4% Energie  15.6% Zeit   0.0% Median 36.0
+1 Torp | 63 Akt | Flug 2 | SensBasis 1 | Kenner, Torpedo zuerst, sucht Basis sofort Sieg  82.0% Energie  18.0% Zeit   0.0% Median 36.0
+1 Torp | 63 Akt | Flug 2 | SensBasis 1 | Allwissend                                 Sieg  98.8% Energie   1.2% Zeit   0.0% Median 23
+2 Torp | 42 Akt | Flug 3 | SensBasis 1 | Sucher ohne Sensor                         Sieg  25.8% Energie  49.2% Zeit  25.0% Median 36.5
+2 Torp | 42 Akt | Flug 3 | SensBasis 1 | Scout, Torpedo statt Umweg, tankt bei 5    Sieg  78.1% Energie  20.7% Zeit   1.2% Median 33.0
+2 Torp | 42 Akt | Flug 3 | SensBasis 1 | Scout, sucht Basis sofort, tankt bei 5     Sieg  81.2% Energie  16.8% Zeit   2.0% Median 33.0
+2 Torp | 42 Akt | Flug 3 | SensBasis 1 | Kenner, Torpedo zuerst, sucht Basis sofort Sieg  80.5% Energie  19.1% Zeit   0.4% Median 30.0
+2 Torp | 42 Akt | Flug 3 | SensBasis 1 | Allwissend                                 Sieg  99.2% Energie   0.8% Zeit   0.0% Median 21.0
+2 Torp | 42 Akt | Flug 2 | SensBasis 1 | Sucher ohne Sensor                         Sieg  34.0% Energie  37.1% Zeit  28.9% Median 35
+2 Torp | 42 Akt | Flug 2 | SensBasis 1 | Scout, Torpedo statt Umweg, tankt bei 5    Sieg  85.2% Energie  13.7% Zeit   1.2% Median 32.0
+2 Torp | 42 Akt | Flug 2 | SensBasis 1 | Scout, sucht Basis sofort, tankt bei 5     Sieg  85.5% Energie  12.1% Zeit   2.3% Median 32
+2 Torp | 42 Akt | Flug 2 | SensBasis 1 | Kenner, Torpedo zuerst, sucht Basis sofort Sieg  87.9% Energie  11.3% Zeit   0.8% Median 30
+2 Torp | 42 Akt | Flug 2 | SensBasis 1 | Allwissend                                 Sieg  99.6% Energie   0.4% Zeit   0.0% Median 20
+2 Torp | 51 Akt | Flug 3 | SensBasis 1 | Sucher ohne Sensor                         Sieg  39.1% Energie  49.2% Zeit  11.7% Median 39.0
+2 Torp | 51 Akt | Flug 3 | SensBasis 1 | Scout, Torpedo statt Umweg, tankt bei 5    Sieg  79.3% Energie  20.7% Zeit   0.0% Median 33
+2 Torp | 51 Akt | Flug 3 | SensBasis 1 | Scout, sucht Basis sofort, tankt bei 5     Sieg  83.2% Energie  16.8% Zeit   0.0% Median 34
+2 Torp | 51 Akt | Flug 3 | SensBasis 1 | Kenner, Torpedo zuerst, sucht Basis sofort Sieg  80.9% Energie  19.1% Zeit   0.0% Median 30
+2 Torp | 51 Akt | Flug 3 | SensBasis 1 | Allwissend                                 Sieg  99.2% Energie   0.8% Zeit   0.0% Median 21.0
+2 Torp | 51 Akt | Flug 2 | SensBasis 1 | Sucher ohne Sensor                         Sieg  50.8% Energie  37.1% Zeit  12.1% Median 39.0
+2 Torp | 51 Akt | Flug 2 | SensBasis 1 | Scout, Torpedo statt Umweg, tankt bei 5    Sieg  86.3% Energie  13.7% Zeit   0.0% Median 32
+2 Torp | 51 Akt | Flug 2 | SensBasis 1 | Scout, sucht Basis sofort, tankt bei 5     Sieg  87.9% Energie  12.1% Zeit   0.0% Median 32
+2 Torp | 51 Akt | Flug 2 | SensBasis 1 | Kenner, Torpedo zuerst, sucht Basis sofort Sieg  88.7% Energie  11.3% Zeit   0.0% Median 30
+2 Torp | 51 Akt | Flug 2 | SensBasis 1 | Allwissend                                 Sieg  99.6% Energie   0.4% Zeit   0.0% Median 20
+2 Torp | 63 Akt | Flug 3 | SensBasis 1 | Sucher ohne Sensor                         Sieg  44.1% Energie  49.2% Zeit   6.6% Median 39
+2 Torp | 63 Akt | Flug 3 | SensBasis 1 | Scout, Torpedo statt Umweg, tankt bei 5    Sieg  79.3% Energie  20.7% Zeit   0.0% Median 33
+2 Torp | 63 Akt | Flug 3 | SensBasis 1 | Scout, sucht Basis sofort, tankt bei 5     Sieg  83.2% Energie  16.8% Zeit   0.0% Median 34
+2 Torp | 63 Akt | Flug 3 | SensBasis 1 | Kenner, Torpedo zuerst, sucht Basis sofort Sieg  80.9% Energie  19.1% Zeit   0.0% Median 30
+2 Torp | 63 Akt | Flug 3 | SensBasis 1 | Allwissend                                 Sieg  99.2% Energie   0.8% Zeit   0.0% Median 21.0
+2 Torp | 63 Akt | Flug 2 | SensBasis 1 | Sucher ohne Sensor                         Sieg  56.6% Energie  37.1% Zeit   6.2% Median 39
+2 Torp | 63 Akt | Flug 2 | SensBasis 1 | Scout, Torpedo statt Umweg, tankt bei 5    Sieg  86.3% Energie  13.7% Zeit   0.0% Median 32
+2 Torp | 63 Akt | Flug 2 | SensBasis 1 | Scout, sucht Basis sofort, tankt bei 5     Sieg  87.9% Energie  12.1% Zeit   0.0% Median 32
+2 Torp | 63 Akt | Flug 2 | SensBasis 1 | Kenner, Torpedo zuerst, sucht Basis sofort Sieg  88.7% Energie  11.3% Zeit   0.0% Median 30
+2 Torp | 63 Akt | Flug 2 | SensBasis 1 | Allwissend                                 Sieg  99.6% Energie   0.4% Zeit   0.0% Median 20
+3 Torp | 42 Akt | Flug 3 | SensBasis 1 | Sucher ohne Sensor                         Sieg  25.8% Energie  48.4% Zeit  25.8% Median 36.0
+3 Torp | 42 Akt | Flug 3 | SensBasis 1 | Scout, Torpedo statt Umweg, tankt bei 5    Sieg  81.2% Energie  18.0% Zeit   0.8% Median 32.0
+3 Torp | 42 Akt | Flug 3 | SensBasis 1 | Scout, sucht Basis sofort, tankt bei 5     Sieg  83.2% Energie  15.2% Zeit   1.6% Median 33
+3 Torp | 42 Akt | Flug 3 | SensBasis 1 | Kenner, Torpedo zuerst, sucht Basis sofort Sieg  86.3% Energie  13.7% Zeit   0.0% Median 28
+3 Torp | 42 Akt | Flug 3 | SensBasis 1 | Allwissend                                 Sieg 100.0% Energie   0.0% Zeit   0.0% Median 19.0
+3 Torp | 42 Akt | Flug 2 | SensBasis 1 | Sucher ohne Sensor                         Sieg  34.8% Energie  36.3% Zeit  28.9% Median 35
+3 Torp | 42 Akt | Flug 2 | SensBasis 1 | Scout, Torpedo statt Umweg, tankt bei 5    Sieg  84.8% Energie  14.5% Zeit   0.8% Median 32
+3 Torp | 42 Akt | Flug 2 | SensBasis 1 | Scout, sucht Basis sofort, tankt bei 5     Sieg  88.3% Energie  10.9% Zeit   0.8% Median 32.0
+3 Torp | 42 Akt | Flug 2 | SensBasis 1 | Kenner, Torpedo zuerst, sucht Basis sofort Sieg  91.4% Energie   8.6% Zeit   0.0% Median 28.0
+3 Torp | 42 Akt | Flug 2 | SensBasis 1 | Allwissend                                 Sieg  99.6% Energie   0.4% Zeit   0.0% Median 19
+3 Torp | 51 Akt | Flug 3 | SensBasis 1 | Sucher ohne Sensor                         Sieg  39.8% Energie  48.4% Zeit  11.7% Median 38.0
+3 Torp | 51 Akt | Flug 3 | SensBasis 1 | Scout, Torpedo statt Umweg, tankt bei 5    Sieg  82.0% Energie  18.0% Zeit   0.0% Median 32.0
+3 Torp | 51 Akt | Flug 3 | SensBasis 1 | Scout, sucht Basis sofort, tankt bei 5     Sieg  84.8% Energie  15.2% Zeit   0.0% Median 33
+3 Torp | 51 Akt | Flug 3 | SensBasis 1 | Kenner, Torpedo zuerst, sucht Basis sofort Sieg  86.3% Energie  13.7% Zeit   0.0% Median 28
+3 Torp | 51 Akt | Flug 3 | SensBasis 1 | Allwissend                                 Sieg 100.0% Energie   0.0% Zeit   0.0% Median 19.0
+3 Torp | 51 Akt | Flug 2 | SensBasis 1 | Sucher ohne Sensor                         Sieg  52.0% Energie  36.3% Zeit  11.7% Median 38
+3 Torp | 51 Akt | Flug 2 | SensBasis 1 | Scout, Torpedo statt Umweg, tankt bei 5    Sieg  85.5% Energie  14.5% Zeit   0.0% Median 32
+3 Torp | 51 Akt | Flug 2 | SensBasis 1 | Scout, sucht Basis sofort, tankt bei 5     Sieg  89.1% Energie  10.9% Zeit   0.0% Median 32.0
+3 Torp | 51 Akt | Flug 2 | SensBasis 1 | Kenner, Torpedo zuerst, sucht Basis sofort Sieg  91.4% Energie   8.6% Zeit   0.0% Median 28.0
+3 Torp | 51 Akt | Flug 2 | SensBasis 1 | Allwissend                                 Sieg  99.6% Energie   0.4% Zeit   0.0% Median 19
+3 Torp | 63 Akt | Flug 3 | SensBasis 1 | Sucher ohne Sensor                         Sieg  44.9% Energie  48.4% Zeit   6.6% Median 40
+3 Torp | 63 Akt | Flug 3 | SensBasis 1 | Scout, Torpedo statt Umweg, tankt bei 5    Sieg  82.0% Energie  18.0% Zeit   0.0% Median 32.0
+3 Torp | 63 Akt | Flug 3 | SensBasis 1 | Scout, sucht Basis sofort, tankt bei 5     Sieg  84.8% Energie  15.2% Zeit   0.0% Median 33
+3 Torp | 63 Akt | Flug 3 | SensBasis 1 | Kenner, Torpedo zuerst, sucht Basis sofort Sieg  86.3% Energie  13.7% Zeit   0.0% Median 28
+3 Torp | 63 Akt | Flug 3 | SensBasis 1 | Allwissend                                 Sieg 100.0% Energie   0.0% Zeit   0.0% Median 19.0
+3 Torp | 63 Akt | Flug 2 | SensBasis 1 | Sucher ohne Sensor                         Sieg  57.8% Energie  36.3% Zeit   5.9% Median 39.0
+3 Torp | 63 Akt | Flug 2 | SensBasis 1 | Scout, Torpedo statt Umweg, tankt bei 5    Sieg  85.5% Energie  14.5% Zeit   0.0% Median 32
+3 Torp | 63 Akt | Flug 2 | SensBasis 1 | Scout, sucht Basis sofort, tankt bei 5     Sieg  89.1% Energie  10.9% Zeit   0.0% Median 32.0
+3 Torp | 63 Akt | Flug 2 | SensBasis 1 | Kenner, Torpedo zuerst, sucht Basis sofort Sieg  91.4% Energie   8.6% Zeit   0.0% Median 28.0
+3 Torp | 63 Akt | Flug 2 | SensBasis 1 | Allwissend                                 Sieg  99.6% Energie   0.4% Zeit   0.0% Median 19
+
+== Gewaehlte Werte: 1 Basis, 2 Torpedos, 51 Aktionen, Flug 3, Sensor mit Farbe B; 2 Verlaeufe je Galaxie
+Zufall                               Sieg   0.0%  Energie 100.0%  Zeit   0.0%  haengt  0.0%  Aktionen Q1/Med/Q3 0/0/0  Andocken 0.0  Klingonen uebrig bei Niederlage 7.4  (0s)
+Sucher (ohne Sensor)                 Sieg  42.6%  Energie  45.1%  Zeit  12.3%  haengt  0.0%  Aktionen Q1/Med/Q3 33/38/43  Andocken 3.4  Klingonen uebrig bei Niederlage 4.3  (5s)
+Sucher, Torpedo zuerst               Sieg  62.5%  Energie  37.5%  Zeit   0.0%  haengt  0.0%  Aktionen Q1/Med/Q3 29/32/34  Andocken 2.2  Klingonen uebrig bei Niederlage 4.9  (4s)
+Scout (Sensor je Zeile)              Sieg  49.0%  Energie  37.1%  Zeit  13.9%  haengt  0.0%  Aktionen Q1/Med/Q3 37/40/44  Andocken 4.0  Klingonen uebrig bei Niederlage 4.1  (6s)
+Scout, Torpedo statt Umweg           Sieg  66.8%  Energie  33.2%  Zeit   0.0%  haengt  0.0%  Aktionen Q1/Med/Q3 29/31/33  Andocken 2.6  Klingonen uebrig bei Niederlage 4.6  (4s)
+Scout, Sensor in jedem Quadranten    Sieg  68.4%  Energie  31.6%  Zeit   0.0%  haengt  0.0%  Aktionen Q1/Med/Q3 30/32/35  Andocken 2.8  Klingonen uebrig bei Niederlage 4.8  (5s)
+Scout, tankt erst bei 1 Pixel        Sieg  52.1%  Energie  47.9%  Zeit   0.0%  haengt  0.0%  Aktionen Q1/Med/Q3 28/30/33  Andocken 2.0  Klingonen uebrig bei Niederlage 4.4  (4s)
+Scout, tankt schon bei 5 Pixeln      Sieg  77.5%  Energie  22.5%  Zeit   0.0%  haengt  0.0%  Aktionen Q1/Med/Q3 31/33/36  Andocken 4.3  Klingonen uebrig bei Niederlage 4.7  (6s)
+Kenner (Scout + Gegenzeilen-Regel)   Sieg  71.7%  Energie  28.3%  Zeit   0.0%  haengt  0.0%  Aktionen Q1/Med/Q3 26/28/30  Andocken 2.4  Klingonen uebrig bei Niederlage 4.6  (5s)
+Bester Mensch: Kenner, Torpedo zuerst, tankt bei 5 Sieg  82.8%  Energie  17.2%  Zeit   0.0%  haengt  0.0%  Aktionen Q1/Med/Q3 28/30/33  Andocken 3.1  Klingonen uebrig bei Niederlage 5.3  (7s)
+Scout, sucht Basis sofort, tankt bei 5 Sieg  83.8%  Energie  16.2%  Zeit   0.0%  haengt  0.0%  Aktionen Q1/Med/Q3 31/34/37  Andocken 4.3  Klingonen uebrig bei Niederlage 4.8  (6s)
+Kenner, Torpedo zuerst, sucht Basis sofort Sieg  84.2%  Energie  15.8%  Zeit   0.0%  haengt  0.0%  Aktionen Q1/Med/Q3 28/30/33  Andocken 3.2  Klingonen uebrig bei Niederlage 5.5  (6s)
+Allwissend                           Sieg  99.6%  Energie   0.4%  Zeit   0.0%  haengt  0.0%  Aktionen Q1/Med/Q3 19/20/22  Andocken 2.0  Klingonen uebrig bei Niederlage 3.0  (5s)

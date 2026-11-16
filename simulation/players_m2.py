@@ -9,10 +9,12 @@ MOVES = [(d, v) for d, v in DIRS.items()]
 
 
 class Player:
-    def __init__(self, sim, sensor='none', torp='need', refuel=3, complement=False, omni=False, margin=2):
+    def __init__(self, sim, sensor='none', torp='need', refuel=3, complement=False, omni=False, margin=2, bsearch=None):
         self.s = sim
         self.sensor_mode, self.torp_mode, self.refuel = sensor, torp, refuel
         self.complement, self.omni, self.margin = complement, omni, margin
+        self.bsearch = refuel + 1 if bsearch is None else bsearch
+        self.pair = sim.bases == 2      # Regel: zweite Basis 2 Zeilen weiter
         self.known = {}          # Zelle -> Code (0 frei, 1 Hindernis, 8 Basis, 15 Klingone)
         self.qk = {}             # Quadrant -> 'K' / '-' (kein Klingone)
         self.bases = set()       # Quadranten mit Basis
@@ -42,7 +44,9 @@ class Player:
         self.no_base(q)
         if s.sens:
             for qq, v in s.sens.items():
-                if v == 'K': self.set_q(qq, 'K')
+                if v in ('K', 'KB'):
+                    self.set_q(qq, 'K')
+                    if v == 'KB': self.add_base(qq)
                 else:
                     self.set_q(qq, '-')
                     if v == 'B': self.add_base(qq)
@@ -58,11 +62,13 @@ class Player:
                 self.qk[o] = 'K'
 
     def no_base(self, q):
-        self.bseen.add(q); self.bseen.add((q[0], (q[1] + 2) & 3))
+        self.bseen.add(q)
+        if self.pair: self.bseen.add((q[0], (q[1] + 2) & 3))
 
     def add_base(self, q):
         self.bases.add(q)
-        self.bases.add((q[0], (q[1] + 2) & 3))     # Regel: zweite Basis 2 Zeilen weiter
+        if self.pair: self.bases.add((q[0], (q[1] + 2) & 3))
+        else: self.bseen.update((qx, qy) for qx in range(4) for qy in range(4))
 
     # ---------- Wege (Befehlsfolgen, eine Aktion je gerader Strecke)
     def plan(self, goal, through_goal=False, cmd_cost=4):
@@ -182,7 +188,7 @@ class Player:
                 return s.sensor()
         # naechster Quadrant: wenig Energie und keine Basis bekannt -> Basis suchen; sonst Klingone
         tg = []
-        if s.bar() <= self.refuel + 1 and not self.bases:
+        if s.bar() <= self.bsearch and not self.bases:
             tg = [(qx, qy) for qx in range(4) for qy in range(4) if (qx, qy) not in self.bseen and self.qk.get((qx, qy)) != 'K']
             if not tg: tg = [(qx, qy) for qx in range(4) for qy in range(4) if (qx, qy) not in self.bseen]
         if not tg:
@@ -212,10 +218,10 @@ def random_player(sim, rng):
         else: sim.torp()
 
 
-def play(D, E, seed, dmax=15, tlimit=43, tmax=1, **kw):
+def play(D, E, seed, dmax=15, tlimit=52, tmax=2, bases=1, navcost=3, senscost=16, sensbase=True, **kw):
     rng = random.Random(seed)
     random.seed(seed)
-    s = Sim(D, E, rng, dmg=lambda: 2 * rng.randrange(dmax + 1), tlimit=tlimit, tmax=tmax)
+    s = Sim(D, E, rng, dmg=lambda: 2 * rng.randrange(dmax + 1), tlimit=tlimit, tmax=tmax, bases=bases, navcost=navcost, senscost=senscost, sensbase=sensbase)
     if kw.get('rand'):
         random_player(s, rng)
         return s, None

@@ -12,6 +12,8 @@ STRATS = [
     ("Scout, tankt schon bei 5 Pixeln", dict(sensor='row', torp='smart', refuel=5)),
     ("Kenner (Scout + Gegenzeilen-Regel)", dict(sensor='row', torp='smart', refuel=3, complement=True)),
     ("Bester Mensch: Kenner, Torpedo zuerst, tankt bei 5", dict(sensor='row', torp='first', refuel=5, complement=True)),
+    ("Scout, sucht Basis sofort, tankt bei 5", dict(sensor='row', torp='smart', refuel=5, bsearch=8)),
+    ("Kenner, Torpedo zuerst, sucht Basis sofort", dict(sensor='row', torp='first', refuel=5, complement=True, bsearch=8)),
     ("Allwissend", dict(omni=True, torp='smart', refuel=3)),
 ]
 SEEDS = int(sys.argv[1]) if len(sys.argv) > 1 else 4

@@ -9,6 +9,7 @@ setPalette(3, (10, 0, 0))     # 3: Klingone und Energie unter 50: rot
 setPalette(4, (0, 10, 0))     # 4: Energie ab 50: gruen
 setPalette(5, (0, 0, 10))     # 5: Sternenbasis: blau
 setPalette(8, (0, 0, 10))     # 8: Sternenbasis im Sensor: blau
+setPalette(11, (7, 0, 10))    # 11: Sensor: Klingone und Basis im selben Quadranten: violett
 setPalette(7, (10, 8, 0))     # 7: Stern: gelb
 setPalette(9, (10, 8, 0))     # 9: Stern: gelb
 log("Star-Trek-Farben gesetzt")
