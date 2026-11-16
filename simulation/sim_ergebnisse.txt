@@ -1,0 +1,80 @@
+== Strategien, alte Werte (3 Torpedos, 63 Aktionen), 4 Verlaeufe je Galaxie
+Zufall                               Sieg   0.0%  Energie 100.0%  Zeit   0.0%  haengt  0.0%  Aktionen Q1/Med/Q3 0/0/0  Andocken 0.0  Klingonen uebrig bei Niederlage 7.3  (0s)
+Sucher (ohne Sensor)                 Sieg  84.2%  Energie   5.8%  Zeit  10.1%  haengt  0.0%  Aktionen Q1/Med/Q3 35/41/47  Andocken 4.0  Klingonen uebrig bei Niederlage 3.7  (16s)
+Sucher, Torpedo zuerst               Sieg  95.8%  Energie   4.2%  Zeit   0.0%  haengt  0.0%  Aktionen Q1/Med/Q3 27/29/31  Andocken 1.8  Klingonen uebrig bei Niederlage 4.4  (9s)
+Scout (Sensor je Zeile)              Sieg  80.8%  Energie   8.6%  Zeit  10.6%  haengt  0.0%  Aktionen Q1/Med/Q3 37/42/48  Andocken 4.4  Klingonen uebrig bei Niederlage 3.6  (19s)
+Scout, Torpedo statt Umweg           Sieg  96.1%  Energie   3.9%  Zeit   0.0%  haengt  0.0%  Aktionen Q1/Med/Q3 27/29/31  Andocken 2.5  Klingonen uebrig bei Niederlage 4.0  (12s)
+Scout, Sensor in jedem Quadranten    Sieg  95.8%  Energie   4.2%  Zeit   0.0%  haengt  0.0%  Aktionen Q1/Med/Q3 29/31/34  Andocken 2.7  Klingonen uebrig bei Niederlage 4.2  (11s)
+Scout, tankt erst bei 1 Pixel        Sieg  87.1%  Energie  12.9%  Zeit   0.0%  haengt  0.0%  Aktionen Q1/Med/Q3 26/28/30  Andocken 1.7  Klingonen uebrig bei Niederlage 3.7  (10s)
+Scout, tankt schon bei 5 Pixeln      Sieg  98.5%  Energie   1.5%  Zeit   0.0%  haengt  0.0%  Aktionen Q1/Med/Q3 30/32/35  Andocken 4.2  Klingonen uebrig bei Niederlage 4.4  (14s)
+Kenner (Scout + Gegenzeilen-Regel)   Sieg  95.3%  Energie   4.7%  Zeit   0.0%  haengt  0.0%  Aktionen Q1/Med/Q3 24/26/28  Andocken 2.2  Klingonen uebrig bei Niederlage 4.0  (10s)
+Bester Mensch: Kenner, Torpedo zuerst, tankt bei 5 Sieg  99.3%  Energie   0.7%  Zeit   0.0%  haengt  0.0%  Aktionen Q1/Med/Q3 26/27/30  Andocken 3.0  Klingonen uebrig bei Niederlage 4.3  (12s)
+Allwissend                           Sieg  99.6%  Energie   0.4%  Zeit   0.0%  haengt  0.0%  Aktionen Q1/Med/Q3 18/19/20  Andocken 1.8  Klingonen uebrig bei Niederlage 1.8  (8s)
+
+== Startaufstellungen und Schaden/Zeit-Varianten (alte Werte)
+Galaxien: 256 Siegquote gesamt 0.997
+Klingone im Startquadranten: {0: (128, 1.0), 1: (128, 0.994)}
+Abstand naechste Basis (Quadranten): {0: (32, 0.992), 1: (160, 0.998), 2: (64, 0.996)}
+Startfeld belegt (Code): {0: (224, 0.996), 1: (30, 1.0), 8: (2, 1.0)}
+Klingonen in Galaxiezeile 0/1: {(0, 0): (1, 1.0), (0, 1): (4, 1.0), (0, 2): (6, 0.99), (0, 3): (4, 1.0), (0, 4): (1, 1.0), (1, 0): (4, 1.0), (1, 1): (16, 1.0), (1, 2): (24, 0.997), (1, 3): (16, 1.0), (1, 4): (4, 1.0), (2, 0): (6, 1.0), (2, 1): (24, 0.995), (2, 2): (36, 1.0), (2, 3): (24, 1.0), (2, 4): (6, 1.0), (3, 0): (4, 0.938), (3, 1): (16, 0.988), (3, 2): (24, 1.0), (3, 3): (16, 1.0), (3, 4): (4, 1.0), (4, 0): (1, 1.0), (4, 1): (4, 0.984), (4, 2): (6, 1.0), (4, 3): (4, 0.984), (4, 4): (1, 1.0)}
+Verteilung je Galaxie: min 0.75 Q1 1.0 Median 1.0 Q3 1.0 max 1.0
+schwerste: [((7, 0), 0.75), ((7, 1), 0.875), ((9, 4), 0.875), ((0, 9), 0.9375), ((1, 10), 0.9375), ((11, 2), 0.9375)]
+
+Original (0-30 Schaden, 64 Aktionen)   Bester Mensch                Sieg  99.5%  Energie   0.5%  Zeit   0.0%
+Original (0-30 Schaden, 64 Aktionen)   Scout, Torpedo statt Umweg   Sieg  96.1%  Energie   3.9%  Zeit   0.0%
+Original (0-30 Schaden, 64 Aktionen)   Sucher ohne Sensor           Sieg  82.7%  Energie   6.2%  Zeit  11.0%
+Schaden 0-14                           Bester Mensch                Sieg 100.0%  Energie   0.0%  Zeit   0.0%
+Schaden 0-14                           Scout, Torpedo statt Umweg   Sieg  99.6%  Energie   0.4%  Zeit   0.0%
+Schaden 0-14                           Sucher ohne Sensor           Sieg  85.4%  Energie   0.3%  Zeit  14.3%
+Schaden 0-22                           Bester Mensch                Sieg  99.6%  Energie   0.4%  Zeit   0.0%
+Schaden 0-22                           Scout, Torpedo statt Umweg   Sieg  98.6%  Energie   1.4%  Zeit   0.0%
+Schaden 0-22                           Sucher ohne Sensor           Sieg  85.5%  Energie   1.4%  Zeit  13.1%
+Zeitlimit 48                           Bester Mensch                Sieg  99.5%  Energie   0.5%  Zeit   0.0%
+Zeitlimit 48                           Scout, Torpedo statt Umweg   Sieg  96.1%  Energie   3.9%  Zeit   0.0%
+Zeitlimit 48                           Sucher ohne Sensor           Sieg  59.1%  Energie   6.2%  Zeit  34.7%
+Zeitlimit 40                           Bester Mensch                Sieg  99.1%  Energie   0.5%  Zeit   0.4%
+Zeitlimit 40                           Scout, Torpedo statt Umweg   Sieg  95.5%  Energie   3.9%  Zeit   0.6%
+Zeitlimit 40                           Sucher ohne Sensor           Sieg  31.2%  Energie   6.2%  Zeit  62.5%
+Zeitlimit 32                           Bester Mensch                Sieg  81.0%  Energie   0.5%  Zeit  18.6%
+Zeitlimit 32                           Scout, Torpedo statt Umweg   Sieg  61.8%  Energie   3.9%  Zeit  34.3%
+Zeitlimit 32                           Sucher ohne Sensor           Sieg   5.7%  Energie   6.2%  Zeit  88.1%
+
+== Varianten Torpedos/Zeitlimit, 1 Verlauf je Galaxie
+Heute: 3 Torpedos, 64 Aktionen     Bester Mensch                Sieg  99.2% Energie   0.8% Zeit   0.0%  Phaser 0.1 Torpedos 7.9
+Heute: 3 Torpedos, 64 Aktionen     Scout, Phaser zuerst         Sieg  61.7% Energie   5.9% Zeit  32.4%  Phaser 6.0 Torpedos 0.8
+Heute: 3 Torpedos, 64 Aktionen     Scout, Torpedo statt Umweg   Sieg  93.8% Energie   6.2% Zeit   0.0%  Phaser 4.0 Torpedos 3.8
+Heute: 3 Torpedos, 64 Aktionen     Sucher ohne Sensor           Sieg  86.3% Energie   4.3% Zeit   9.4%  Phaser 6.2 Torpedos 1.2
+Heute: 3 Torpedos, 64 Aktionen     Sucher, tankt spaet          Sieg  83.6% Energie  16.4% Zeit   0.0%  Phaser 1.1 Torpedos 6.2
+1 Torpedo, 64 Aktionen             Bester Mensch                Sieg  93.4% Energie   6.6% Zeit   0.0%  Phaser 2.8 Torpedos 4.9
+1 Torpedo, 64 Aktionen             Scout, Phaser zuerst         Sieg  59.0% Energie   8.2% Zeit  32.8%  Phaser 6.0 Torpedos 0.7
+1 Torpedo, 64 Aktionen             Scout, Torpedo statt Umweg   Sieg  91.4% Energie   8.6% Zeit   0.0%  Phaser 4.7 Torpedos 2.9
+1 Torpedo, 64 Aktionen             Sucher ohne Sensor           Sieg  81.6% Energie   7.0% Zeit  11.3%  Phaser 6.2 Torpedos 1.0
+1 Torpedo, 64 Aktionen             Sucher, tankt spaet          Sieg  73.0% Energie  27.0% Zeit   0.0%  Phaser 3.6 Torpedos 3.1
+3 Torpedos, 43 Aktionen (ADDI 6)   Bester Mensch                Sieg  99.2% Energie   0.8% Zeit   0.0%  Phaser 0.1 Torpedos 7.9
+3 Torpedos, 43 Aktionen (ADDI 6)   Scout, Phaser zuerst         Sieg  16.4% Energie   5.9% Zeit  77.7%  Phaser 5.1 Torpedos 0.7
+3 Torpedos, 43 Aktionen (ADDI 6)   Scout, Torpedo statt Umweg   Sieg  93.8% Energie   6.2% Zeit   0.0%  Phaser 4.0 Torpedos 3.8
+3 Torpedos, 43 Aktionen (ADDI 6)   Sucher ohne Sensor           Sieg  46.9% Energie   4.3% Zeit  48.8%  Phaser 5.7 Torpedos 1.1
+3 Torpedos, 43 Aktionen (ADDI 6)   Sucher, tankt spaet          Sieg  83.2% Energie  16.4% Zeit   0.4%  Phaser 1.1 Torpedos 6.2
+1 Torpedo, 43 Aktionen             Bester Mensch                Sieg  84.8% Energie   6.6% Zeit   8.6%  Phaser 2.8 Torpedos 4.8
+1 Torpedo, 43 Aktionen             Scout, Phaser zuerst         Sieg  14.8% Energie   8.2% Zeit  77.0%  Phaser 5.0 Torpedos 0.6
+1 Torpedo, 43 Aktionen             Scout, Torpedo statt Umweg   Sieg  86.3% Energie   8.6% Zeit   5.1%  Phaser 4.7 Torpedos 2.8
+1 Torpedo, 43 Aktionen             Sucher ohne Sensor           Sieg  42.2% Energie   7.0% Zeit  50.8%  Phaser 5.6 Torpedos 0.9
+1 Torpedo, 43 Aktionen             Sucher, tankt spaet          Sieg  59.0% Energie  26.6% Zeit  14.5%  Phaser 3.5 Torpedos 3.0
+1 Torpedo, 37 Aktionen (ADDI 7)    Bester Mensch                Sieg  59.8% Energie   6.2% Zeit  34.0%  Phaser 2.7 Torpedos 4.5
+1 Torpedo, 37 Aktionen (ADDI 7)    Scout, Phaser zuerst         Sieg   3.9% Energie   8.2% Zeit  87.9%  Phaser 4.4 Torpedos 0.6
+1 Torpedo, 37 Aktionen (ADDI 7)    Scout, Torpedo statt Umweg   Sieg  64.5% Energie   8.6% Zeit  27.0%  Phaser 4.5 Torpedos 2.7
+1 Torpedo, 37 Aktionen (ADDI 7)    Sucher ohne Sensor           Sieg  17.6% Energie   7.0% Zeit  75.4%  Phaser 5.1 Torpedos 0.9
+1 Torpedo, 37 Aktionen (ADDI 7)    Sucher, tankt spaet          Sieg  31.2% Energie  25.4% Zeit  43.4%  Phaser 3.3 Torpedos 2.7
+
+== Strategien, neue Werte (1 Torpedo, 42 Aktionen), 1 Verlauf je Galaxie
+Zufall                               Sieg   0.0%  Energie 100.0%  Zeit   0.0%  haengt  0.0%  Aktionen Q1/Med/Q3 0/0/0  Andocken 0.0  Klingonen uebrig bei Niederlage 7.4  (0s)
+Sucher (ohne Sensor)                 Sieg  37.1%  Energie   8.6%  Zeit  54.3%  haengt  0.0%  Aktionen Q1/Med/Q3 33/36/38  Andocken 3.4  Klingonen uebrig bei Niederlage 2.5  (3s)
+Sucher, Torpedo zuerst               Sieg  76.2%  Energie  10.2%  Zeit  13.7%  haengt  0.0%  Aktionen Q1/Med/Q3 32/34/37  Andocken 2.9  Klingonen uebrig bei Niederlage 3.0  (3s)
+Scout (Sensor je Zeile)              Sieg  33.6%  Energie  12.1%  Zeit  54.3%  haengt  0.0%  Aktionen Q1/Med/Q3 34/37/38  Andocken 3.8  Klingonen uebrig bei Niederlage 2.6  (4s)
+Scout, Torpedo statt Umweg           Sieg  82.4%  Energie  11.3%  Zeit   6.2%  haengt  0.0%  Aktionen Q1/Med/Q3 30/33/36  Andocken 3.0  Klingonen uebrig bei Niederlage 3.8  (3s)
+Scout, Sensor in jedem Quadranten    Sieg  78.5%  Energie  12.1%  Zeit   9.4%  haengt  0.0%  Aktionen Q1/Med/Q3 31/34/38  Andocken 3.2  Klingonen uebrig bei Niederlage 3.1  (3s)
+Scout, tankt erst bei 1 Pixel        Sieg  60.2%  Energie  33.2%  Zeit   6.6%  haengt  0.0%  Aktionen Q1/Med/Q3 30/33/36  Andocken 2.4  Klingonen uebrig bei Niederlage 4.2  (3s)
+Scout, tankt schon bei 5 Pixeln      Sieg  81.2%  Energie   4.7%  Zeit  14.1%  haengt  0.0%  Aktionen Q1/Med/Q3 32/34/37  Andocken 4.6  Klingonen uebrig bei Niederlage 2.3  (4s)
+Kenner (Scout + Gegenzeilen-Regel)   Sieg  86.3%  Energie  11.3%  Zeit   2.3%  haengt  0.0%  Aktionen Q1/Med/Q3 28/30/34  Andocken 3.0  Klingonen uebrig bei Niederlage 4.5  (3s)
+Bester Mensch: Kenner, Torpedo zuerst, tankt bei 5 Sieg  84.4%  Energie   7.8%  Zeit   7.8%  haengt  0.0%  Aktionen Q1/Med/Q3 30/34/36  Andocken 4.0  Klingonen uebrig bei Niederlage 3.4  (4s)
+Allwissend                           Sieg  99.6%  Energie   0.4%  Zeit   0.0%  haengt  0.0%  Aktionen Q1/Med/Q3 21/24/26  Andocken 2.6  Klingonen uebrig bei Niederlage 1.0  (2s)
