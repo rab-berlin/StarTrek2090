@@ -15,6 +15,7 @@ Die Galaxie hat 4 x 4 Quadranten zu je 4 x 4 Sektoren und ist ringförmig geschl
 - **Klingonen:** 8, höchstens einer je Quadrant. Sie bewegen sich nicht. Steht die Enterprise in einem Quadranten mit Klingone, schießt er nach jeder Aktion: 0 bis 30 Energie.
 - **Basis:** genau eine, irgendwo in der Galaxie. Wer hineinfliegt, dockt an: wieder 200 Energie und 2 Torpedos. Die Enterprise bleibt vor der Basis stehen. Am Anfang hat sie ebenfalls 200 Energie und 2 Torpedos.
 - **Sterne:** 2 je Quadrant. Sie halten Flug und Phaser auf.
+- **Start:** Die Enterprise startet in der linken unteren Ecke. Liegt dort ein Stern, verdeckt er sie, bis sie losfliegt (in 16 von 256 Galaxien).
 - **Gewonnen:** alle 8 Klingonen zerstört, das Programm hält an Adresse A2.
 - **Verloren:** Energie unter 0 oder nach 51 Aktionen die Zeit abgelaufen, das Programm hält an Adresse A3.
 
@@ -107,6 +108,7 @@ Der 2090 kennt keine indirekte Adressierung und nur eine Rücksprungadresse. 256
 - **Ein Unterprogramm für alles.** `LQ` (69 Schritte) berechnet zu einem beliebigen Feld den Quadranten und liefert, was auf dem Feld liegt. Flug, Phaser, Sensor und Bild benutzen es alle.
 - **Reihen drehen statt adressieren.** Die vier Klingonen-Reihen liegen in M0-M3. Um Reihe y zu lesen, dreht das Programm die vier Register, bis sie in M0 liegt, und merkt sich den Drehstand.
 - **Energie als Linie.** Der Balken ist ein einziger Linienbefehl der Matrix bis zum Pixel Energie / 25. Die Farben der Zeile setzt das Userscript; das Programm schaltet die Pixel nur an und aus.
+- **Kein Blitzen.** Das Bild zeichnet fünf Pixel nacheinander: Stern 1, Basis, Enterprise, Klingone, Stern 2. Fehlt im Quadranten der Klingone oder die Basis, legt das Programm diesen Eintrag auf Stern 2, der zuletzt kommt und ihn übermalt. So bleibt die Schleife gleich lang, und das Schiff behält immer seine Farbe.
 - **Display mit Trennnull.** Vor dem Warten auf die Taste kopiert das Programm Sternzeit, 0 und Torpedos in drei benachbarte Register, die `DISP` dann zeigt.
 - **Keine verschachtelten Aufrufe.** Das Löschen der Matrix läuft direkt in die Routine für Matrixbefehle hinein, statt sie aufzurufen.
 

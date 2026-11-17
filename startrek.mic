@@ -2,7 +2,7 @@
 ; Matrix (Zeile 0 unten, Spalte 0 links):
 ;   Zeile 7: Energiebalken, je 25 ein Pixel (8 = 200), Farben aus startrek_farben.py (Pixel 0-1 rot, 2-7 gruen)
 ;   Zeilen 0-3, Spalten 0-3: der Quadrant, ein Pixel je Sektor:
-;   Farbe 1 Enterprise, 3 Klingone, 5 Basis, 7/9 Stern
+;   Farbe 5 Enterprise, 3 Klingone, 7 Basis, 9/1 Stern
 ;   Zeile 1, Spalten 5 und 7: Sensor, Nachbarquadrant links und rechts in derselben Galaxiezeile
 ;   (Spalte 6 = eigener, dunkel), Farbe 3 Klingone, B Klingone und Basis, 8 Basis, sonst dunkel
 ; Display (nur beim Warten auf den Befehl): S 0 T = Sternzeit 0-F (alle 3-4 Aktionen eins weiter), Trennnull, Torpedos
@@ -75,19 +75,19 @@ C24 ; 2A             GOTO   EL
 F0E ; 2E             EXRM                 Bank zurueck
 184 ; 2F             MOVI   8,r4          ACK 8 (R5, F): Linie bis Pixel R5; R5 = F (unter 25): Zeichenart 3, Zeile aus
 BF6 ; 30             CALL   CMD
-90C ; 31             CMPI   0,rC          Klingone tot: auf das Feld der Enterprise legen (wird ueberzeichnet)
+90C ; 31             CMPI   0,rC          Klingone tot: auf Stern 2 legen (Stern 2 wird zuletzt gezeichnet)
 D34 ; 32             BRC    KOK
-0E8 ; 33             MOV    rE,r8
+0B8 ; 33             MOV    rB,r8
 90D ; 34 KOK:        CMPI   0,rD          keine Basis: ebenso
 D37 ; 35             BRC    BOK
-0E9 ; 36             MOV    rE,r9
+0B9 ; 36             MOV    rB,r9
 19D ; 37 BOK:        MOVI   9,rD          Farben 9 7 5 3 1
-0AF ; 38 DLP:        MOV    rA,rF         Ring: s1, s2, bs, ks, es -> RF
-0BA ; 39             MOV    rB,rA
-09B ; 3A             MOV    r9,rB
-089 ; 3B             MOV    r8,r9
-0E8 ; 3C             MOV    rE,r8
-1E4 ; 3D             MOVI   E,r4          ACK 14: Farbe = Zaehler (9 s1, 7 s2, 5 Basis, 3 Klingone, 1 Enterprise)
+0AF ; 38 DLP:        MOV    rA,rF         Ring: s1, bs, es, ks, s2 -> RF (fehlende Eintraege auf s2, das zuletzt kommt: das Schiff blitzt nicht)
+09A ; 39             MOV    r9,rA
+0E9 ; 3A             MOV    rE,r9
+08E ; 3B             MOV    r8,rE
+0B8 ; 3C             MOV    rB,r8
+1E4 ; 3D             MOVI   E,r4          ACK 14: Farbe = Zaehler (9 s1, 7 Basis, 5 Enterprise, 3 Klingone, 1 s2)
 0D5 ; 3E             MOV    rD,r5
 BF6 ; 3F             CALL   CMD
 0F5 ; 40             MOV    rF,r5         x = (s & 3) + 8 (Zeichenart 1)
