@@ -43,8 +43,9 @@ VEC = {v: k for k, v in DIRS.items()}
 class Sim:
     """Ein Spiel. Galaxie aus D = RD, E = RE beim RUN; Schaden 2 * (0..15)."""
 
-    def __init__(self, D, E, rng, dmg=None, tlimit=52, tmax=1, bases=1, navcost=4, senscost=32, sensbase=True, phcost='l16', emax=255, phf=1, tq=4, roll=None, sK=None):
+    def __init__(self, D, E, rng, dmg=None, tlimit=52, tmax=1, bases=1, navcost=4, senscost=32, sensbase=True, phcost='l16', emax=255, phf=1, tq=4, roll=None, sK=None, sensblock=True):
         self.phf, self.tq = phf, tq                       # Treffer, wenn Zufall 0-15 >= phf * Entfernung bzw. >= tq
+        self.sensblock = sensblock                      # Basis stoert den Sensor im eigenen Quadranten
         self.roll = roll or (lambda: rng.randrange(16))
         self.tlimit, self.tmax, self.bases, self.navcost, self.senscost = tlimit, tmax, bases, navcost, senscost
         self.ref = Ref([D, E, D ^ 15, E ^ 15, D if sK is None else sK, E] + [0] * 10)
@@ -109,6 +110,7 @@ class Sim:
 
     def sensor(self, d=6):
         if self.result: return False
+        if self.sensblock and self.ref.quad(self.x >> 2, self.y >> 2)['base']: return False   # Basis stoert den Sensor
         self.energy -= self.senscost
         if self.energy < 0:
             self.result = 'energie'; return True

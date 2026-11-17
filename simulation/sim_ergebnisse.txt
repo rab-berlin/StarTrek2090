@@ -659,3 +659,13 @@ sK = D               | Scout gerichtet, Torpedo zuerst    Sieg  82.0%
 sK = D + F (F 0-3)   | Scout gerichtet, Torpedo zuerst    Sieg  81.8%
 sK = D               | Sucher ohne Sensor, Torpedo zuerst Sieg  53.9%
 sK = D + F (F 0-3)   | Sucher ohne Sensor, Torpedo zuerst Sieg  54.3%
+
+== Basis stoert den Sensor im eigenen Quadranten; 2 Verlaeufe je Klingonen-Verteilung
+Basis stoert Sensor | Sucher ohne Sensor, Torpedo zuerst             Sieg  53.9% Energie  46.1% Zeit  0.0% | Phaser 4.6 Torpedo 2.1 Scans 0.0
+Basis stoert Sensor | Scout gerichtet, Phaser zuerst                 Sieg  74.8% Energie  24.4% Zeit  0.8% | Phaser 6.8 Torpedo 0.5 Scans 4.8
+Basis stoert Sensor | Scout gerichtet, Mischung                      Sieg  79.7% Energie  19.9% Zeit  0.4% | Phaser 5.3 Torpedo 2.7 Scans 5.1
+Basis stoert Sensor | Scout gerichtet, Torpedo zuerst                Sieg  81.1% Energie  18.4% Zeit  0.6% | Phaser 4.3 Torpedo 3.9 Scans 5.1
+Basis stoert Sensor | Scout gerichtet, tankt erst beim letzten Pixel Sieg   8.2% Energie  91.8% Zeit  0.0% | Phaser 2.0 Torpedo 1.5 Scans 4.7
+alte Regel, Basiscamper      | Mischung Sieg  80.3% Energie  18.9% Zeit  0.8% | Scans 6.7
+neue Regel, Basiscamper      | Mischung Sieg  79.7% Energie  19.9% Zeit  0.4% | Scans 5.1
+alte Regel, Scout Mischung   | Mischung Sieg  79.7% Energie  19.9% Zeit  0.4% | Scans 5.1

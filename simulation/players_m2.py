@@ -9,10 +9,11 @@ MOVES = [(d, v) for d, v in DIRS.items()]
 
 
 class Player:
-    def __init__(self, sim, sensor='none', torp='need', refuel=3, complement=False, omni=False, margin=2, bsearch=None):
+    def __init__(self, sim, sensor='none', torp='need', refuel=3, complement=False, omni=False, margin=2, bsearch=None, camp=False):
         self.s = sim
         self.sensor_mode, self.torp_mode, self.refuel = sensor, torp, refuel
         self.complement, self.omni, self.margin = complement, omni, margin
+        self.camp = camp
         self.bsearch = refuel + 1 if bsearch is None else bsearch
         self.pair = sim.bases == 2      # Regel: zweite Basis 2 Zeilen weiter
         self.known = {}          # Zelle -> Code (0 frei, 1 Hindernis, 8 Basis, 15 Klingone)
@@ -169,6 +170,17 @@ class Player:
         if self.qk.get(here) == 'K' and any(v == 15 for v in s.visible().values()):
             r = self.fight()
             if r is not None: return
+        # an der Basis campen: alles scannen, zwischendurch andocken
+        if self.camp and s.t < 30 and any(c == 8 for c in s.visible().values()) and not s.sensblock:
+            unk = [d for d in (6, 9, 0xA, 8) if any(q not in self.qk for q in ((((here[0] + DIRS[d][0]) & 3, (here[1] + DIRS[d][1]) & 3)), (((here[0] - DIRS[d][0]) & 3, (here[1] - DIRS[d][1]) & 3))))]
+            if unk:
+                if s.bar() <= 5:
+                    known_b = {c for c, v in self.known.items() if v == 8}
+                    p = self.plan(lambda c: c in known_b, through_goal=True)
+                    if p: return self.go(p)
+                else:
+                    self.stats['sensor'] += 1
+                    return s.sensor(unk[0])
         # tanken?
         if s.bar() <= self.refuel and self.bases:
             bq = self.bases
@@ -186,13 +198,13 @@ class Player:
                 dx, dy = DIRS[d]
                 unk = [q for q in (((here[0] + dx) & 3, (here[1] + dy) & 3), ((here[0] - dx) & 3, (here[1] - dy) & 3)) if q not in self.qk]
                 if best is None or len(unk) > best[0]: best = (len(unk), d)
-            if best[0] == 2 and s.bar() >= 3:
+            if best[0] == 2 and s.bar() >= 3 and not any(c == 8 for c in s.visible().values()):
                 self.stats['sensor'] += 1
                 return s.sensor(best[1])
         elif self.sensor_mode != 'none':
             row = here[1]
             unknown = [((here[0] + dq) & 3, row) for dq in (-1, 1) if ((here[0] + dq) & 3, row) not in self.qk]
-            if unknown and (self.sensor_mode == 'always' or row not in self.scanned_rows) and s.bar() >= 3:
+            if unknown and (self.sensor_mode == 'always' or row not in self.scanned_rows) and s.bar() >= 3 and not any(c == 8 for c in s.visible().values()):
                 self.scanned_rows.add(row)
                 self.stats['sensor'] += 1
                 return s.sensor()
@@ -228,10 +240,10 @@ def random_player(sim, rng):
         else: sim.torp()
 
 
-def play(D, E, seed, dmax=15, tlimit=52, tmax=1, bases=1, navcost=4, senscost=32, sensbase=True, phcost='l16', emax=255, phf=1, tq=4, sK=None, **kw):
+def play(D, E, seed, dmax=15, tlimit=52, tmax=1, bases=1, navcost=4, senscost=32, sensbase=True, phcost='l16', emax=255, phf=1, tq=4, sK=None, sensblock=True, **kw):
     rng = random.Random(seed)
     random.seed(seed)
-    s = Sim(D, E, rng, dmg=lambda: 2 * rng.randrange(dmax + 1), tlimit=tlimit, tmax=tmax, bases=bases, navcost=navcost, senscost=senscost, sensbase=sensbase, phcost=phcost, emax=emax, phf=phf, tq=tq, sK=sK)
+    s = Sim(D, E, rng, dmg=lambda: 2 * rng.randrange(dmax + 1), tlimit=tlimit, tmax=tmax, bases=bases, navcost=navcost, senscost=senscost, sensbase=sensbase, phcost=phcost, emax=emax, phf=phf, tq=tq, sK=sK, sensblock=sensblock)
     if kw.get('rand'):
         random_player(s, rng)
         return s, None

@@ -2,7 +2,7 @@
 
 Star Trek im Stil von 1971 für den Busch Microtronic 2090 mit dem [ESP2090 Studio](https://github.com/rab-berlin/ESP2090) (8x8-LED-Matrix mit Farben): 8 Klingonen in einer Galaxie aus 16 Quadranten finden und zerstören, bevor Energie oder Zeit ausgehen.
 
-- 252 von 256 Programmschritten belegt
+- 255 von 256 Programmschritten belegt
 - Dateien: [startrek.mic](startrek.mic), das kommentierte Listing, und das Userscript [startrek_farben.py](startrek_farben.py) für die Farben
 
 ![Spielfeld nach einem Sensor-Scan](bilder/spielfeld.png)
@@ -15,8 +15,8 @@ Die Galaxie hat 4 x 4 Quadranten zu je 4 x 4 Sektoren und ist ringförmig geschl
 - **Basis:** genau eine, irgendwo in der Galaxie. Wer hineinfliegt, dockt an: wieder 255 Energie und 1 Torpedo. Die Enterprise bleibt vor der Basis stehen. Am Anfang hat sie ebenfalls 255 Energie und 1 Torpedo.
 - **Sterne:** 2 je Quadrant. Sie halten Flug und Phaser auf.
 - **Start:** Die Enterprise startet in der linken unteren Ecke. Liegt dort ein Stern, verdeckt er sie, bis sie losfliegt (in etwa jeder 16. Galaxie).
-- **Gewonnen:** alle 8 Klingonen zerstört, das Programm hält an Adresse AF.
-- **Verloren:** Energie unter 0 oder nach 51 Aktionen die Zeit abgelaufen, das Programm hält an Adresse B0.
+- **Gewonnen:** alle 8 Klingonen zerstört, das Programm hält an Adresse B2.
+- **Verloren:** Energie unter 0 oder nach 51 Aktionen die Zeit abgelaufen, das Programm hält an Adresse B3.
 
 Jede Aktion zählt die Sternzeit weiter, auch Sensor und Andocken. Danach schießt ein Klingone im Quadranten, dann zeichnet die Matrix neu (etwa 3,5 Sekunden).
 
@@ -27,7 +27,7 @@ Jeder Zug beginnt mit einer Taste am Microtronic.
 | Taste | Befehl | danach | Kosten | Wirkung |
 |---|---|---|---|---|
 | 0 | Navigation | Richtung, Entfernung 1-F | 4 Energie je Feld | fliegt Feld für Feld, hält vor Stern oder Klingone; in eine Basis = andocken |
-| 1 | Sensor | Richtung | 32 Energie | zeigt den Nachbarquadranten in dieser Richtung und den gegenüberliegenden, bis zur nächsten Aktion |
+| 1 | Sensor | Richtung | 32 Energie | zeigt den Nachbarquadranten in dieser Richtung und den gegenüberliegenden, bis zur nächsten Aktion. Im Quadranten der Basis stört die Basis den Sensor: dort passiert nichts |
 | 2 | Phaser | Richtung, Energie 1-F | 16 Energie je Stufe | der Strahl fliegt so viele Felder weit und trifft das erste Objekt; einen Klingonen zerstört er auf 1 Feld mit 94 %, auf 2 mit 88 %, auf 3 mit 81 %, je Feld weiter 6 Punkte weniger |
 | 3-F | Torpedo | – | 1 Torpedo | zerstört den Klingonen im eigenen Quadranten mit 75 %; ohne Ziel oder Torpedo geschieht nichts |
 
@@ -66,6 +66,7 @@ Die Zeit zwischen RESET und RUN bestimmt die Galaxie. Neues Spiel: RESET, RUN.
 
 - Die Enterprise startet in der linken unteren Ecke der Galaxie. Der Sensor zeigt immer zwei gegenüberliegende Nachbarn: Richtung 6 die Galaxiezeile, 9 die Galaxiespalte, 8 und A die Diagonalen. Wer jeweils die Achse mit zwei unbekannten Quadranten wählt, spart viel Suchen.
 - Die Klingonen-Reihen der Galaxie sind nicht unabhängig: Von zwei Quadranten derselben Spalte, zwei Galaxiezeilen auseinander, hat genau einer einen Klingonen.
+- Im Quadranten der Basis kann man nicht scannen. Wer die Nachbarquadranten der Basis kennen will, scannt vorher oder nachher von außerhalb.
 - Die Basis zuerst suchen. Wer sie kennt, kann rechtzeitig tanken; wer sie erst mit leerem Balken sucht, kommt meist nicht mehr an.
 - Umwege kosten mehr Energie als alles andere. Lieber früh tanken, beim fünften Pixel, als spät; wer erst beim letzten Pixel losfliegt, kommt fast nie an.
 - Ob ein Schuss getroffen hat, zeigt das nächste Bild: Bei einem Treffer verschwindet der rote Punkt, und die Klingonenzahl im Display sinkt. Ein Fehlschuss lässt beides stehen, und der Klingone schießt zurück.
@@ -81,8 +82,8 @@ Alle Werte sind Konstanten im Programm und lassen sich ohne zusätzliche Schritt
 | Treffer des Torpedos | 6E | `14E` (`MOVI 4,E`) | trifft, wenn der Zufall 0-F mindestens 4 ist: 75 %. `10E` = immer, `18E` = 50 % |
 | Zeitlimit | 1E | `55A` (`ADDI 5,A`) | je Aktion + 5, Ende nach 52 Zählungen (51 Aktionen). `54A` = 63, `56A` = 42 Aktionen |
 | Energie bei Start und Andocken | 0E, 0F | `1F8`, `1F9` | FFh = 255; der Balken rechnet mit 32 je Pixel |
-| Sensor | 7C | `729` (`SUBI 2,9`) | 2 x 16 = 32 Energie |
-| Navigation | AC | `748` (`SUBI 4,8`) | 4 Energie je Feld; `738` = 3, `758` = 5 |
+| Sensor | 7F | `729` (`SUBI 2,9`) | 2 x 16 = 32 Energie |
+| Navigation | AF | `748` (`SUBI 4,8`) | 4 Energie je Feld; `738` = 3, `758` = 5 |
 
 ## Simulation
 
