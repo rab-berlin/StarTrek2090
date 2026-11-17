@@ -2,7 +2,7 @@
 
 Star Trek im Stil von 1971 für den Busch Microtronic 2090 mit dem [ESP2090 Studio](https://github.com/rab-berlin/ESP2090) (8x8-LED-Matrix mit Farben): 8 Klingonen in einer Galaxie aus 16 Quadranten finden und zerstören, bevor Energie oder Zeit ausgehen.
 
-- alle 256 Programmschritte belegt
+- 255 von 256 Programmschritten belegt
 - Dateien: [startrek.mic](startrek.mic), das kommentierte Listing, und das Userscript [startrek_farben.py](startrek_farben.py) für die Farben
 
 ![Spielfeld nach einem Sensor-Scan](bilder/spielfeld.png)
@@ -15,8 +15,8 @@ Die Galaxie hat 4 x 4 Quadranten zu je 4 x 4 Sektoren und ist ringförmig geschl
 - **Basis:** genau eine, irgendwo in der Galaxie. Wer hineinfliegt, dockt an: wieder 255 Energie und 1 Torpedo. Die Enterprise bleibt vor der Basis stehen. Am Anfang hat sie ebenfalls 255 Energie und 1 Torpedo.
 - **Sterne:** 2 je Quadrant. Sie halten Flug und Phaser auf.
 - **Start:** Die Enterprise startet in der linken unteren Ecke. Liegt dort ein Stern, verdeckt er sie, bis sie losfliegt (in 16 von 256 Galaxien).
-- **Gewonnen:** alle 8 Klingonen zerstört, das Programm hält an Adresse A3.
-- **Verloren:** Energie unter 0 oder nach 51 Aktionen die Zeit abgelaufen, das Programm hält an Adresse A4.
+- **Gewonnen:** alle 8 Klingonen zerstört, das Programm hält an Adresse A2.
+- **Verloren:** Energie unter 0 oder nach 51 Aktionen die Zeit abgelaufen, das Programm hält an Adresse A3.
 
 Jede Aktion zählt die Sternzeit weiter, auch Sensor und Andocken. Danach schießt ein Klingone im Quadranten, dann zeichnet die Matrix neu (etwa 3,5 Sekunden).
 
@@ -47,7 +47,7 @@ Richtungen wie auf dem Tastenfeld:
 |---|---|
 | Matrix, Zeile 7 | Energiebalken, je 32 Energie ein Pixel (8 Pixel = 224 bis 255, 1 Pixel = unter 32). Grün, die letzten beiden rot (unter 64) |
 | Matrix, unten links 4 x 4 | der eigene Quadrant: weiß Enterprise, rot Klingone, blau Basis, gelb Sterne |
-| Matrix, unten rechts 3 x 3 (Zeilen 0-2, Spalten 5-7) | Sensor: die Quadranten rund um den eigenen (Mitte), oben ist oben in der Galaxie. In der Mitte weiß die Enterprise, dazu die beiden gewählten Nachbarn: rot Klingone, blau Basis, violett beides, sonst dunkel |
+| Matrix, unten rechts 3 x 3 (Zeilen 0-2, Spalten 5-7) | Sensor: die Quadranten rund um den eigenen (Mitte), oben ist oben in der Galaxie. Es leuchten die beiden gewählten Nachbarn: rot Klingone, blau Basis, violett beides, sonst dunkel |
 | Anzeige des Microtronic | beim Warten auf eine Taste drei Ziffern: Sternzeit 0-F, eine trennende 0, Torpedos. `501` heißt Sternzeit 5, 1 Torpedo. Die Sternzeit rückt alle 3 bis 4 Aktionen eins weiter. Nach F läuft die Zeit ab |
 
 Die Anzeige ist dunkel, solange die Matrix zeichnet: Mit eingeschalteter Anzeige braucht jeder Befehl 20,5 statt 9,3 ms, und dann schafft die Matrix den Handshake nicht.
@@ -60,7 +60,7 @@ Die Anzeige ist dunkel, solange die Matrix zeichnet: Mit eingeschalteter Anzeige
 
 Die Zeit zwischen RESET und RUN bestimmt die Galaxie. Neues Spiel: RESET, RUN.
 
-**Ohne Userscript** färbt das Programm Karte und Sensor selbst, nur der Energiebalken und die Enterprise in der Mitte des Sensors bleiben in der Standardfarbe der Matrix.
+**Ohne Userscript** färbt das Programm Karte und Sensor selbst, nur der Energiebalken bleibt in der Standardfarbe der Matrix.
 
 ## Spieltipps
 
@@ -80,7 +80,7 @@ Alle Werte sind Konstanten im Programm und lassen sich ohne zusätzliche Schritt
 | Zeitlimit | 13 | `55A` (`ADDI 5,A`) | je Aktion + 5, Ende nach 52 Zählungen (51 Aktionen). `54A` = 63, `56A` = 42 Aktionen |
 | Energie bei Start und Andocken | 0D, 0E | `1F8`, `1F9` | FFh = 255; der Balken rechnet mit 32 je Pixel |
 | Sensor | 6E | `729` (`SUBI 2,9`) | 2 x 16 = 32 Energie |
-| Navigation | AC | `14D` (`MOVI 4,D`) | 4 Energie je Feld |
+| Navigation | AB | `14D` (`MOVI 4,D`) | 4 Energie je Feld |
 
 ## Simulation
 
@@ -109,7 +109,7 @@ Der 2090 kennt keine indirekte Adressierung und nur eine Rücksprungadresse. 256
 - **Ein Unterprogramm für alles.** `LQ` (68 Schritte) berechnet zu einem beliebigen Feld den Quadranten und liefert, was auf dem Feld liegt. Flug, Phaser, Sensor und Bild benutzen es alle; der Sensor springt hinter den ersten beiden Befehlen ein und gibt das Feld direkt vor.
 - **Reihen drehen statt adressieren.** Die vier Klingonen-Reihen liegen in M0-M3. Um Reihe y zu lesen, dreht das Programm die vier Register, bis sie in M0 liegt, und merkt sich den Drehstand.
 - **Energie als Linie.** Der Balken ist ein einziger Linienbefehl der Matrix bis zum Pixel Energie / 32. Das ist die obere Ziffer der Energie, einmal nach rechts geschoben: zwei Befehle statt einer Schleife. Die Farben der Zeile setzt das Userscript; das Programm schaltet die Pixel nur an und aus.
-- **Sensor ohne Tabelle.** Die Matrixzeile des Sensors ist dy + 1 (Zeilen 0 bis 2); dieselbe Zahl mal 4 minus 4 ist der Versatz −4, 0 oder +4 zum Nachbarquadranten. Die Gegenrichtung ist 2 minus Zeile und −dx; ein Zähler in R0 sorgt für genau zwei Durchgänge. Die weiße Mitte schaltet ein einziger Punktbefehl an, der nur das Bit setzt; die Farbe 5 hat das Userscript vorher dort hinterlegt.
+- **Sensor ohne Tabelle.** Die Matrixzeile des Sensors ist dy + 1 (Zeilen 0 bis 2); dieselbe Zahl mal 4 minus 4 ist der Versatz −4, 0 oder +4 zum Nachbarquadranten. Die Gegenrichtung ist 2 minus Zeile und −dx; ein Zähler in R0 sorgt für genau zwei Durchgänge.
 - **Torpedo mit Übertrag.** `SUBI 1,C` zieht einen Torpedo ab; war keiner mehr da, macht `ADC C` aus F wieder 0 und lässt den Übertrag stehen, der den Schuss abbricht. Das spart die getrennte Abfrage.
 - **Kein Blitzen.** Das Bild zeichnet fünf Pixel nacheinander: Stern 1, Basis, Enterprise, Klingone, Stern 2. Fehlt im Quadranten der Klingone oder die Basis, legt das Programm diesen Eintrag auf Stern 2, der zuletzt kommt und ihn übermalt. So bleibt die Schleife gleich lang, und das Schiff behält immer seine Farbe.
 - **Display mit Trennnull.** Vor dem Warten auf die Taste kopiert das Programm Sternzeit, 0 und Torpedos in drei benachbarte Register, die `DISP` dann zeigt.
