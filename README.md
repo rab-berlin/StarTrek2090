@@ -15,7 +15,7 @@ Die Galaxie hat 4 x 4 Quadranten zu je 4 x 4 Sektoren und ist ringförmig geschl
 - **Basis:** genau eine, irgendwo in der Galaxie. Wer hineinfliegt, dockt an: wieder 255 Energie und 1 Torpedo. Die Enterprise bleibt vor der Basis stehen. Am Anfang hat sie ebenfalls 255 Energie und 1 Torpedo.
 - **Sterne:** 2 je Quadrant. Sie halten Flug und Phaser auf.
 - **Start:** Die Enterprise startet in der linken unteren Ecke. Liegt dort ein Stern, verdeckt er sie, bis sie losfliegt (in etwa jeder 16. Galaxie).
-- **Gewonnen:** alle 8 Klingonen zerstört, das Programm hält an Adresse B2.
+- **Gewonnen:** alle 8 Klingonen zerstört. Das Display zeigt danach nur noch die erreichte Sternzeit, je kleiner, desto besser. Neues Spiel mit RESET.
 - **Verloren:** Energie unter 0 oder nach 51 Aktionen die Zeit abgelaufen, das Programm hält an Adresse B3.
 
 Jede Aktion zählt die Sternzeit weiter, auch Sensor und Andocken. Danach schießt ein Klingone im Quadranten, dann zeichnet die Matrix neu (etwa 3,5 Sekunden).
@@ -79,11 +79,11 @@ Alle Werte sind Konstanten im Programm und lassen sich ohne zusätzliche Schritt
 | Was | Adresse | Befehl | Bedeutung |
 |---|---|---|---|
 | Torpedos bei Start und Andocken | 10 | `11C` (`MOVI 1,C`) | `12C` = 2, `13C` = 3 Torpedos |
-| Treffer des Torpedos | 6E | `14E` (`MOVI 4,E`) | trifft, wenn der Zufall 0-F mindestens 4 ist: 75 %. `10E` = immer, `18E` = 50 % |
+| Treffer des Torpedos | 6F | `14B` (`MOVI 4,B`) | trifft, wenn der Zufall 0-F mindestens 4 ist: 75 %. `10B` = immer, `18B` = 50 % |
 | Zeitlimit | 1E | `55A` (`ADDI 5,A`) | je Aktion + 5, Ende nach 52 Zählungen (51 Aktionen). `54A` = 63, `56A` = 42 Aktionen |
 | Energie bei Start und Andocken | 0E, 0F | `1F8`, `1F9` | FFh = 255; der Balken rechnet mit 32 je Pixel |
-| Sensor | 7F | `729` (`SUBI 2,9`) | 2 x 16 = 32 Energie |
-| Navigation | AF | `748` (`SUBI 4,8`) | 4 Energie je Feld; `738` = 3, `758` = 5 |
+| Sensor | 7D | `729` (`SUBI 2,9`) | 2 x 16 = 32 Energie |
+| Navigation | AD | `748` (`SUBI 4,8`) | 4 Energie je Feld; `738` = 3, `758` = 5 |
 
 ## Simulation
 
@@ -113,7 +113,7 @@ Der 2090 kennt keine indirekte Adressierung und nur eine Rücksprungadresse. 256
 - **Reihen drehen statt adressieren.** Die vier Klingonen-Reihen liegen in M0-M3. Um Reihe y zu lesen, dreht das Programm die vier Register, bis sie in M0 liegt, und merkt sich den Drehstand.
 - **Energie als Linie.** Der Balken ist ein einziger Linienbefehl der Matrix bis zum Pixel Energie / 32. Das ist die obere Ziffer der Energie, einmal nach rechts geschoben: zwei Befehle statt einer Schleife. Die Farben der Zeile setzt das Userscript; das Programm schaltet die Pixel nur an und aus.
 - **Sensor ohne Tabelle.** Die Matrixzeile des Sensors ist dy + 1 (Zeilen 0 bis 2); dieselbe Zahl mal 4 minus 4 ist der Versatz −4, 0 oder +4 zum Nachbarquadranten. Die Gegenrichtung ist 2 minus Zeile und −dx; ein Zähler in R0 sorgt für genau zwei Durchgänge.
-- **Ein Würfel für beide Waffen.** Der Phaser merkt sich seine Stufen in R7; beim Treffer ist R7 minus der Rest in R5 die Entfernung. Torpedo und Phaser vergleichen danach dieselbe Zufallszahl aus `RND` mit ihrer Schwelle (4 bzw. Entfernung) und springen bei einem Fehlschuss zurück ins Bild.
+- **Ein Würfel für beide Waffen.** Der Phaser merkt sich seine Stufen in R7; beim Treffer ist R7 minus der Rest in R5 die Entfernung. Torpedo und Phaser legen ihre Schwelle (4 bzw. Entfernung) in RB ab und teilen sich den Trefferwurf: `RND`, Vergleich, bei einem Fehlschuss zurück ins Bild. Ob der Phaser überhaupt einen Klingonen erreicht hat, prüft `SUBI F,F`: nur bei F borgt es nicht.
 - **Torpedo mit Übertrag.** `SUBI 1,C` zieht einen Torpedo ab; war keiner mehr da, macht `ADC C` aus F wieder 0 und lässt den Übertrag stehen, der den Schuss abbricht. Das spart die getrennte Abfrage.
 - **Bank offen lassen.** Treffer des Klingonen, Sternzeit und Energiebalken laufen in einem Stück in der Bank (M8-MF). Der Matrixbefehl braucht nur R4 bis R7 und funktioniert deshalb auch dort; das spart vier Bankwechsel und zwei Unterprogramme.
 - **Kein Blitzen.** Das Bild zeichnet fünf Pixel nacheinander: Stern 1, Basis, Enterprise, Klingone, Stern 2. Fehlt im Quadranten der Klingone oder die Basis, legt das Programm diesen Eintrag auf Stern 2, der zuletzt kommt und ihn übermalt. So bleibt die Schleife gleich lang, und das Schiff behält immer seine Farbe.

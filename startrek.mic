@@ -20,7 +20,7 @@
 ; Sternzeit: nach 51 Aktionen (Anzeige F, dann Ueberlauf) ist das Spiel verloren.
 ; Basis: genau 1, im Quadranten Q = 4 qy + qx = sB
 ; Richtungen 8 9 A / 4 5 6 / 0 1 2, 5 = stehen.
-; Ende: HALT an B2 = gewonnen (Anzeige B2 F00), HALT an B3 = verloren (B3 F00).
+; Ende: gewonnen = Endlosschleife an B2, das Display zeigt die Sternzeit; HALT an B3 = verloren (B3 F00).
 ; 255 Schritte, 1 frei, keine verschachtelten CALLs.
 ;
 ; Register: R0 cy, R1 cx, R2 y, R3 x, R4 dx/Taste/ACK, R5 n/Nibble 1, R6 dy/Nibble 2/Matrixzeile, R7 Befehl/frei
@@ -105,7 +105,7 @@ FF4 ; 49             KIN    r4            Befehl; R0 R1 = Enterprise seit LQE
 F02 ; 4A             DISOUT               Display aus: Matrixbefehle brauchen 9,3 ms je Schritt
 F0E ; 4B             EXRM
 924 ; 4C             CMPI   2,r4          3-F: Torpedo; 0, 1, 2 lesen eine Richtung
-D66 ; 4D             BRC    TORP
+D68 ; 4D             BRC    TORP
 047 ; 4E NAV:        MOV    r4,r7         R7 = 0 Navigation, 1 Sensor, 2 Phaser
 FF4 ; 4F             KIN    r4            Richtung 8 9 A / 4 5 6 / 0 1 2
 046 ; 50             MOV    r4,r6         R6 = k / 4 = dy + 1 (beim Sensor die Matrixzeile 0-2)
@@ -114,7 +114,7 @@ F96 ; 52             SHR    r6
 334 ; 53             ANDI   3,r4          dx = (k & 3) - 1
 714 ; 54             SUBI   1,r4
 917 ; 55             CMPI   1,r7          Sensor: nur die Richtung
-E7B ; 56             BRZ    SENS
+E79 ; 56             BRZ    SENS
 716 ; 57             SUBI   1,r6          dy = R6 - 1
 FF5 ; 58             KIN    r5            Entfernung bzw. Phaser-Energie (Felder) in R5
 E47 ; 59             BRZ    MAIN          0: Abbruch
@@ -126,87 +126,87 @@ F0E ; 5D             EXRM                 Energie - 16 je Stufe
 F0E ; 5F TAIL:       EXRM                 gemeinsames Ende von Phaserkosten und Flugkosten
 DB3 ; 60             BRC    DEAD          Energie unter 0
 5F5 ; 61 PSTEP:      ADDI   F,r5          noch ein Feld? (Weg beginnt bei R0 R1 = Enterprise)
-DA0 ; 62             BRC    PS2
-9FF ; 63 PEND:       CMPI   F,rF          Ende: Phaser hat einen Klingonen erreicht?
-E70 ; 64             BRZ    HIT
-C12 ; 65             GOTO   NEND          sonst weiter
-90C ; 66 TORP:       CMPI   0,rC          Torpedo: Klingone im Quadranten? (RC von LQE in NL)
-E47 ; 67             BRZ    MAIN          nein: nichts passiert
-F0E ; 68             EXRM                 Bank
-71C ; 69             SUBI   1,rC          Torpedos - 1 ...
-FBC ; 6A             ADC    rC            ... war es 0: F + 1 = 0 mit Carry
-F0E ; 6B             EXRM
-D47 ; 6C             BRC    MAIN          kein Torpedo: nichts passiert
-F05 ; 6D             RND                  Zufall 0-15 in RD (RD-RF werden danach neu berechnet)
-14E ; 6E             MOVI   4,rE          Torpedo trifft bei RD >= 4: 75 %
-C73 ; 6F             GOTO   HC
-F05 ; 70 HIT:        RND                  Phaser: Zufall 0-15 in RD
-07E ; 71             MOV    r7,rE         RE = Entfernung = Stufen - Rest
-65E ; 72             SUB    r5,rE
-8DE ; 73 HC:         CMP    rD,rE         RD < RE: verfehlt
-D12 ; 74             BRC    NEND          verfehlt: der Klingone bleibt und schiesst
-F0D ; 75 KILL:       EXRL                 Abschuss: Reihe liegt gedreht in R0
-6C0 ; 76             SUB    rC,r0         Maskenbit (RC) loeschen
-717 ; 77             SUBI   1,r7          N - 1, Zero = alle besiegt
-F0D ; 78             EXRL
-EB2 ; 79             BRZ    WIN
-C12 ; 7A             GOTO   NEND
-BB4 ; 7B SENS:       CALL   LQE           Sensor: eigenen Quadranten laden
-90D ; 7C             CMPI   0,rD          Basis hier? Dann stoert sie den Sensor ...
-D47 ; 7D             BRC    MAIN          ... und nichts passiert (keine Energie, keine Zeit)
-F0E ; 7E             EXRM                 kostet 32 Energie (zwei Phaserstufen)
-729 ; 7F             SUBI   2,r9
-F0E ; 80             EXRM
-DB3 ; 81             BRC    DEAD          Energie unter 0
-041 ; 82             MOV    r4,r1         R1 = dx; R6 = dy + 1 kommt aus NAV
-100 ; 83             MOVI   0,r0          R0 zaehlt die beiden Durchgaenge
-BF4 ; 84             CALL   CLR           loeschen (sonst bliebe ein alter Energiebalken stehen)
-06E ; 85 SL:         MOV    r6,rE         Quadrant in Richtung: RE = y + 4 R6 - 4 = y + 4 dy
-FAE ; 86             SHL    rE
-FAE ; 87             SHL    rE
-42E ; 88             ADD    r2,rE
-74E ; 89             SUBI   4,rE
-01F ; 8A             MOV    r1,rF         RF = x + 4 dx
-FAF ; 8B             SHL    rF
-FAF ; 8C             SHL    rF
-43F ; 8D             ADD    r3,rF
-BB8 ; 8E             CALL   LQ2           Quadrant laden (ab LQ2, RE RF vorgegeben): RC Klingone, RD Basis 8/0
-0D5 ; 8F             MOV    rD,r5         Farbe 8 Basis oder 0 leer (Farbe 0 = Pixel aus)
-90C ; 90             CMPI   0,rC          Klingone?
-E93 ; 91             BRZ    SP
-535 ; 92             ADDI   3,r5          Klingone: Farbe 3, mit Basis 3 + 8 = B
-1E4 ; 93 SP:         MOVI   E,r4          ACK 14: Farbe
-BF6 ; 94             CALL   CMD
-144 ; 95             MOVI   4,r4          ACK 4: Pixel (dx + E, R6): Spalte 5-7, Zeichenart 1
-015 ; 96             MOV    r1,r5
-5E5 ; 97             ADDI   E,r5
-BF6 ; 98             CALL   CMD
-F86 ; 99             INV    r6            Gegenrichtung: R6 = 2 - R6
-536 ; 9A             ADDI   3,r6
-F81 ; 9B             INV    r1            dx = -dx
-511 ; 9C             ADDI   1,r1
-710 ; 9D             SUBI   1,r0          zweiter Durchgang?
-D85 ; 9E             BRC    SL
-C13 ; 9F             GOTO   NL            Klingone feuert, Bild neu ohne Loeschen: Sensorpixel bleiben bis zur naechsten Aktion
-441 ; A0 PS2:        ADD    r4,r1         naechstes Feld
-460 ; A1             ADD    r6,r0
-BB6 ; A2             CALL   LQ            Quadrant des Feldes laden + Inhalt (RF)
-90F ; A3             CMPI   0,rF          frei?
-EAA ; A4             BRZ    PFREE
-907 ; A5             CMPI   0,r7          Phaser trifft das erste Objekt
-D63 ; A6             BRC    PEND
-98F ; A7             CMPI   8,rF          Basis?
-E0D ; A8             BRZ    REFILL        Basis: andocken
-C12 ; A9             GOTO   NEND          Stern oder Klingone: Flug endet davor
-907 ; AA PFREE:      CMPI   0,r7          Phaser fliegt weiter
-D61 ; AB             BRC    PSTEP
-002 ; AC             MOV    r0,r2         Enterprise zieht weiter
-013 ; AD             MOV    r1,r3
-F0E ; AE             EXRM                 4 Energie je Sektor
-748 ; AF             SUBI   4,r8
-FC9 ; B0             SUBC   r9
-C5F ; B1             GOTO   TAIL          Energie pruefen, weiter mit PSTEP
-F00 ; B2 WIN:        HALT                 Ende: alle Klingonen besiegt
+D9E ; 62             BRC    PS2
+7FF ; 63 PEND:       SUBI   F,rF          Ende des Phaserwegs: Klingone (F)? F - F borgt nicht ...
+D12 ; 64             BRC    NEND          ... alles andere borgt: weiter ins Bild
+07B ; 65 HIT:        MOV    r7,rB         Phaser: RB = Entfernung = Stufen - Rest
+65B ; 66             SUB    r5,rB
+C70 ; 67             GOTO   HCR           gemeinsamer Trefferwurf
+90C ; 68 TORP:       CMPI   0,rC          Torpedo: Klingone im Quadranten? (RC von LQE in NL)
+E47 ; 69             BRZ    MAIN          nein: nichts passiert
+F0E ; 6A             EXRM                 Bank
+71C ; 6B             SUBI   1,rC          Torpedos - 1 ...
+FBC ; 6C             ADC    rC            ... war es 0: F + 1 = 0 mit Carry
+F0E ; 6D             EXRM
+D47 ; 6E             BRC    MAIN          kein Torpedo: nichts passiert
+14B ; 6F             MOVI   4,rB          Torpedo: Schwelle 4 = 75 %
+F05 ; 70 HCR:        RND                  Zufall 0-15 in RD (RD-RF werden danach neu berechnet, RC bleibt)
+8DB ; 71             CMP    rD,rB         RD < RB: verfehlt
+D12 ; 72             BRC    NEND          verfehlt: der Klingone bleibt und schiesst
+F0D ; 73 KILL:       EXRL                 Abschuss: Reihe liegt gedreht in R0
+6C0 ; 74             SUB    rC,r0         Maskenbit (RC) loeschen
+717 ; 75             SUBI   1,r7          N - 1, Zero = alle besiegt
+F0D ; 76             EXRL
+EB0 ; 77             BRZ    WIN
+C12 ; 78             GOTO   NEND
+BB4 ; 79 SENS:       CALL   LQE           Sensor: eigenen Quadranten laden
+90D ; 7A             CMPI   0,rD          Basis hier? Dann stoert sie den Sensor ...
+D47 ; 7B             BRC    MAIN          ... und nichts passiert (keine Energie, keine Zeit)
+F0E ; 7C             EXRM                 kostet 32 Energie (zwei Phaserstufen)
+729 ; 7D             SUBI   2,r9
+F0E ; 7E             EXRM
+DB3 ; 7F             BRC    DEAD          Energie unter 0
+041 ; 80             MOV    r4,r1         R1 = dx; R6 = dy + 1 kommt aus NAV
+100 ; 81             MOVI   0,r0          R0 zaehlt die beiden Durchgaenge
+BF4 ; 82             CALL   CLR           loeschen (sonst bliebe ein alter Energiebalken stehen)
+06E ; 83 SL:         MOV    r6,rE         Quadrant in Richtung: RE = y + 4 R6 - 4 = y + 4 dy
+FAE ; 84             SHL    rE
+FAE ; 85             SHL    rE
+42E ; 86             ADD    r2,rE
+74E ; 87             SUBI   4,rE
+01F ; 88             MOV    r1,rF         RF = x + 4 dx
+FAF ; 89             SHL    rF
+FAF ; 8A             SHL    rF
+43F ; 8B             ADD    r3,rF
+BB8 ; 8C             CALL   LQ2           Quadrant laden (ab LQ2, RE RF vorgegeben): RC Klingone, RD Basis 8/0
+0D5 ; 8D             MOV    rD,r5         Farbe 8 Basis oder 0 leer (Farbe 0 = Pixel aus)
+90C ; 8E             CMPI   0,rC          Klingone?
+E91 ; 8F             BRZ    SP
+535 ; 90             ADDI   3,r5          Klingone: Farbe 3, mit Basis 3 + 8 = B
+1E4 ; 91 SP:         MOVI   E,r4          ACK 14: Farbe
+BF6 ; 92             CALL   CMD
+144 ; 93             MOVI   4,r4          ACK 4: Pixel (dx + E, R6): Spalte 5-7, Zeichenart 1
+015 ; 94             MOV    r1,r5
+5E5 ; 95             ADDI   E,r5
+BF6 ; 96             CALL   CMD
+F86 ; 97             INV    r6            Gegenrichtung: R6 = 2 - R6
+536 ; 98             ADDI   3,r6
+F81 ; 99             INV    r1            dx = -dx
+511 ; 9A             ADDI   1,r1
+710 ; 9B             SUBI   1,r0          zweiter Durchgang?
+D83 ; 9C             BRC    SL
+C13 ; 9D             GOTO   NL            Klingone feuert, Bild neu ohne Loeschen: Sensorpixel bleiben bis zur naechsten Aktion
+441 ; 9E PS2:        ADD    r4,r1         naechstes Feld
+460 ; 9F             ADD    r6,r0
+BB6 ; A0             CALL   LQ            Quadrant des Feldes laden + Inhalt (RF)
+90F ; A1             CMPI   0,rF          frei?
+EA8 ; A2             BRZ    PFREE
+907 ; A3             CMPI   0,r7          Phaser trifft das erste Objekt
+D63 ; A4             BRC    PEND
+98F ; A5             CMPI   8,rF          Basis?
+E0D ; A6             BRZ    REFILL        Basis: andocken
+C12 ; A7             GOTO   NEND          Stern oder Klingone: Flug endet davor
+907 ; A8 PFREE:      CMPI   0,r7          Phaser fliegt weiter
+D61 ; A9             BRC    PSTEP
+002 ; AA             MOV    r0,r2         Enterprise zieht weiter
+013 ; AB             MOV    r1,r3
+F0E ; AC             EXRM                 4 Energie je Sektor
+748 ; AD             SUBI   4,r8
+FC9 ; AE             SUBC   r9
+C5F ; AF             GOTO   TAIL          Energie pruefen, weiter mit PSTEP
+F0E ; B0 WIN:        EXRM                 gewonnen: Bank
+F1B ; B1             DISP   1,rB          Display zeigt die Sternzeit (MB)
+CB2 ; B2 WL:         GOTO   WL            Ende: hier bleiben, Anzeige an
 F00 ; B3 DEAD:       HALT                 Ende: Energie unter 0
 020 ; B4 LQE:        MOV    r2,r0         Quadrant der Enterprise
 031 ; B5             MOV    r3,r1
