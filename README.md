@@ -4,7 +4,6 @@ Star Trek im Stil von 1971 für den Busch Microtronic 2090 mit dem [ESP2090 Stud
 
 - 255 von 256 Programmschritten belegt
 - Dateien: [startrek.mic](startrek.mic), das kommentierte Listing, und das Userscript [startrek_farben.py](startrek_farben.py) für die Farben
-- Getestet im [Emulator2090](https://github.com/rab-berlin/Emulator2090) und mit einer Simulation aller 256 Galaxien ([simulation](simulation)), noch nicht am Gerät
 
 ![Spielfeld nach einem Sensor-Scan](bilder/spielfeld.png)
 
@@ -85,7 +84,7 @@ Alle Werte sind Konstanten im Programm und lassen sich ohne zusätzliche Schritt
 
 ## Simulation
 
-Im Ordner [simulation](simulation) liegt ein Regelmodell des Programms in Python, Zug für Zug gegen den Emulator geprüft, dazu Spielerstrategien. Die Spieler sehen nur, was auch ein Mensch sieht: den eigenen Quadranten, das Sensorbild, den Energiebalken in 25er-Stufen, Torpedos und Sternzeit. `python3 run_sim.py 1` spielt jede Strategie in allen 256 Galaxien (einige Sekunden je Strategie); alle Ergebnisse stehen in [sim_ergebnisse.txt](simulation/sim_ergebnisse.txt).
+Im Ordner [simulation](simulation) liegt ein Regelmodell des Programms in Python mit Spielerstrategien. Die Spieler sehen nur, was auch ein Mensch sieht: den eigenen Quadranten, das Sensorbild, den Energiebalken in 25er-Stufen, Torpedos und Sternzeit. `python3 run_sim.py 1` spielt jede Strategie in allen 256 Galaxien (einige Sekunden je Strategie); alle Ergebnisse stehen in [sim_ergebnisse.txt](simulation/sim_ergebnisse.txt).
 
 | Strategie | Siege | verloren durch Energie / Zeit |
 |---|---|---|
