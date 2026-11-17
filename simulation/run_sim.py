@@ -1,4 +1,4 @@
-# Strategien mit den aktuellen Werten (1 Basis, 1 Torpedo, 51 Aktionen, Phaser 16 je Stufe), alle 256 Galaxien
+# Strategien mit den aktuellen Werten (1 Basis, 1 Torpedo, Energie 255, 51 Aktionen, Phaser 16 je Stufe, Flug 4, Sensor 32), alle 256 Galaxien
 import statistics, time, sys
 from collections import Counter
 from players_m2 import play
@@ -9,7 +9,7 @@ STRATS = [
     ("Scout, Phaser zuerst", dict(sensor='row', torp='need', refuel=5, bsearch=8)),
     ("Scout, Mischung", dict(sensor='row', torp='smart', refuel=5, bsearch=8)),
     ("Scout, Torpedo zuerst", dict(sensor='row', torp='first', refuel=5, bsearch=8)),
-    ("Scout, Mischung, tankt erst bei 1 Pixel", dict(sensor='row', torp='smart', refuel=1, bsearch=8)),
+    ("Scout, Mischung, tankt erst beim letzten Pixel", dict(sensor='row', torp='smart', refuel=1, bsearch=8)),
     ("Kenner: Mischung und Gegenzeilen-Regel", dict(sensor='row', torp='smart', refuel=5, bsearch=8, complement=True)),
     ("Allwissend", dict(omni=True, torp='smart', refuel=3)),
 ]

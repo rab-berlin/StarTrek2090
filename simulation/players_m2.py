@@ -72,7 +72,7 @@ class Player:
 
     # ---------- Wege (Befehlsfolgen, eine Aktion je gerader Strecke)
     def plan(self, goal, through_goal=False, cmd_cost=4):
-        """Billigste Befehlsfolge zu einer Zielzelle (3 Energie je Feld + cmd_cost je Befehl).
+        """Billigste Befehlsfolge zu einer Zielzelle (Flugkosten je Feld + cmd_cost je Befehl).
         Unbekannte Zellen gelten als frei."""
         import heapq
         s = self.s
@@ -98,11 +98,11 @@ class Player:
                 for n in range(1, 16):
                     nx, ny = (c[0] + n * dx) & 15, (c[1] + n * dy) & 15
                     code = self.known.get((nx, ny), 0)
-                    nc = cost + 3 * n + cmd_cost
+                    nc = cost + s.navcost * n + cmd_cost
                     if code:
                         if through_goal and goal((nx, ny)):
                             key = ('END', (nx, ny))
-                            nc -= 3
+                            nc -= s.navcost
                             if nc < best.get(key, 1e9):
                                 best[key] = nc; prev[key] = (c, (d, n)); heapq.heappush(h, (nc, next(cnt), key))
                         break
@@ -138,7 +138,7 @@ class Player:
         return out
 
     def est_energy(self):
-        return 25 * self.s.bar()          # vorsichtig: untere Grenze des Balkens
+        return self.s.bar_low()          # vorsichtig: untere Grenze des Balkens
 
     def fight(self):
         s = self.s
@@ -219,10 +219,10 @@ def random_player(sim, rng):
         else: sim.torp()
 
 
-def play(D, E, seed, dmax=15, tlimit=52, tmax=1, bases=1, navcost=3, senscost=16, sensbase=True, phcost='l16', **kw):
+def play(D, E, seed, dmax=15, tlimit=52, tmax=1, bases=1, navcost=4, senscost=32, sensbase=True, phcost='l16', emax=255, **kw):
     rng = random.Random(seed)
     random.seed(seed)
-    s = Sim(D, E, rng, dmg=lambda: 2 * rng.randrange(dmax + 1), tlimit=tlimit, tmax=tmax, bases=bases, navcost=navcost, senscost=senscost, sensbase=sensbase, phcost=phcost)
+    s = Sim(D, E, rng, dmg=lambda: 2 * rng.randrange(dmax + 1), tlimit=tlimit, tmax=tmax, bases=bases, navcost=navcost, senscost=senscost, sensbase=sensbase, phcost=phcost, emax=emax)
     if kw.get('rand'):
         random_player(s, rng)
         return s, None

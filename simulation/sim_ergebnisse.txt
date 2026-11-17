@@ -528,7 +528,7 @@ l1  | 3 Torp | 63 Akt | Scout, Phaser wenn moeglich, sonst Torpedo Sieg  93.0% E
 l1  | 3 Torp | 63 Akt | Scout, Torpedo zuerst                      Sieg  92.2% Energie   7.8% Zeit   0.0% | Phaser  0.2 Torpedo  7.5
 l1  | 3 Torp | 63 Akt | Allwissend                                 Sieg 100.0% Energie   0.0% Zeit   0.0% | Phaser  4.5 Torpedo  3.5
 
-== Aktuelle Werte: 1 Basis, 1 Torpedo, 51 Aktionen, Phaser 16 je Stufe; 2 Verlaeufe je Galaxie
+== Damals aktuelle Werte: 1 Basis, 1 Torpedo, Energie 200, 51 Aktionen, Phaser 16 je Stufe, Flug 3, Sensor 16; 2 Verlaeufe je Galaxie
 Scout = Sensor je Galaxiezeile, sucht zuerst die Basis, tankt bei 5 Pixeln; Mischung = Phaser, wenn der Klingone in Schusslinie steht, sonst Torpedo
 Zufall                                     Sieg   0.0%  Energie 100.0%  Zeit   0.0%  Aktionen (Median, Sieg)    0  Phaser  0.0  Torpedo  0.0
 Sucher ohne Sensor, Phaser zuerst          Sieg  50.0%  Energie  50.0%  Zeit   0.0%  Aktionen (Median, Sieg)   33  Phaser  4.7  Torpedo  0.9
@@ -539,3 +539,72 @@ Scout, Torpedo zuerst                      Sieg  78.7%  Energie  21.3%  Zeit   0
 Scout, Mischung, tankt erst bei 1 Pixel    Sieg  60.9%  Energie  39.1%  Zeit   0.0%  Aktionen (Median, Sieg)   32  Phaser  3.9  Torpedo  2.2
 Kenner: Mischung und Gegenzeilen-Regel     Sieg  77.9%  Energie  22.1%  Zeit   0.0%  Aktionen (Median, Sieg)   32  Phaser  4.3  Torpedo  2.4
 Allwissend                                 Sieg  97.5%  Energie   2.5%  Zeit   0.0%  Aktionen (Median, Sieg)   21  Phaser  5.4  Torpedo  2.5
+
+== Energie 255 (Balken je 32 Energie ein Pixel): Ausgleich ueber Flugkosten, Zeit und Sensorkosten; 1 Basis, 1 Torpedo, Phaser 16 je Stufe; 2 Verlaeufe je Galaxie
+E200 Flug 3 | 51 Akt | Sensor 16 | Sucher ohne Sensor             Sieg  50.8% Energie  49.2% Zeit   0.0% | Phaser 4.7 Torpedo 0.9
+E200 Flug 3 | 51 Akt | Sensor 16 | Scout, Phaser zuerst           Sieg  73.0% Energie  26.2% Zeit   0.8% | Phaser 6.1 Torpedo 0.5
+E200 Flug 3 | 51 Akt | Sensor 16 | Scout, Mischung                Sieg  80.3% Energie  19.7% Zeit   0.0% | Phaser 4.3 Torpedo 2.6
+E200 Flug 3 | 51 Akt | Sensor 16 | Scout, Torpedo zuerst          Sieg  80.5% Energie  19.5% Zeit   0.0% | Phaser 2.9 Torpedo 4.0
+E200 Flug 3 | 51 Akt | Sensor 16 | Scout, Mischung, tankt spaet   Sieg  60.9% Energie  39.1% Zeit   0.0% | Phaser 3.9 Torpedo 2.2
+E200 Flug 3 | 51 Akt | Sensor 16 | Allwissend                     Sieg  96.5% Energie   3.5% Zeit   0.0% | Phaser 5.4 Torpedo 2.4
+E255 Flug 3 | 51 Akt | Sensor 16 | Sucher ohne Sensor             Sieg  60.9% Energie  39.1% Zeit   0.0% | Phaser 5.8 Torpedo 0.7
+E255 Flug 3 | 51 Akt | Sensor 16 | Scout, Phaser zuerst           Sieg  81.4% Energie  18.2% Zeit   0.4% | Phaser 6.8 Torpedo 0.3
+E255 Flug 3 | 51 Akt | Sensor 16 | Scout, Mischung                Sieg  90.6% Energie   9.4% Zeit   0.0% | Phaser 5.1 Torpedo 2.4
+E255 Flug 3 | 51 Akt | Sensor 16 | Scout, Torpedo zuerst          Sieg  90.6% Energie   9.4% Zeit   0.0% | Phaser 4.1 Torpedo 3.4
+E255 Flug 3 | 51 Akt | Sensor 16 | Scout, Mischung, tankt spaet   Sieg  35.9% Energie  64.1% Zeit   0.0% | Phaser 3.7 Torpedo 1.7
+E255 Flug 3 | 51 Akt | Sensor 16 | Allwissend                     Sieg  99.0% Energie   1.0% Zeit   0.0% | Phaser 5.9 Torpedo 2.0
+E255 Flug 3 | 51 Akt | Sensor 32 | Sucher ohne Sensor             Sieg  60.9% Energie  39.1% Zeit   0.0% | Phaser 5.8 Torpedo 0.7
+E255 Flug 3 | 51 Akt | Sensor 32 | Scout, Phaser zuerst           Sieg  76.4% Energie  23.6% Zeit   0.0% | Phaser 6.3 Torpedo 0.4
+E255 Flug 3 | 51 Akt | Sensor 32 | Scout, Mischung                Sieg  81.6% Energie  18.4% Zeit   0.0% | Phaser 4.6 Torpedo 2.4
+E255 Flug 3 | 51 Akt | Sensor 32 | Scout, Torpedo zuerst          Sieg  81.4% Energie  18.4% Zeit   0.2% | Phaser 3.6 Torpedo 3.4
+E255 Flug 3 | 51 Akt | Sensor 32 | Scout, Mischung, tankt spaet   Sieg  21.7% Energie  78.3% Zeit   0.0% | Phaser 2.9 Torpedo 1.6
+E255 Flug 3 | 51 Akt | Sensor 32 | Allwissend                     Sieg  99.0% Energie   1.0% Zeit   0.0% | Phaser 5.9 Torpedo 2.0
+E255 Flug 3 | 42 Akt | Sensor 16 | Sucher ohne Sensor             Sieg  60.9% Energie  39.1% Zeit   0.0% | Phaser 5.8 Torpedo 0.7
+E255 Flug 3 | 42 Akt | Sensor 16 | Scout, Phaser zuerst           Sieg  76.4% Energie  18.2% Zeit   5.5% | Phaser 6.7 Torpedo 0.3
+E255 Flug 3 | 42 Akt | Sensor 16 | Scout, Mischung                Sieg  89.8% Energie   9.4% Zeit   0.8% | Phaser 5.1 Torpedo 2.4
+E255 Flug 3 | 42 Akt | Sensor 16 | Scout, Torpedo zuerst          Sieg  89.5% Energie   9.4% Zeit   1.2% | Phaser 4.1 Torpedo 3.4
+E255 Flug 3 | 42 Akt | Sensor 16 | Scout, Mischung, tankt spaet   Sieg  35.2% Energie  63.9% Zeit   1.0% | Phaser 3.7 Torpedo 1.7
+E255 Flug 3 | 42 Akt | Sensor 16 | Allwissend                     Sieg  99.0% Energie   1.0% Zeit   0.0% | Phaser 5.9 Torpedo 2.0
+E255 Flug 3 | 42 Akt | Sensor 32 | Sucher ohne Sensor             Sieg  60.9% Energie  39.1% Zeit   0.0% | Phaser 5.8 Torpedo 0.7
+E255 Flug 3 | 42 Akt | Sensor 32 | Scout, Phaser zuerst           Sieg  66.8% Energie  23.6% Zeit   9.6% | Phaser 6.2 Torpedo 0.4
+E255 Flug 3 | 42 Akt | Sensor 32 | Scout, Mischung                Sieg  80.7% Energie  18.4% Zeit   1.0% | Phaser 4.6 Torpedo 2.4
+E255 Flug 3 | 42 Akt | Sensor 32 | Scout, Torpedo zuerst          Sieg  80.7% Energie  18.4% Zeit   1.0% | Phaser 3.5 Torpedo 3.4
+E255 Flug 3 | 42 Akt | Sensor 32 | Scout, Mischung, tankt spaet   Sieg  21.3% Energie  78.3% Zeit   0.4% | Phaser 2.9 Torpedo 1.6
+E255 Flug 3 | 42 Akt | Sensor 32 | Allwissend                     Sieg  99.0% Energie   1.0% Zeit   0.0% | Phaser 5.9 Torpedo 2.0
+E255 Flug 4 | 51 Akt | Sensor 16 | Sucher ohne Sensor             Sieg  54.5% Energie  45.5% Zeit   0.0% | Phaser 5.4 Torpedo 0.8
+E255 Flug 4 | 51 Akt | Sensor 16 | Scout, Phaser zuerst           Sieg  79.3% Energie  20.7% Zeit   0.0% | Phaser 6.6 Torpedo 0.4
+E255 Flug 4 | 51 Akt | Sensor 16 | Scout, Mischung                Sieg  86.3% Energie  13.7% Zeit   0.0% | Phaser 4.9 Torpedo 2.4
+E255 Flug 4 | 51 Akt | Sensor 16 | Scout, Torpedo zuerst          Sieg  85.0% Energie  15.0% Zeit   0.0% | Phaser 3.8 Torpedo 3.4
+E255 Flug 4 | 51 Akt | Sensor 16 | Scout, Mischung, tankt spaet   Sieg  16.0% Energie  84.0% Zeit   0.0% | Phaser 3.0 Torpedo 1.4
+E255 Flug 4 | 51 Akt | Sensor 16 | Allwissend                     Sieg  97.5% Energie   2.5% Zeit   0.0% | Phaser 5.8 Torpedo 2.1
+E255 Flug 4 | 51 Akt | Sensor 32 | Sucher ohne Sensor             Sieg  54.5% Energie  45.5% Zeit   0.0% | Phaser 5.4 Torpedo 0.8
+E255 Flug 4 | 51 Akt | Sensor 32 | Scout, Phaser zuerst           Sieg  73.8% Energie  26.2% Zeit   0.0% | Phaser 6.2 Torpedo 0.4
+E255 Flug 4 | 51 Akt | Sensor 32 | Scout, Mischung                Sieg  78.7% Energie  21.3% Zeit   0.0% | Phaser 4.4 Torpedo 2.4
+E255 Flug 4 | 51 Akt | Sensor 32 | Scout, Torpedo zuerst          Sieg  77.9% Energie  22.1% Zeit   0.0% | Phaser 3.3 Torpedo 3.4
+E255 Flug 4 | 51 Akt | Sensor 32 | Scout, Mischung, tankt spaet   Sieg  12.3% Energie  87.7% Zeit   0.0% | Phaser 2.5 Torpedo 1.5
+E255 Flug 4 | 51 Akt | Sensor 32 | Allwissend                     Sieg  97.5% Energie   2.5% Zeit   0.0% | Phaser 5.8 Torpedo 2.1
+E255 Flug 4 | 42 Akt | Sensor 16 | Sucher ohne Sensor             Sieg  54.5% Energie  45.5% Zeit   0.0% | Phaser 5.4 Torpedo 0.8
+E255 Flug 4 | 42 Akt | Sensor 16 | Scout, Phaser zuerst           Sieg  72.7% Energie  20.7% Zeit   6.6% | Phaser 6.5 Torpedo 0.4
+E255 Flug 4 | 42 Akt | Sensor 16 | Scout, Mischung                Sieg  85.5% Energie  13.7% Zeit   0.8% | Phaser 4.9 Torpedo 2.4
+E255 Flug 4 | 42 Akt | Sensor 16 | Scout, Torpedo zuerst          Sieg  83.4% Energie  15.0% Zeit   1.6% | Phaser 3.8 Torpedo 3.4
+E255 Flug 4 | 42 Akt | Sensor 16 | Scout, Mischung, tankt spaet   Sieg  16.0% Energie  84.0% Zeit   0.0% | Phaser 3.0 Torpedo 1.4
+E255 Flug 4 | 42 Akt | Sensor 16 | Allwissend                     Sieg  97.5% Energie   2.5% Zeit   0.0% | Phaser 5.8 Torpedo 2.1
+E255 Flug 4 | 42 Akt | Sensor 32 | Sucher ohne Sensor             Sieg  54.5% Energie  45.5% Zeit   0.0% | Phaser 5.4 Torpedo 0.8
+E255 Flug 4 | 42 Akt | Sensor 32 | Scout, Phaser zuerst           Sieg  63.5% Energie  26.2% Zeit  10.4% | Phaser 6.1 Torpedo 0.4
+E255 Flug 4 | 42 Akt | Sensor 32 | Scout, Mischung                Sieg  77.7% Energie  21.3% Zeit   1.0% | Phaser 4.4 Torpedo 2.4
+E255 Flug 4 | 42 Akt | Sensor 32 | Scout, Torpedo zuerst          Sieg  76.8% Energie  22.1% Zeit   1.2% | Phaser 3.3 Torpedo 3.4
+E255 Flug 4 | 42 Akt | Sensor 32 | Scout, Mischung, tankt spaet   Sieg  11.9% Energie  87.7% Zeit   0.4% | Phaser 2.5 Torpedo 1.4
+E255 Flug 4 | 42 Akt | Sensor 32 | Allwissend                     Sieg  97.5% Energie   2.5% Zeit   0.0% | Phaser 5.8 Torpedo 2.1
+
+== Aktuelle Werte: 1 Basis, 1 Torpedo, Energie 255, 51 Aktionen, Phaser 16 je Stufe, Flug 4 je Feld, Sensor 32; 2 Verlaeufe je Galaxie
+   (letzter Pixel = unter 32 Energie)
+Scout = Sensor je Galaxiezeile, sucht zuerst die Basis, tankt bei 5 Pixeln; Mischung = Phaser, wenn der Klingone in Schusslinie steht, sonst Torpedo
+Zufall                                     Sieg   0.0%  Energie 100.0%  Zeit   0.0%  Aktionen (Median, Sieg)    0  Phaser  0.0  Torpedo  0.0
+Sucher ohne Sensor, Phaser zuerst          Sieg  53.9%  Energie  46.1%  Zeit   0.0%  Aktionen (Median, Sieg)   32  Phaser  5.3  Torpedo  0.8
+Sucher ohne Sensor, Torpedo zuerst         Sieg  59.4%  Energie  40.6%  Zeit   0.0%  Aktionen (Median, Sieg)   30  Phaser  4.1  Torpedo  2.1
+Scout, Phaser zuerst                       Sieg  71.9%  Energie  28.1%  Zeit   0.0%  Aktionen (Median, Sieg)   37  Phaser  6.0  Torpedo  0.4
+Scout, Mischung                            Sieg  77.9%  Energie  22.1%  Zeit   0.0%  Aktionen (Median, Sieg)   32  Phaser  4.4  Torpedo  2.4
+Scout, Torpedo zuerst                      Sieg  77.5%  Energie  22.5%  Zeit   0.0%  Aktionen (Median, Sieg)   33  Phaser  3.3  Torpedo  3.4
+Scout, Mischung, tankt erst beim letzten Pixel Sieg   9.8%  Energie  90.2%  Zeit   0.0%  Aktionen (Median, Sieg)   32  Phaser  2.3  Torpedo  1.4
+Kenner: Mischung und Gegenzeilen-Regel     Sieg  77.7%  Energie  22.3%  Zeit   0.0%  Aktionen (Median, Sieg)   30  Phaser  4.5  Torpedo  2.2
+Allwissend                                 Sieg  97.5%  Energie   2.5%  Zeit   0.0%  Aktionen (Median, Sieg)   21  Phaser  5.8  Torpedo  2.1

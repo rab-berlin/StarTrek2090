@@ -1,4 +1,4 @@
-# sim_m2.py - schnelles Regelmodell von startrek-m02 (1 Basis, 1 Torpedo, Zeit nach 51 Aktionen; gegen den Emulator geprueft: sim_check.py)
+# sim_m2.py - schnelles Regelmodell von startrek-m02 (1 Basis, 1 Torpedo, Energie 255, Zeit nach 51 Aktionen; gegen den Emulator geprueft: sim_check.py)
 import random
 
 
@@ -43,7 +43,7 @@ VEC = {v: k for k, v in DIRS.items()}
 class Sim:
     """Ein Spiel. Galaxie aus D = RD, E = RE beim RUN; Schaden 2 * (0..15)."""
 
-    def __init__(self, D, E, rng, dmg=None, tlimit=52, tmax=1, bases=1, navcost=3, senscost=16, sensbase=True, phcost='l16'):
+    def __init__(self, D, E, rng, dmg=None, tlimit=52, tmax=1, bases=1, navcost=4, senscost=32, sensbase=True, phcost='l16', emax=255):
         self.tlimit, self.tmax, self.bases, self.navcost, self.senscost = tlimit, tmax, bases, navcost, senscost
         self.ref = Ref([D, E, D ^ 15, E ^ 15, D, E] + [0] * 10)
         self.ref.ONE_BASE = (bases == 1)
@@ -52,7 +52,8 @@ class Sim:
         self.rng = rng
         self.dmg = dmg or (lambda: 2 * rng.randrange(16))
         self.x = self.y = 0
-        self.energy, self.torps, self.N, self.t = 200, tmax, 8, 0
+        self.emax = emax            # 255: Balken je 32 (Energie / 32 + 1 Pixel); 200: je 25
+        self.energy, self.torps, self.N, self.t = emax, tmax, 8, 0
         self.result = None          # 'win', 'energie', 'zeit'
         self.sens = None
         self.actions = 0
@@ -93,7 +94,7 @@ class Sim:
             c = self.cell(cx, cy)
             if c:
                 if c == 8:
-                    self.energy, self.torps = 200, self.tmax
+                    self.energy, self.torps = self.emax, self.tmax
                     self.log.append(('andocken',))
                 break
             self.x, self.y = cx, cy
@@ -152,7 +153,13 @@ class Sim:
 
     # --- was der Spieler sieht
     def bar(self):
+        if self.emax == 255: return max(0, min(self.energy // 32 + 1, 8))
         return max(0, min(self.energy // 25, 8))
+
+    def bar_low(self):
+        """untere Grenze der Energie, die der Balken verraet"""
+        b = self.bar()
+        return 32 * (b - 1) if self.emax == 255 else 25 * b
 
     def visible(self):
         """Inhalt des eigenen Quadranten (absolute Koordinaten -> Code)."""

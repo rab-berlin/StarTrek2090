@@ -2,7 +2,7 @@
 
 Star Trek im Stil von 1971 für den Busch Microtronic 2090 mit dem [ESP2090 Studio](https://github.com/rab-berlin/ESP2090) (8x8-LED-Matrix mit Farben): 8 Klingonen in einer Galaxie aus 16 Quadranten finden und zerstören, bevor Energie oder Zeit ausgehen.
 
-- 255 von 256 Programmschritten belegt
+- 247 von 256 Programmschritten belegt
 - Dateien: [startrek.mic](startrek.mic), das kommentierte Listing, und das Userscript [startrek_farben.py](startrek_farben.py) für die Farben
 
 ![Spielfeld nach einem Sensor-Scan](bilder/spielfeld.png)
@@ -12,11 +12,11 @@ Star Trek im Stil von 1971 für den Busch Microtronic 2090 mit dem [ESP2090 Stud
 Die Galaxie hat 4 x 4 Quadranten zu je 4 x 4 Sektoren und ist ringförmig geschlossen: Wer rechts hinausfliegt, kommt links wieder herein, ebenso oben und unten. Die Matrix zeigt immer nur den Quadranten, in dem die Enterprise gerade steht.
 
 - **Klingonen:** 8, höchstens einer je Quadrant. Sie bewegen sich nicht. Steht die Enterprise in einem Quadranten mit Klingone, schießt er nach jeder Aktion: 0 bis 30 Energie.
-- **Basis:** genau eine, irgendwo in der Galaxie. Wer hineinfliegt, dockt an: wieder 200 Energie und 1 Torpedo. Die Enterprise bleibt vor der Basis stehen. Am Anfang hat sie ebenfalls 200 Energie und 1 Torpedo.
+- **Basis:** genau eine, irgendwo in der Galaxie. Wer hineinfliegt, dockt an: wieder 255 Energie und 1 Torpedo. Die Enterprise bleibt vor der Basis stehen. Am Anfang hat sie ebenfalls 255 Energie und 1 Torpedo.
 - **Sterne:** 2 je Quadrant. Sie halten Flug und Phaser auf.
 - **Start:** Die Enterprise startet in der linken unteren Ecke. Liegt dort ein Stern, verdeckt er sie, bis sie losfliegt (in 16 von 256 Galaxien).
-- **Gewonnen:** alle 8 Klingonen zerstört, das Programm hält an Adresse A2.
-- **Verloren:** Energie unter 0 oder nach 51 Aktionen die Zeit abgelaufen, das Programm hält an Adresse A3.
+- **Gewonnen:** alle 8 Klingonen zerstört, das Programm hält an Adresse 9A.
+- **Verloren:** Energie unter 0 oder nach 51 Aktionen die Zeit abgelaufen, das Programm hält an Adresse 9B.
 
 Jede Aktion zählt die Sternzeit weiter, auch Sensor und Andocken. Danach schießt ein Klingone im Quadranten, dann zeichnet die Matrix neu (etwa 3,5 Sekunden).
 
@@ -26,8 +26,8 @@ Jeder Zug beginnt mit einer Taste am Microtronic.
 
 | Taste | Befehl | danach | Kosten | Wirkung |
 |---|---|---|---|---|
-| 0 | Navigation | Richtung, Entfernung 1-F | 3 Energie je Feld | fliegt Feld für Feld, hält vor Stern oder Klingone; in eine Basis = andocken |
-| 1 | Sensor | – | 16 Energie | zeigt die Nachbarquadranten links und rechts in derselben Galaxiezeile, bis zur nächsten Aktion |
+| 0 | Navigation | Richtung, Entfernung 1-F | 4 Energie je Feld | fliegt Feld für Feld, hält vor Stern oder Klingone; in eine Basis = andocken |
+| 1 | Sensor | – | 32 Energie | zeigt die Nachbarquadranten links und rechts in derselben Galaxiezeile, bis zur nächsten Aktion |
 | 2 | Phaser | Richtung, Energie 1-F | 16 Energie je Stufe | der Strahl fliegt so viele Felder weit und trifft das erste Objekt; ein Klingone ist zerstört |
 | 3-F | Torpedo | – | 1 Torpedo | zerstört den Klingonen im eigenen Quadranten sicher; ohne Ziel oder Torpedo geschieht nichts |
 
@@ -45,7 +45,7 @@ Richtungen wie auf dem Tastenfeld:
 
 | Wo | Was |
 |---|---|
-| Matrix, Zeile 7 | Energiebalken, je 25 Energie ein Pixel (8 Pixel = 200). Grün, die letzten beiden rot (unter 50) |
+| Matrix, Zeile 7 | Energiebalken, je 32 Energie ein Pixel (8 Pixel = 224 bis 255, 1 Pixel = unter 32). Grün, die letzten beiden rot (unter 64) |
 | Matrix, unten links 4 x 4 | der eigene Quadrant: weiß Enterprise, rot Klingone, blau Basis, gelb Sterne |
 | Matrix, Zeile 1, Spalten 5 und 7 | Sensor: Nachbarquadrant links und rechts, rot Klingone, blau Basis, violett beides, sonst dunkel. Spalte 6 dazwischen ist der eigene Quadrant |
 | Anzeige des Microtronic | beim Warten auf eine Taste drei Ziffern: Sternzeit 0-F, eine trennende 0, Torpedos. `501` heißt Sternzeit 5, 1 Torpedo. Die Sternzeit rückt alle 3 bis 4 Aktionen eins weiter. Nach F läuft die Zeit ab |
@@ -67,7 +67,7 @@ Die Zeit zwischen RESET und RUN bestimmt die Galaxie. Neues Spiel: RESET, RUN.
 - Die Enterprise startet in der linken unteren Ecke der Galaxie. Ein Sensor-Scan je Galaxiezeile spart viel Suchen.
 - Die Klingonen-Reihen der Galaxie sind nicht unabhängig: Von zwei Quadranten derselben Spalte, zwei Galaxiezeilen auseinander, hat genau einer einen Klingonen.
 - Die Basis zuerst suchen. Wer sie kennt, kann rechtzeitig tanken; wer sie erst mit leerem Balken sucht, kommt meist nicht mehr an.
-- Umwege kosten mehr Energie als alles andere. Lieber früh tanken, beim fünften Pixel, als spät.
+- Umwege kosten mehr Energie als alles andere. Lieber früh tanken, beim fünften Pixel, als spät; wer erst beim letzten Pixel losfliegt, kommt fast nie an.
 - Phaser und Torpedo ergänzen sich: Steht der Klingone in einer der acht Richtungen frei vor der Enterprise, ist der Phaser die erste Wahl. Sonst spart der Torpedo das Anfliegen einer Schussposition unter Feuer. Jede Basis füllt ihn wieder auf.
 
 ## Einstellen
@@ -78,27 +78,27 @@ Alle Werte sind Konstanten im Programm und lassen sich ohne zusätzliche Schritt
 |---|---|---|---|
 | Torpedos bei Start und Andocken | 0F | `11C` (`MOVI 1,C`) | `12C` = 2, `13C` = 3 Torpedos |
 | Zeitlimit | 13 | `55A` (`ADDI 5,A`) | je Aktion + 5, Ende nach 52 Zählungen (51 Aktionen). `54A` = 63, `56A` = 42 Aktionen |
-| Energie beim Andocken | 0D, 0E | `188`, `1C9` | C8h = 200 |
-| Sensor | 78 | `719` (`SUBI 1,9`) | 1 x 16 Energie |
-| Navigation | AB | `13D` (`MOVI 3,D`) | 3 Energie je Feld |
+| Energie bei Start und Andocken | 0D, 0E | `1F8`, `1F9` | FFh = 255; der Balken rechnet mit 32 je Pixel |
+| Sensor | 70 | `729` (`SUBI 2,9`) | 2 x 16 = 32 Energie |
+| Navigation | A3 | `14D` (`MOVI 4,D`) | 4 Energie je Feld |
 
 ## Simulation
 
-Im Ordner [simulation](simulation) liegt ein Regelmodell des Programms in Python mit Spielerstrategien. Die Spieler sehen nur, was auch ein Mensch sieht: den eigenen Quadranten, das Sensorbild, den Energiebalken in 25er-Stufen, Torpedos und Sternzeit. `python3 run_sim.py 1` spielt jede Strategie in allen 256 Galaxien (einige Sekunden je Strategie); alle Ergebnisse stehen in [sim_ergebnisse.txt](simulation/sim_ergebnisse.txt).
+Im Ordner [simulation](simulation) liegt ein Regelmodell des Programms in Python mit Spielerstrategien. Die Spieler sehen nur, was auch ein Mensch sieht: den eigenen Quadranten, das Sensorbild, den Energiebalken in 32er-Stufen, Torpedos und Sternzeit. `python3 run_sim.py 1` spielt jede Strategie in allen 256 Galaxien (einige Sekunden je Strategie); alle Ergebnisse stehen in [sim_ergebnisse.txt](simulation/sim_ergebnisse.txt).
 
 Scout heißt hier: Sensor je Galaxiezeile, zuerst die Basis suchen, beim fünften Pixel tanken. Mischung heißt: Phaser, wenn der Klingone in Schusslinie steht, sonst Torpedo.
 
 | Strategie | Siege | verloren durch Energie / Zeit | Schüsse je Partie Phaser / Torpedo |
 |---|---|---|---|
 | zufällige Tasten | 0 % | 100 % / 0 % | – |
-| suchen ohne Sensor | 50 % | 50 % / 0 % | 4,7 / 0,9 |
-| Scout, Phaser zuerst (fliegt Schussposition an) | 73 % | 26 % / 1 % | 6,0 / 0,5 |
-| Scout, Torpedo zuerst | 79 % | 21 % / 0 % | 2,8 / 3,9 |
-| Scout, Mischung | 80 % | 20 % / 0 % | 4,2 / 2,6 |
-| Scout, Mischung, tankt erst beim letzten Pixel | 61 % | 39 % / 0 % | 3,9 / 2,2 |
-| kennt die ganze Galaxie (obere Grenze) | 97,5 % | 2,5 % / 0 % | 5,4 / 2,5 |
+| suchen ohne Sensor | 54 % | 46 % / 0 % | 5,3 / 0,8 |
+| Scout, Phaser zuerst (fliegt Schussposition an) | 72 % | 28 % / 0 % | 6,0 / 0,4 |
+| Scout, Torpedo zuerst | 78 % | 22 % / 0 % | 3,3 / 3,4 |
+| Scout, Mischung | 78 % | 22 % / 0 % | 4,4 / 2,4 |
+| Scout, Mischung, tankt erst beim letzten Pixel | 10 % | 90 % / 0 % | 2,3 / 1,4 |
+| kennt die ganze Galaxie (obere Grenze) | 97,5 % | 2,5 % / 0 % | 5,8 / 2,1 |
 
-Die Werte stammen aus dieser Simulation: eine Basis, 1 Torpedo, 51 Aktionen, Phaser 16 Energie je Stufe. Mit 2 oder 3 Torpedos war „Torpedo zuerst“ klar am besten und der Phaser fast überflüssig; mit einem Torpedo liegen alle Kampfstile nah beieinander, und jeder gute Spieler setzt beide Waffen ein. Billigere Phaser machten vor allem das ganze Spiel leichter, auch für planlose Spieler. Mit nur einer Basis war die Basis neben einem Klingonen im Sensor zunächst unsichtbar, und die meisten Partien endeten mit leerem Tank; deshalb zeigt der Sensor „Klingone und Basis“ in einer eigenen Farbe. Die Startaufstellung macht kaum einen Unterschied.
+Die Werte stammen aus dieser Simulation: eine Basis, 1 Torpedo, 255 Energie, 51 Aktionen, Phaser 16 Energie je Stufe, Flug 4 je Feld, Sensor 32. Mit 255 statt 200 Energie wurde das Spiel um etwa 10 Punkte leichter; die teureren Flüge und der teurere Sensor gleichen das aus. Mit 2 oder 3 Torpedos war „Torpedo zuerst“ klar am besten und der Phaser fast überflüssig; mit einem Torpedo liegen alle Kampfstile nah beieinander, und jeder gute Spieler setzt beide Waffen ein. Billigere Phaser machten vor allem das ganze Spiel leichter, auch für planlose Spieler. Mit nur einer Basis war die Basis neben einem Klingonen im Sensor zunächst unsichtbar, und die meisten Partien endeten mit leerem Tank; deshalb zeigt der Sensor „Klingone und Basis“ in einer eigenen Farbe. Die Startaufstellung macht kaum einen Unterschied.
 
 ## Wie es gemacht ist
 
@@ -106,9 +106,9 @@ Der 2090 kennt keine indirekte Adressierung und nur eine Rücksprungadresse. 256
 
 - **Galaxie aus zwei Ziffern.** `RND` am Anfang liest den Zähler, der seit RESET läuft. Aus seinen Ziffern D und E entstehen die Klingonen-Reihen D, E, nicht D, nicht E (je ein Bit je Quadrant, zusammen immer 8 Klingonen) und zwei Startwerte, aus denen sich für jeden Quadranten die Sektoren von Klingone, Basis und Sternen ergeben. Die Basis liegt im Quadranten mit der Nummer E. Es gibt 256 verschiedene Galaxien.
 - **Sensorfarbe gerechnet.** Die Farbe des Sensorpixels ist 8 bei einer Basis, sonst 0; ein Klingone addiert 3. So entstehen rot (3), blau (8) und violett (11) ohne zusätzlichen Befehl.
-- **Ein Unterprogramm für alles.** `LQ` (69 Schritte) berechnet zu einem beliebigen Feld den Quadranten und liefert, was auf dem Feld liegt. Flug, Phaser, Sensor und Bild benutzen es alle.
+- **Ein Unterprogramm für alles.** `LQ` (68 Schritte) berechnet zu einem beliebigen Feld den Quadranten und liefert, was auf dem Feld liegt. Flug, Phaser, Sensor und Bild benutzen es alle.
 - **Reihen drehen statt adressieren.** Die vier Klingonen-Reihen liegen in M0-M3. Um Reihe y zu lesen, dreht das Programm die vier Register, bis sie in M0 liegt, und merkt sich den Drehstand.
-- **Energie als Linie.** Der Balken ist ein einziger Linienbefehl der Matrix bis zum Pixel Energie / 25. Die Farben der Zeile setzt das Userscript; das Programm schaltet die Pixel nur an und aus.
+- **Energie als Linie.** Der Balken ist ein einziger Linienbefehl der Matrix bis zum Pixel Energie / 32. Das ist die obere Ziffer der Energie, einmal nach rechts geschoben: zwei Befehle statt einer Schleife. Die Farben der Zeile setzt das Userscript; das Programm schaltet die Pixel nur an und aus.
 - **Kein Blitzen.** Das Bild zeichnet fünf Pixel nacheinander: Stern 1, Basis, Enterprise, Klingone, Stern 2. Fehlt im Quadranten der Klingone oder die Basis, legt das Programm diesen Eintrag auf Stern 2, der zuletzt kommt und ihn übermalt. So bleibt die Schleife gleich lang, und das Schiff behält immer seine Farbe.
 - **Display mit Trennnull.** Vor dem Warten auf die Taste kopiert das Programm Sternzeit, 0 und Torpedos in drei benachbarte Register, die `DISP` dann zeigt.
 - **Keine verschachtelten Aufrufe.** Das Löschen der Matrix läuft direkt in die Routine für Matrixbefehle hinein, statt sie aufzurufen.
