@@ -9,7 +9,7 @@ Star Trek im Stil von 1971 für den Busch Microtronic 2090 mit dem [ESP2090 Stud
 
 Die Galaxie hat 4 x 4 Quadranten zu je 4 x 4 Sektoren und ist ringförmig geschlossen: Wer rechts hinausfliegt, kommt links wieder herein, ebenso oben und unten. Die Matrix zeigt immer nur den Quadranten, in dem die Enterprise gerade steht.
 
-- **Klingonen:** 8, höchstens einer je Quadrant. Sie bewegen sich nicht. Steht die Enterprise in einem Quadranten mit Klingone, schießt er nach jeder Aktion: 0 bis 30 Schaden.
+- **Klingonen:** 8, höchstens einer je Quadrant. Steht die Enterprise in einem Quadranten mit Klingone, schießt er nach jeder Aktion: 0 bis 30 Schaden.
 - **Basis:** genau eine, irgendwo in der Galaxie. Wer hineinfliegt, dockt an: wieder 255 Energie und 1 Torpedo. Die Enterprise bleibt vor der Basis stehen. Am Anfang hat sie ebenfalls 255 Energie und 1 Torpedo.
 - **Sterne:** 2 je Quadrant. Sie halten Flug und Phaser auf.
 - **Start:** Die Enterprise startet in der linken unteren Ecke eines Quadranten der Galaxie.
