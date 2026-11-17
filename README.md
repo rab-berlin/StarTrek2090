@@ -52,7 +52,7 @@ Jeder Zug beginnt mit einer Taste am Microtronic.
 | 0 | Navigation | Richtung, Entfernung 1-F | 4 Energie je Feld | fliegt Feld für Feld, hält vor Stern oder Klingone; in eine Basis = andocken |
 | 1 | Sensor | Richtung | 32 Energie | zeigt den Nachbarquadranten in dieser Richtung und den gegenüberliegenden, bis zur nächsten Aktion. Im Quadranten der Basis stört die Basis den Sensor: dort passiert nichts |
 | 2 | Phaser | Richtung, Energie 1-F | 16 Energie je Stufe | der Strahl fliegt so viele Felder weit und trifft das erste Objekt; einen nahen Klingonen zerstört er mit höherer, einen fernen mit niedrigerer Wahrscheinlichkeit |
-| 3 | Torpedo | – | 1 Torpedo | zerstört den Klingonen im eigenen Quadranten meistens, aber nicht immer; ohne Ziel oder Torpedo geschieht nichts |
+| 3 | Torpedo | – | 1 Torpedo | zerstört den Klingonen im eigenen Quadranten meistens, aber nicht immer; ohne Gegner oder Torpedo geschieht nichts |
 
 Richtungen wie auf dem Tastenfeld:
 
