@@ -116,3 +116,7 @@ Der 2090 kennt keine indirekte Adressierung und nur eine Rücksprungadresse. 256
 ## Geschichte
 
 *Star Trek* schrieb Mike Mayfield 1971 in BASIC: eine Galaxie aus 8 x 8 Quadranten zu je 8 x 8 Sektoren, Klingonen, Sternenbasen, Phaser, Torpedos, Langstreckensensor und eine Sternzeit, bis zu der alle Klingonen zerstört sein müssen. Das Spiel wurde auf vielen Rechnern nachgebaut und gehört zu den bekanntesten Computerspielen der 70er Jahre. Auf dem Microtronic ist die Galaxie auf 4 x 4 x 4 x 4 geschrumpft, und statt eines Bildschirms zeigen 64 LEDs den Quadranten.
+
+---
+
+Ein nicht kommerzielles Fan-Projekt nach dem Computerspiel von 1971; nicht verbunden mit Paramount oder CBS Studios. *Star Trek* und die zugehörigen Namen sind Marken von CBS Studios Inc.
