@@ -651,3 +651,11 @@ phf 2 tq  4 | Allwissend                         Sieg  92.4% Energie   7.6% Zeit
 phf 1 tq  4 | Zufall                             Sieg   0.0% Energie 100.0% Zeit  0.0% | Phaser 0.0 Torpedo 0.0
 phf 1 tq  4 | Sucher ohne Sensor, Phaser zuerst  Sieg  47.3% Energie  52.7% Zeit  0.0% | Phaser 5.6 Torpedo 0.8
 phf 1 tq  4 | Scout gerichtet, tankt erst beim letzten Pixel Sieg   8.4% Energie  91.6% Zeit  0.0% | Phaser 2.0 Torpedo 1.5
+
+== Mehr Galaxien: sK = D + F statt D (F 0-3 je Verlauf), 2 Verlaeufe je Klingonen-Verteilung
+sK = D               | Scout gerichtet, Mischung          Sieg  79.9%
+sK = D + F (F 0-3)   | Scout gerichtet, Mischung          Sieg  80.5%
+sK = D               | Scout gerichtet, Torpedo zuerst    Sieg  82.0%
+sK = D + F (F 0-3)   | Scout gerichtet, Torpedo zuerst    Sieg  81.8%
+sK = D               | Sucher ohne Sensor, Torpedo zuerst Sieg  53.9%
+sK = D + F (F 0-3)   | Sucher ohne Sensor, Torpedo zuerst Sieg  54.3%

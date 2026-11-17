@@ -43,11 +43,11 @@ VEC = {v: k for k, v in DIRS.items()}
 class Sim:
     """Ein Spiel. Galaxie aus D = RD, E = RE beim RUN; Schaden 2 * (0..15)."""
 
-    def __init__(self, D, E, rng, dmg=None, tlimit=52, tmax=1, bases=1, navcost=4, senscost=32, sensbase=True, phcost='l16', emax=255, phf=1, tq=4, roll=None):
+    def __init__(self, D, E, rng, dmg=None, tlimit=52, tmax=1, bases=1, navcost=4, senscost=32, sensbase=True, phcost='l16', emax=255, phf=1, tq=4, roll=None, sK=None):
         self.phf, self.tq = phf, tq                       # Treffer, wenn Zufall 0-15 >= phf * Entfernung bzw. >= tq
         self.roll = roll or (lambda: rng.randrange(16))
         self.tlimit, self.tmax, self.bases, self.navcost, self.senscost = tlimit, tmax, bases, navcost, senscost
-        self.ref = Ref([D, E, D ^ 15, E ^ 15, D, E] + [0] * 10)
+        self.ref = Ref([D, E, D ^ 15, E ^ 15, D if sK is None else sK, E] + [0] * 10)
         self.ref.ONE_BASE = (bases == 1)
         self.phmode = phcost        # Phaserkosten: l16 = 16 je Stufe, f16/f32 = fest, l1 = 1 je Stufe, l8 = 8 je Stufe
         self.sensbase = sensbase      # Sensor zeigt die Basis auch neben einem Klingonen (eigene Farbe)

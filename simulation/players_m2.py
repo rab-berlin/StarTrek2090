@@ -228,10 +228,10 @@ def random_player(sim, rng):
         else: sim.torp()
 
 
-def play(D, E, seed, dmax=15, tlimit=52, tmax=1, bases=1, navcost=4, senscost=32, sensbase=True, phcost='l16', emax=255, phf=1, tq=4, **kw):
+def play(D, E, seed, dmax=15, tlimit=52, tmax=1, bases=1, navcost=4, senscost=32, sensbase=True, phcost='l16', emax=255, phf=1, tq=4, sK=None, **kw):
     rng = random.Random(seed)
     random.seed(seed)
-    s = Sim(D, E, rng, dmg=lambda: 2 * rng.randrange(dmax + 1), tlimit=tlimit, tmax=tmax, bases=bases, navcost=navcost, senscost=senscost, sensbase=sensbase, phcost=phcost, emax=emax, phf=phf, tq=tq)
+    s = Sim(D, E, rng, dmg=lambda: 2 * rng.randrange(dmax + 1), tlimit=tlimit, tmax=tmax, bases=bases, navcost=navcost, senscost=senscost, sensbase=sensbase, phcost=phcost, emax=emax, phf=phf, tq=tq, sK=sK)
     if kw.get('rand'):
         random_player(s, rng)
         return s, None
