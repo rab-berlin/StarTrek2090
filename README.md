@@ -62,7 +62,9 @@ Richtungen wie auf dem Tastenfeld:
 0 1 2
 ```
 
-0 als Entfernung oder Phaser-Energie bricht den Befehl ab, ohne dass Zeit vergeht. Richtung und Entfernung werden nicht angezeigt; erst das neue Bild zeigt, was geschehen ist. Ein Phaser mit F kostet 240 Energie: die Selbstzerstörung für eine hoffnungslose Lage.
+0 als Entfernung oder Phaser-Energie bricht den Befehl ab, ohne dass Zeit vergeht. Richtung und Entfernung werden nicht angezeigt; erst das neue Bild zeigt, was geschehen ist. 
+
+Vorsicht: Ein Phaser mit F kostet 240 Energie - die Selbstzerstörung für eine hoffnungslose Lage.
 
 ## Spieltipps
 
