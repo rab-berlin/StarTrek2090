@@ -631,3 +631,23 @@ Sensor 48 | Scout gerichtet, Torpedo zuerst  Sieg  68.8% Energie  31.2% Zeit  0.
 Sensor 64 | Scout gerichtet, Phaser zuerst   Sieg  49.0% Energie  50.6% Zeit  0.4% | Phaser 4.1 Torpedo 0.4 Scans 3.9
 Sensor 64 | Scout gerichtet, Mischung        Sieg  53.9% Energie  46.1% Zeit  0.0% | Phaser 2.8 Torpedo 2.0 Scans 4.2
 Sensor 64 | Scout gerichtet, Torpedo zuerst  Sieg  57.0% Energie  43.0% Zeit  0.0% | Phaser 1.8 Torpedo 3.2 Scans 4.2
+
+== Fehlschuesse: Phaser trifft bei Zufall 0-15 >= phf * Entfernung, Torpedo bei >= tq (Spiel: phf 1, tq 4); 2 Verlaeufe je Galaxie
+phf 0 tq  0 | Sucher ohne Sensor, Torpedo zuerst Sieg  59.6% Energie  40.4% Zeit  0.0% | Phaser 4.1 Torpedo 2.1
+phf 0 tq  0 | Scout gerichtet, Phaser zuerst     Sieg  78.7% Energie  20.9% Zeit  0.4% | Phaser 6.3 Torpedo 0.4
+phf 0 tq  0 | Scout gerichtet, Mischung          Sieg  85.0% Energie  15.0% Zeit  0.0% | Phaser 4.4 Torpedo 2.6
+phf 0 tq  0 | Scout gerichtet, Torpedo zuerst    Sieg  87.3% Energie  12.7% Zeit  0.0% | Phaser 3.4 Torpedo 3.8
+phf 0 tq  0 | Allwissend                         Sieg  97.7% Energie   2.3% Zeit  0.0% | Phaser 5.8 Torpedo 2.1
+phf 1 tq  4 | Sucher ohne Sensor, Torpedo zuerst Sieg  53.9% Energie  46.1% Zeit  0.0% | Phaser 4.6 Torpedo 2.1
+phf 1 tq  4 | Scout gerichtet, Phaser zuerst     Sieg  75.2% Energie  23.4% Zeit  1.4% | Phaser 6.8 Torpedo 0.5
+phf 1 tq  4 | Scout gerichtet, Mischung          Sieg  79.9% Energie  19.7% Zeit  0.4% | Phaser 5.3 Torpedo 2.7
+phf 1 tq  4 | Scout gerichtet, Torpedo zuerst    Sieg  82.0% Energie  17.6% Zeit  0.4% | Phaser 4.3 Torpedo 4.0
+phf 1 tq  4 | Allwissend                         Sieg  94.3% Energie   5.7% Zeit  0.0% | Phaser 6.7 Torpedo 2.3
+phf 2 tq  4 | Sucher ohne Sensor, Torpedo zuerst Sieg  48.0% Energie  52.0% Zeit  0.0% | Phaser 4.9 Torpedo 2.1
+phf 2 tq  4 | Scout gerichtet, Phaser zuerst     Sieg  68.2% Energie  27.5% Zeit  4.3% | Phaser 7.4 Torpedo 0.6
+phf 2 tq  4 | Scout gerichtet, Mischung          Sieg  74.4% Energie  24.2% Zeit  1.4% | Phaser 5.8 Torpedo 2.7
+phf 2 tq  4 | Scout gerichtet, Torpedo zuerst    Sieg  78.1% Energie  20.7% Zeit  1.2% | Phaser 4.7 Torpedo 4.0
+phf 2 tq  4 | Allwissend                         Sieg  92.4% Energie   7.6% Zeit  0.0% | Phaser 7.5 Torpedo 2.5
+phf 1 tq  4 | Zufall                             Sieg   0.0% Energie 100.0% Zeit  0.0% | Phaser 0.0 Torpedo 0.0
+phf 1 tq  4 | Sucher ohne Sensor, Phaser zuerst  Sieg  47.3% Energie  52.7% Zeit  0.0% | Phaser 5.6 Torpedo 0.8
+phf 1 tq  4 | Scout gerichtet, tankt erst beim letzten Pixel Sieg   8.4% Energie  91.6% Zeit  0.0% | Phaser 2.0 Torpedo 1.5

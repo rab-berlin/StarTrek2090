@@ -43,7 +43,9 @@ VEC = {v: k for k, v in DIRS.items()}
 class Sim:
     """Ein Spiel. Galaxie aus D = RD, E = RE beim RUN; Schaden 2 * (0..15)."""
 
-    def __init__(self, D, E, rng, dmg=None, tlimit=52, tmax=1, bases=1, navcost=4, senscost=32, sensbase=True, phcost='l16', emax=255):
+    def __init__(self, D, E, rng, dmg=None, tlimit=52, tmax=1, bases=1, navcost=4, senscost=32, sensbase=True, phcost='l16', emax=255, phf=1, tq=4, roll=None):
+        self.phf, self.tq = phf, tq                       # Treffer, wenn Zufall 0-15 >= phf * Entfernung bzw. >= tq
+        self.roll = roll or (lambda: rng.randrange(16))
         self.tlimit, self.tmax, self.bases, self.navcost, self.senscost = tlimit, tmax, bases, navcost, senscost
         self.ref = Ref([D, E, D ^ 15, E ^ 15, D, E] + [0] * 10)
         self.ref.ONE_BASE = (bases == 1)
@@ -129,12 +131,15 @@ class Sim:
             self.result = 'energie'; return True
         dx, dy = DIRS[d]
         cx, cy, code = self.x, self.y, 0
-        for _ in range(k):
+        for i in range(k):
             cx, cy = (cx + dx) & 15, (cy + dy) & 15
             code = self.cell(cx, cy)
             if code: break
         self.actions += 1
+        self.last_hit = None
         if code == 15:
+            self.last_hit = self.roll() >= self.phf * (i + 1)
+        if self.last_hit:
             self._kill(cx, cy)
             if self.result: return True
         self._tick()
@@ -145,7 +150,8 @@ class Sim:
         self.sens = None
         self.torps -= 1
         self.actions += 1
-        self._kill(self.x, self.y)
+        self.last_hit = self.roll() >= self.tq
+        if self.last_hit: self._kill(self.x, self.y)
         if not self.result: self._tick()
         return True
 
