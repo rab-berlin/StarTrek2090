@@ -180,7 +180,16 @@ class Player:
             if p:
                 return self.go(p)
         # Sensor?
-        if self.sensor_mode != 'none':
+        if self.sensor_mode == 'dir':
+            best = None
+            for d in (6, 9, 0xA, 8):
+                dx, dy = DIRS[d]
+                unk = [q for q in (((here[0] + dx) & 3, (here[1] + dy) & 3), ((here[0] - dx) & 3, (here[1] - dy) & 3)) if q not in self.qk]
+                if best is None or len(unk) > best[0]: best = (len(unk), d)
+            if best[0] == 2 and s.bar() >= 3:
+                self.stats['sensor'] += 1
+                return s.sensor(best[1])
+        elif self.sensor_mode != 'none':
             row = here[1]
             unknown = [((here[0] + dq) & 3, row) for dq in (-1, 1) if ((here[0] + dq) & 3, row) not in self.qk]
             if unknown and (self.sensor_mode == 'always' or row not in self.scanned_rows) and s.bar() >= 3:
@@ -213,7 +222,7 @@ class Player:
 def random_player(sim, rng):
     while not sim.result:
         r = rng.random()
-        if r < 0.15: sim.sensor()
+        if r < 0.15: sim.sensor(rng.choice(list(DIRS)))
         elif r < 0.4: sim.phaser(rng.choice(list(DIRS)), rng.randrange(1, 4))
         elif r < 0.85: sim.nav(rng.choice(list(DIRS)), rng.randrange(1, 8))
         else: sim.torp()

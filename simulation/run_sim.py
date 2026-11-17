@@ -10,6 +10,10 @@ STRATS = [
     ("Scout, Mischung", dict(sensor='row', torp='smart', refuel=5, bsearch=8)),
     ("Scout, Torpedo zuerst", dict(sensor='row', torp='first', refuel=5, bsearch=8)),
     ("Scout, Mischung, tankt erst beim letzten Pixel", dict(sensor='row', torp='smart', refuel=1, bsearch=8)),
+    ("Scout gerichtet, Phaser zuerst", dict(sensor='dir', torp='need', refuel=5, bsearch=8)),
+    ("Scout gerichtet, Mischung", dict(sensor='dir', torp='smart', refuel=5, bsearch=8)),
+    ("Scout gerichtet, Torpedo zuerst", dict(sensor='dir', torp='first', refuel=5, bsearch=8)),
+    ("Scout gerichtet, tankt erst beim letzten Pixel", dict(sensor='dir', torp='smart', refuel=1, bsearch=8)),
     ("Kenner: Mischung und Gegenzeilen-Regel", dict(sensor='row', torp='smart', refuel=5, bsearch=8, complement=True)),
     ("Allwissend", dict(omni=True, torp='smart', refuel=3)),
 ]

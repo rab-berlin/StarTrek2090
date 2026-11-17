@@ -105,16 +105,17 @@ class Sim:
         self._tick()
         return True
 
-    def sensor(self):
+    def sensor(self, d=6):
         if self.result: return False
         self.energy -= self.senscost
         if self.energy < 0:
             self.result = 'energie'; return True
         qx, qy = self.x >> 2, self.y >> 2
         out = {}
-        for dq in (-1, 1):
-            q = self.ref.quad((qx + dq) & 3, qy)
-            out[(qx + dq) & 3, qy] = ('KB' if self.sensbase and q['base'] else 'K') if q['kal'] else ('B' if q['base'] else '-')
+        dx, dy = DIRS.get(d, (0, 0))
+        for sg in (1, -1):
+            q = self.ref.quad((qx + sg * dx) & 3, (qy + sg * dy) & 3)
+            out[(qx + sg * dx) & 3, (qy + sg * dy) & 3] = ('KB' if self.sensbase and q['base'] else 'K') if q['kal'] else ('B' if q['base'] else '-')
         self.actions += 1
         self._tick()
         self.sens = out
