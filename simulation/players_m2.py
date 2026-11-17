@@ -122,6 +122,7 @@ class Player:
         if moved < n and self.s.energy >= 0:
             bx, by = (s.x + dx) & 15, (s.y + dy) & 15
             if not self.known.get((bx, by)): self.known[bx, by] = 1
+        return True
 
     # ---------- Kampf
     def shots(self, kx, ky):
@@ -147,12 +148,12 @@ class Player:
         e = self.est_energy()
         if self.torp_mode == 'first' and s.torps:
             self.stats['torps'] += 1; return s.torp()
-        if here and e >= 16 * here[1] + 16 * self.margin:
+        if here and e >= s.phcost(here[1]) + 16 * self.margin:
             self.stats['phaser'] += 1; return s.phaser(*here)
         if s.torps and (self.torp_mode == 'smart' or e < 16 * 2 + 16 * self.margin):
             self.stats['torps'] += 1; return s.torp()
         qx, qy = kx >> 2, ky >> 2
-        good = {c for c, v in sh.items() if e >= 16 * v[1] + 16 * self.margin and (c[0] >> 2, c[1] >> 2) == (qx, qy)}
+        good = {c for c, v in sh.items() if e >= s.phcost(v[1]) + 16 * self.margin and (c[0] >> 2, c[1] >> 2) == (qx, qy)}
         p = self.plan(lambda c: c in good) if good else None
         if p:
             return self.go(p)
@@ -218,10 +219,10 @@ def random_player(sim, rng):
         else: sim.torp()
 
 
-def play(D, E, seed, dmax=15, tlimit=52, tmax=2, bases=1, navcost=3, senscost=16, sensbase=True, **kw):
+def play(D, E, seed, dmax=15, tlimit=52, tmax=1, bases=1, navcost=3, senscost=16, sensbase=True, phcost='l16', **kw):
     rng = random.Random(seed)
     random.seed(seed)
-    s = Sim(D, E, rng, dmg=lambda: 2 * rng.randrange(dmax + 1), tlimit=tlimit, tmax=tmax, bases=bases, navcost=navcost, senscost=senscost, sensbase=sensbase)
+    s = Sim(D, E, rng, dmg=lambda: 2 * rng.randrange(dmax + 1), tlimit=tlimit, tmax=tmax, bases=bases, navcost=navcost, senscost=senscost, sensbase=sensbase, phcost=phcost)
     if kw.get('rand'):
         random_player(s, rng)
         return s, None

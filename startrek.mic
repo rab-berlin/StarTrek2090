@@ -13,7 +13,7 @@
 ;   1 Sensor: zeigt die Nachbarquadranten links und rechts bis zur naechsten Aktion; kostet 16 Energie
 ;   2 Phaser: Richtung, Energie 1-F; jede Stufe kostet 16 Energie und reicht 1 Feld weiter;
 ;     trifft das erste Objekt auf dem Weg, nur ein Klingone wird zerstoert
-;   3-F Torpedo: zerstoert den Klingonen im eigenen Quadranten sicher (2 Stueck, Basis fuellt auf 2 auf)
+;   3-F Torpedo: zerstoert den Klingonen im eigenen Quadranten sicher (1 Stueck, Basis fuellt auf 1 auf)
 ; Ein Klingone im eigenen Quadranten feuert nach jeder Aktion (auch nach dem Sensor): 0-30 Energie
 ; Sternzeit: nach 51 Aktionen (Anzeige F, dann Ueberlauf) ist das Spiel verloren.
 ; Basis: genau 1, im Quadranten Q = 4 qy + qx = sB
@@ -38,10 +38,10 @@ F83 ; 07             INV    r3
 0E5 ; 09             MOV    rE,r5         sB = RE
 187 ; 0A             MOVI   8,r7          N = 8 Klingonen
 F0D ; 0B             EXRL
-F0E ; 0C REFILL:     EXRM                 REFILL: Energie 200, 2 Torpedos
+F0E ; 0C REFILL:     EXRM                 REFILL: Energie 200, 1 Torpedo
 188 ; 0D             MOVI   8,r8          Energie C8h = 200
 1C9 ; 0E             MOVI   C,r9
-12C ; 0F             MOVI   2,rC          2 Torpedos
+11C ; 0F             MOVI   1,rC          1 Torpedo
 F0E ; 10             EXRM
 BF4 ; 11 NEND:       CALL   CLR           alle Pixel aus (Farben bleiben)
 F0E ; 12 NL:         EXRM                 Sternzeit: jede Aktion + 5 in RB:RA, nach 52 Zaehlungen Ueberlauf

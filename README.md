@@ -12,7 +12,7 @@ Star Trek im Stil von 1971 für den Busch Microtronic 2090 mit dem [ESP2090 Stud
 Die Galaxie hat 4 x 4 Quadranten zu je 4 x 4 Sektoren und ist ringförmig geschlossen: Wer rechts hinausfliegt, kommt links wieder herein, ebenso oben und unten. Die Matrix zeigt immer nur den Quadranten, in dem die Enterprise gerade steht.
 
 - **Klingonen:** 8, höchstens einer je Quadrant. Sie bewegen sich nicht. Steht die Enterprise in einem Quadranten mit Klingone, schießt er nach jeder Aktion: 0 bis 30 Energie.
-- **Basis:** genau eine, irgendwo in der Galaxie. Wer hineinfliegt, dockt an: wieder 200 Energie und 2 Torpedos. Die Enterprise bleibt vor der Basis stehen. Am Anfang hat sie ebenfalls 200 Energie und 2 Torpedos.
+- **Basis:** genau eine, irgendwo in der Galaxie. Wer hineinfliegt, dockt an: wieder 200 Energie und 1 Torpedo. Die Enterprise bleibt vor der Basis stehen. Am Anfang hat sie ebenfalls 200 Energie und 1 Torpedo.
 - **Sterne:** 2 je Quadrant. Sie halten Flug und Phaser auf.
 - **Start:** Die Enterprise startet in der linken unteren Ecke. Liegt dort ein Stern, verdeckt er sie, bis sie losfliegt (in 16 von 256 Galaxien).
 - **Gewonnen:** alle 8 Klingonen zerstört, das Programm hält an Adresse A2.
@@ -48,7 +48,7 @@ Richtungen wie auf dem Tastenfeld:
 | Matrix, Zeile 7 | Energiebalken, je 25 Energie ein Pixel (8 Pixel = 200). Grün, die letzten beiden rot (unter 50) |
 | Matrix, unten links 4 x 4 | der eigene Quadrant: weiß Enterprise, rot Klingone, blau Basis, gelb Sterne |
 | Matrix, Zeile 1, Spalten 5 und 7 | Sensor: Nachbarquadrant links und rechts, rot Klingone, blau Basis, violett beides, sonst dunkel. Spalte 6 dazwischen ist der eigene Quadrant |
-| Anzeige des Microtronic | beim Warten auf eine Taste drei Ziffern: Sternzeit 0-F, eine trennende 0, Torpedos. `502` heißt Sternzeit 5, 2 Torpedos. Die Sternzeit rückt alle 3 bis 4 Aktionen eins weiter. Nach F läuft die Zeit ab |
+| Anzeige des Microtronic | beim Warten auf eine Taste drei Ziffern: Sternzeit 0-F, eine trennende 0, Torpedos. `501` heißt Sternzeit 5, 1 Torpedo. Die Sternzeit rückt alle 3 bis 4 Aktionen eins weiter. Nach F läuft die Zeit ab |
 
 Die Anzeige ist dunkel, solange die Matrix zeichnet: Mit eingeschalteter Anzeige braucht jeder Befehl 20,5 statt 9,3 ms, und dann schafft die Matrix den Handshake nicht.
 
@@ -68,7 +68,7 @@ Die Zeit zwischen RESET und RUN bestimmt die Galaxie. Neues Spiel: RESET, RUN.
 - Die Klingonen-Reihen der Galaxie sind nicht unabhängig: Von zwei Quadranten derselben Spalte, zwei Galaxiezeilen auseinander, hat genau einer einen Klingonen.
 - Die Basis zuerst suchen. Wer sie kennt, kann rechtzeitig tanken; wer sie erst mit leerem Balken sucht, kommt meist nicht mehr an.
 - Umwege kosten mehr Energie als alles andere. Lieber früh tanken, beim fünften Pixel, als spät.
-- Der Torpedo ist sicher und kostet keine Energie; jede Basis füllt ihn wieder auf.
+- Phaser und Torpedo ergänzen sich: Steht der Klingone in einer der acht Richtungen frei vor der Enterprise, ist der Phaser die erste Wahl. Sonst spart der Torpedo das Anfliegen einer Schussposition unter Feuer. Jede Basis füllt ihn wieder auf.
 
 ## Einstellen
 
@@ -76,7 +76,7 @@ Alle Werte sind Konstanten im Programm und lassen sich ohne zusätzliche Schritt
 
 | Was | Adresse | Befehl | Bedeutung |
 |---|---|---|---|
-| Torpedos bei Start und Andocken | 0F | `12C` (`MOVI 2,C`) | `11C` = 1, `13C` = 3 Torpedos |
+| Torpedos bei Start und Andocken | 0F | `11C` (`MOVI 1,C`) | `12C` = 2, `13C` = 3 Torpedos |
 | Zeitlimit | 13 | `55A` (`ADDI 5,A`) | je Aktion + 5, Ende nach 52 Zählungen (51 Aktionen). `54A` = 63, `56A` = 42 Aktionen |
 | Energie beim Andocken | 0D, 0E | `188`, `1C9` | C8h = 200 |
 | Sensor | 78 | `719` (`SUBI 1,9`) | 1 x 16 Energie |
@@ -86,17 +86,19 @@ Alle Werte sind Konstanten im Programm und lassen sich ohne zusätzliche Schritt
 
 Im Ordner [simulation](simulation) liegt ein Regelmodell des Programms in Python mit Spielerstrategien. Die Spieler sehen nur, was auch ein Mensch sieht: den eigenen Quadranten, das Sensorbild, den Energiebalken in 25er-Stufen, Torpedos und Sternzeit. `python3 run_sim.py 1` spielt jede Strategie in allen 256 Galaxien (einige Sekunden je Strategie); alle Ergebnisse stehen in [sim_ergebnisse.txt](simulation/sim_ergebnisse.txt).
 
-| Strategie | Siege | verloren durch Energie / Zeit |
-|---|---|---|
-| zufällige Tasten | 0 % | 100 % / 0 % |
-| suchen ohne Sensor | 43 % | 45 % / 12 % |
-| Sensor je Zeile, tankt erst beim letzten Pixel | 52 % | 48 % / 0 % |
-| Sensor je Zeile, Torpedo statt Umweg | 67 % | 33 % / 0 % |
-| Sensor je Zeile, sucht zuerst die Basis, tankt beim fünften Pixel | 84 % | 16 % / 0 % |
-| dazu Torpedo zuerst und die Regel der Klingonen-Reihen | 84 % | 16 % / 0 % |
-| kennt die ganze Galaxie (obere Grenze) | 99,6 % | 0,4 % / 0 % |
+Scout heißt hier: Sensor je Galaxiezeile, zuerst die Basis suchen, beim fünften Pixel tanken. Mischung heißt: Phaser, wenn der Klingone in Schusslinie steht, sonst Torpedo.
 
-Die Werte stammen aus dieser Simulation: eine Basis, 2 Torpedos, 51 Aktionen. Mit zwei Basen und 3 Torpedos gewannen sorgfältige Spieler 96 bis 99 %. Mit nur einer Basis war die Basis neben einem Klingonen im Sensor zunächst unsichtbar, und die meisten Partien endeten mit leerem Tank; deshalb zeigt der Sensor „Klingone und Basis“ in einer eigenen Farbe. Die Startaufstellung macht kaum einen Unterschied.
+| Strategie | Siege | verloren durch Energie / Zeit | Schüsse je Partie Phaser / Torpedo |
+|---|---|---|---|
+| zufällige Tasten | 0 % | 100 % / 0 % | – |
+| suchen ohne Sensor | 50 % | 50 % / 0 % | 4,7 / 0,9 |
+| Scout, Phaser zuerst (fliegt Schussposition an) | 73 % | 26 % / 1 % | 6,0 / 0,5 |
+| Scout, Torpedo zuerst | 79 % | 21 % / 0 % | 2,8 / 3,9 |
+| Scout, Mischung | 80 % | 20 % / 0 % | 4,2 / 2,6 |
+| Scout, Mischung, tankt erst beim letzten Pixel | 61 % | 39 % / 0 % | 3,9 / 2,2 |
+| kennt die ganze Galaxie (obere Grenze) | 97,5 % | 2,5 % / 0 % | 5,4 / 2,5 |
+
+Die Werte stammen aus dieser Simulation: eine Basis, 1 Torpedo, 51 Aktionen, Phaser 16 Energie je Stufe. Mit 2 oder 3 Torpedos war „Torpedo zuerst“ klar am besten und der Phaser fast überflüssig; mit einem Torpedo liegen alle Kampfstile nah beieinander, und jeder gute Spieler setzt beide Waffen ein. Billigere Phaser machten vor allem das ganze Spiel leichter, auch für planlose Spieler. Mit nur einer Basis war die Basis neben einem Klingonen im Sensor zunächst unsichtbar, und die meisten Partien endeten mit leerem Tank; deshalb zeigt der Sensor „Klingone und Basis“ in einer eigenen Farbe. Die Startaufstellung macht kaum einen Unterschied.
 
 ## Wie es gemacht ist
 

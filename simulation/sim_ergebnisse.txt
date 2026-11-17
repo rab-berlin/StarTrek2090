@@ -1,3 +1,5 @@
+Hinweis: Die Abschnitte vor "Phaserkosten x Torpedos x Zeit" wurden mit einem Fehler der Simulationsspieler gerechnet (beim Anfliegen einer Schussposition machten sie zwei Zuege auf einmal). Phaser-Strategien schneiden dort zu schlecht ab.
+
 == Strategien, 2 Basen, alte Werte (3 Torpedos, 63 Aktionen), 4 Verlaeufe je Galaxie
 Zufall                               Sieg   0.0%  Energie 100.0%  Zeit   0.0%  haengt  0.0%  Aktionen Q1/Med/Q3 0/0/0  Andocken 0.0  Klingonen uebrig bei Niederlage 7.3  (0s)
 Sucher (ohne Sensor)                 Sieg  84.2%  Energie   5.8%  Zeit  10.1%  haengt  0.0%  Aktionen Q1/Med/Q3 35/41/47  Andocken 4.0  Klingonen uebrig bei Niederlage 3.7  (16s)
@@ -283,7 +285,7 @@ Allwissend                           Sieg  99.6%  Energie   0.4%  Zeit   0.0%  h
 3 Torp | 63 Akt | Flug 2 | SensBasis 1 | Kenner, Torpedo zuerst, sucht Basis sofort Sieg  91.4% Energie   8.6% Zeit   0.0% Median 28.0
 3 Torp | 63 Akt | Flug 2 | SensBasis 1 | Allwissend                                 Sieg  99.6% Energie   0.4% Zeit   0.0% Median 19
 
-== Gewaehlte Werte: 1 Basis, 2 Torpedos, 51 Aktionen, Flug 3, Sensor mit Farbe B; 2 Verlaeufe je Galaxie
+== Damals gewaehlte Werte: 1 Basis, 2 Torpedos, 51 Aktionen, Flug 3, Sensor mit Farbe B; 2 Verlaeufe je Galaxie
 Zufall                               Sieg   0.0%  Energie 100.0%  Zeit   0.0%  haengt  0.0%  Aktionen Q1/Med/Q3 0/0/0  Andocken 0.0  Klingonen uebrig bei Niederlage 7.4  (0s)
 Sucher (ohne Sensor)                 Sieg  42.6%  Energie  45.1%  Zeit  12.3%  haengt  0.0%  Aktionen Q1/Med/Q3 33/38/43  Andocken 3.4  Klingonen uebrig bei Niederlage 4.3  (5s)
 Sucher, Torpedo zuerst               Sieg  62.5%  Energie  37.5%  Zeit   0.0%  haengt  0.0%  Aktionen Q1/Med/Q3 29/32/34  Andocken 2.2  Klingonen uebrig bei Niederlage 4.9  (4s)
@@ -297,3 +299,243 @@ Bester Mensch: Kenner, Torpedo zuerst, tankt bei 5 Sieg  82.8%  Energie  17.2%  
 Scout, sucht Basis sofort, tankt bei 5 Sieg  83.8%  Energie  16.2%  Zeit   0.0%  haengt  0.0%  Aktionen Q1/Med/Q3 31/34/37  Andocken 4.3  Klingonen uebrig bei Niederlage 4.8  (6s)
 Kenner, Torpedo zuerst, sucht Basis sofort Sieg  84.2%  Energie  15.8%  Zeit   0.0%  haengt  0.0%  Aktionen Q1/Med/Q3 28/30/33  Andocken 3.2  Klingonen uebrig bei Niederlage 5.5  (6s)
 Allwissend                           Sieg  99.6%  Energie   0.4%  Zeit   0.0%  haengt  0.0%  Aktionen Q1/Med/Q3 19/20/22  Andocken 2.0  Klingonen uebrig bei Niederlage 3.0  (5s)
+
+== Phaserkosten x Torpedos x Zeit (korrigierte Spieler), 1 Basis, Sensor mit Farbe B, 1 Verlauf je Galaxie
+   l16 = 16 je Stufe, l8 = 8 je Stufe, f16/f32 = fest, l1 = 1 je Stufe
+l16 | 1 Torp | 42 Akt | Sucher ohne Sensor                         Sieg  49.2% Energie  50.8% Zeit   0.0% | Phaser  4.7 Torpedo  0.9
+l16 | 1 Torp | 42 Akt | Scout, Phaser zuerst                       Sieg  49.6% Energie  24.6% Zeit  25.8% | Phaser  5.9 Torpedo  0.5
+l16 | 1 Torp | 42 Akt | Scout, Phaser wenn moeglich, sonst Torpedo Sieg  75.4% Energie  19.5% Zeit   5.1% | Phaser  4.3 Torpedo  2.6
+l16 | 1 Torp | 42 Akt | Scout, Torpedo zuerst                      Sieg  79.7% Energie  18.0% Zeit   2.3% | Phaser  2.9 Torpedo  4.0
+l16 | 1 Torp | 42 Akt | Allwissend                                 Sieg  96.9% Energie   3.1% Zeit   0.0% | Phaser  5.5 Torpedo  2.4
+l16 | 1 Torp | 51 Akt | Sucher ohne Sensor                         Sieg  49.2% Energie  50.8% Zeit   0.0% | Phaser  4.7 Torpedo  0.9
+l16 | 1 Torp | 51 Akt | Scout, Phaser zuerst                       Sieg  74.6% Energie  24.6% Zeit   0.8% | Phaser  6.1 Torpedo  0.5
+l16 | 1 Torp | 51 Akt | Scout, Phaser wenn moeglich, sonst Torpedo Sieg  80.5% Energie  19.5% Zeit   0.0% | Phaser  4.3 Torpedo  2.6
+l16 | 1 Torp | 51 Akt | Scout, Torpedo zuerst                      Sieg  82.0% Energie  18.0% Zeit   0.0% | Phaser  2.9 Torpedo  4.0
+l16 | 1 Torp | 51 Akt | Allwissend                                 Sieg  96.9% Energie   3.1% Zeit   0.0% | Phaser  5.5 Torpedo  2.4
+l16 | 1 Torp | 63 Akt | Sucher ohne Sensor                         Sieg  49.2% Energie  50.8% Zeit   0.0% | Phaser  4.7 Torpedo  0.9
+l16 | 1 Torp | 63 Akt | Scout, Phaser zuerst                       Sieg  75.4% Energie  24.6% Zeit   0.0% | Phaser  6.1 Torpedo  0.5
+l16 | 1 Torp | 63 Akt | Scout, Phaser wenn moeglich, sonst Torpedo Sieg  80.5% Energie  19.5% Zeit   0.0% | Phaser  4.3 Torpedo  2.6
+l16 | 1 Torp | 63 Akt | Scout, Torpedo zuerst                      Sieg  82.0% Energie  18.0% Zeit   0.0% | Phaser  2.9 Torpedo  4.0
+l16 | 1 Torp | 63 Akt | Allwissend                                 Sieg  96.9% Energie   3.1% Zeit   0.0% | Phaser  5.5 Torpedo  2.4
+l16 | 2 Torp | 42 Akt | Sucher ohne Sensor                         Sieg  50.4% Energie  49.6% Zeit   0.0% | Phaser  4.6 Torpedo  1.3
+l16 | 2 Torp | 42 Akt | Scout, Phaser zuerst                       Sieg  51.6% Energie  23.4% Zeit  25.0% | Phaser  5.8 Torpedo  0.8
+l16 | 2 Torp | 42 Akt | Scout, Phaser wenn moeglich, sonst Torpedo Sieg  80.9% Energie  17.2% Zeit   2.0% | Phaser  3.7 Torpedo  3.4
+l16 | 2 Torp | 42 Akt | Scout, Torpedo zuerst                      Sieg  87.1% Energie  12.9% Zeit   0.0% | Phaser  0.9 Torpedo  6.5
+l16 | 2 Torp | 42 Akt | Allwissend                                 Sieg  98.0% Energie   2.0% Zeit   0.0% | Phaser  4.5 Torpedo  3.4
+l16 | 2 Torp | 51 Akt | Sucher ohne Sensor                         Sieg  50.4% Energie  49.6% Zeit   0.0% | Phaser  4.6 Torpedo  1.3
+l16 | 2 Torp | 51 Akt | Scout, Phaser zuerst                       Sieg  75.8% Energie  23.4% Zeit   0.8% | Phaser  6.1 Torpedo  0.8
+l16 | 2 Torp | 51 Akt | Scout, Phaser wenn moeglich, sonst Torpedo Sieg  82.8% Energie  17.2% Zeit   0.0% | Phaser  3.7 Torpedo  3.4
+l16 | 2 Torp | 51 Akt | Scout, Torpedo zuerst                      Sieg  87.1% Energie  12.9% Zeit   0.0% | Phaser  0.9 Torpedo  6.5
+l16 | 2 Torp | 51 Akt | Allwissend                                 Sieg  98.0% Energie   2.0% Zeit   0.0% | Phaser  4.5 Torpedo  3.4
+l16 | 2 Torp | 63 Akt | Sucher ohne Sensor                         Sieg  50.4% Energie  49.6% Zeit   0.0% | Phaser  4.6 Torpedo  1.3
+l16 | 2 Torp | 63 Akt | Scout, Phaser zuerst                       Sieg  76.6% Energie  23.4% Zeit   0.0% | Phaser  6.1 Torpedo  0.8
+l16 | 2 Torp | 63 Akt | Scout, Phaser wenn moeglich, sonst Torpedo Sieg  82.8% Energie  17.2% Zeit   0.0% | Phaser  3.7 Torpedo  3.4
+l16 | 2 Torp | 63 Akt | Scout, Torpedo zuerst                      Sieg  87.1% Energie  12.9% Zeit   0.0% | Phaser  0.9 Torpedo  6.5
+l16 | 2 Torp | 63 Akt | Allwissend                                 Sieg  98.0% Energie   2.0% Zeit   0.0% | Phaser  4.5 Torpedo  3.4
+l16 | 3 Torp | 42 Akt | Sucher ohne Sensor                         Sieg  50.8% Energie  49.2% Zeit   0.0% | Phaser  4.6 Torpedo  1.5
+l16 | 3 Torp | 42 Akt | Scout, Phaser zuerst                       Sieg  52.0% Energie  23.0% Zeit  25.0% | Phaser  5.8 Torpedo  0.8
+l16 | 3 Torp | 42 Akt | Scout, Phaser wenn moeglich, sonst Torpedo Sieg  82.4% Energie  15.6% Zeit   2.0% | Phaser  3.6 Torpedo  3.7
+l16 | 3 Torp | 42 Akt | Scout, Torpedo zuerst                      Sieg  91.4% Energie   8.6% Zeit   0.0% | Phaser  0.1 Torpedo  7.5
+l16 | 3 Torp | 42 Akt | Allwissend                                 Sieg 100.0% Energie   0.0% Zeit   0.0% | Phaser  4.1 Torpedo  3.9
+l16 | 3 Torp | 51 Akt | Sucher ohne Sensor                         Sieg  50.8% Energie  49.2% Zeit   0.0% | Phaser  4.6 Torpedo  1.5
+l16 | 3 Torp | 51 Akt | Scout, Phaser zuerst                       Sieg  76.2% Energie  23.0% Zeit   0.8% | Phaser  6.1 Torpedo  0.8
+l16 | 3 Torp | 51 Akt | Scout, Phaser wenn moeglich, sonst Torpedo Sieg  84.4% Energie  15.6% Zeit   0.0% | Phaser  3.6 Torpedo  3.7
+l16 | 3 Torp | 51 Akt | Scout, Torpedo zuerst                      Sieg  91.4% Energie   8.6% Zeit   0.0% | Phaser  0.1 Torpedo  7.5
+l16 | 3 Torp | 51 Akt | Allwissend                                 Sieg 100.0% Energie   0.0% Zeit   0.0% | Phaser  4.1 Torpedo  3.9
+l16 | 3 Torp | 63 Akt | Sucher ohne Sensor                         Sieg  50.8% Energie  49.2% Zeit   0.0% | Phaser  4.6 Torpedo  1.5
+l16 | 3 Torp | 63 Akt | Scout, Phaser zuerst                       Sieg  77.0% Energie  23.0% Zeit   0.0% | Phaser  6.1 Torpedo  0.8
+l16 | 3 Torp | 63 Akt | Scout, Phaser wenn moeglich, sonst Torpedo Sieg  84.4% Energie  15.6% Zeit   0.0% | Phaser  3.6 Torpedo  3.7
+l16 | 3 Torp | 63 Akt | Scout, Torpedo zuerst                      Sieg  91.4% Energie   8.6% Zeit   0.0% | Phaser  0.1 Torpedo  7.5
+l16 | 3 Torp | 63 Akt | Allwissend                                 Sieg 100.0% Energie   0.0% Zeit   0.0% | Phaser  4.1 Torpedo  3.9
+l8  | 1 Torp | 42 Akt | Sucher ohne Sensor                         Sieg  58.2% Energie  41.8% Zeit   0.0% | Phaser  5.6 Torpedo  0.7
+l8  | 1 Torp | 42 Akt | Scout, Phaser zuerst                       Sieg  58.2% Energie  22.3% Zeit  19.5% | Phaser  6.3 Torpedo  0.4
+l8  | 1 Torp | 42 Akt | Scout, Phaser wenn moeglich, sonst Torpedo Sieg  84.0% Energie  14.5% Zeit   1.6% | Phaser  4.5 Torpedo  2.7
+l8  | 1 Torp | 42 Akt | Scout, Torpedo zuerst                      Sieg  84.0% Energie  14.1% Zeit   2.0% | Phaser  3.2 Torpedo  4.0
+l8  | 1 Torp | 42 Akt | Allwissend                                 Sieg  99.2% Energie   0.8% Zeit   0.0% | Phaser  5.7 Torpedo  2.2
+l8  | 1 Torp | 51 Akt | Sucher ohne Sensor                         Sieg  58.2% Energie  41.8% Zeit   0.0% | Phaser  5.6 Torpedo  0.7
+l8  | 1 Torp | 51 Akt | Scout, Phaser zuerst                       Sieg  77.7% Energie  22.3% Zeit   0.0% | Phaser  6.5 Torpedo  0.4
+l8  | 1 Torp | 51 Akt | Scout, Phaser wenn moeglich, sonst Torpedo Sieg  85.5% Energie  14.5% Zeit   0.0% | Phaser  4.6 Torpedo  2.7
+l8  | 1 Torp | 51 Akt | Scout, Torpedo zuerst                      Sieg  85.9% Energie  14.1% Zeit   0.0% | Phaser  3.2 Torpedo  4.0
+l8  | 1 Torp | 51 Akt | Allwissend                                 Sieg  99.2% Energie   0.8% Zeit   0.0% | Phaser  5.7 Torpedo  2.2
+l8  | 1 Torp | 63 Akt | Sucher ohne Sensor                         Sieg  58.2% Energie  41.8% Zeit   0.0% | Phaser  5.6 Torpedo  0.7
+l8  | 1 Torp | 63 Akt | Scout, Phaser zuerst                       Sieg  77.7% Energie  22.3% Zeit   0.0% | Phaser  6.5 Torpedo  0.4
+l8  | 1 Torp | 63 Akt | Scout, Phaser wenn moeglich, sonst Torpedo Sieg  85.5% Energie  14.5% Zeit   0.0% | Phaser  4.6 Torpedo  2.7
+l8  | 1 Torp | 63 Akt | Scout, Torpedo zuerst                      Sieg  85.9% Energie  14.1% Zeit   0.0% | Phaser  3.2 Torpedo  4.0
+l8  | 1 Torp | 63 Akt | Allwissend                                 Sieg  99.2% Energie   0.8% Zeit   0.0% | Phaser  5.7 Torpedo  2.2
+l8  | 2 Torp | 42 Akt | Sucher ohne Sensor                         Sieg  60.5% Energie  39.5% Zeit   0.0% | Phaser  5.6 Torpedo  1.1
+l8  | 2 Torp | 42 Akt | Scout, Phaser zuerst                       Sieg  59.8% Energie  21.1% Zeit  19.1% | Phaser  6.3 Torpedo  0.6
+l8  | 2 Torp | 42 Akt | Scout, Phaser wenn moeglich, sonst Torpedo Sieg  88.3% Energie  10.5% Zeit   1.2% | Phaser  4.0 Torpedo  3.5
+l8  | 2 Torp | 42 Akt | Scout, Torpedo zuerst                      Sieg  90.6% Energie   9.4% Zeit   0.0% | Phaser  0.9 Torpedo  6.6
+l8  | 2 Torp | 42 Akt | Allwissend                                 Sieg  98.4% Energie   1.6% Zeit   0.0% | Phaser  4.8 Torpedo  3.1
+l8  | 2 Torp | 51 Akt | Sucher ohne Sensor                         Sieg  60.5% Energie  39.5% Zeit   0.0% | Phaser  5.6 Torpedo  1.1
+l8  | 2 Torp | 51 Akt | Scout, Phaser zuerst                       Sieg  78.9% Energie  21.1% Zeit   0.0% | Phaser  6.5 Torpedo  0.6
+l8  | 2 Torp | 51 Akt | Scout, Phaser wenn moeglich, sonst Torpedo Sieg  89.5% Energie  10.5% Zeit   0.0% | Phaser  4.0 Torpedo  3.5
+l8  | 2 Torp | 51 Akt | Scout, Torpedo zuerst                      Sieg  90.6% Energie   9.4% Zeit   0.0% | Phaser  0.9 Torpedo  6.6
+l8  | 2 Torp | 51 Akt | Allwissend                                 Sieg  98.4% Energie   1.6% Zeit   0.0% | Phaser  4.8 Torpedo  3.1
+l8  | 2 Torp | 63 Akt | Sucher ohne Sensor                         Sieg  60.5% Energie  39.5% Zeit   0.0% | Phaser  5.6 Torpedo  1.1
+l8  | 2 Torp | 63 Akt | Scout, Phaser zuerst                       Sieg  78.9% Energie  21.1% Zeit   0.0% | Phaser  6.5 Torpedo  0.6
+l8  | 2 Torp | 63 Akt | Scout, Phaser wenn moeglich, sonst Torpedo Sieg  89.5% Energie  10.5% Zeit   0.0% | Phaser  4.0 Torpedo  3.5
+l8  | 2 Torp | 63 Akt | Scout, Torpedo zuerst                      Sieg  90.6% Energie   9.4% Zeit   0.0% | Phaser  0.9 Torpedo  6.6
+l8  | 2 Torp | 63 Akt | Allwissend                                 Sieg  98.4% Energie   1.6% Zeit   0.0% | Phaser  4.8 Torpedo  3.1
+l8  | 3 Torp | 42 Akt | Sucher ohne Sensor                         Sieg  61.3% Energie  38.7% Zeit   0.0% | Phaser  5.6 Torpedo  1.2
+l8  | 3 Torp | 42 Akt | Scout, Phaser zuerst                       Sieg  59.8% Energie  21.1% Zeit  19.1% | Phaser  6.3 Torpedo  0.6
+l8  | 3 Torp | 42 Akt | Scout, Phaser wenn moeglich, sonst Torpedo Sieg  89.1% Energie  10.2% Zeit   0.8% | Phaser  3.9 Torpedo  3.7
+l8  | 3 Torp | 42 Akt | Scout, Torpedo zuerst                      Sieg  91.4% Energie   8.6% Zeit   0.0% | Phaser  0.1 Torpedo  7.5
+l8  | 3 Torp | 42 Akt | Allwissend                                 Sieg 100.0% Energie   0.0% Zeit   0.0% | Phaser  4.3 Torpedo  3.7
+l8  | 3 Torp | 51 Akt | Sucher ohne Sensor                         Sieg  61.3% Energie  38.7% Zeit   0.0% | Phaser  5.6 Torpedo  1.2
+l8  | 3 Torp | 51 Akt | Scout, Phaser zuerst                       Sieg  78.9% Energie  21.1% Zeit   0.0% | Phaser  6.5 Torpedo  0.6
+l8  | 3 Torp | 51 Akt | Scout, Phaser wenn moeglich, sonst Torpedo Sieg  89.8% Energie  10.2% Zeit   0.0% | Phaser  3.9 Torpedo  3.7
+l8  | 3 Torp | 51 Akt | Scout, Torpedo zuerst                      Sieg  91.4% Energie   8.6% Zeit   0.0% | Phaser  0.1 Torpedo  7.5
+l8  | 3 Torp | 51 Akt | Allwissend                                 Sieg 100.0% Energie   0.0% Zeit   0.0% | Phaser  4.3 Torpedo  3.7
+l8  | 3 Torp | 63 Akt | Sucher ohne Sensor                         Sieg  61.3% Energie  38.7% Zeit   0.0% | Phaser  5.6 Torpedo  1.2
+l8  | 3 Torp | 63 Akt | Scout, Phaser zuerst                       Sieg  78.9% Energie  21.1% Zeit   0.0% | Phaser  6.5 Torpedo  0.6
+l8  | 3 Torp | 63 Akt | Scout, Phaser wenn moeglich, sonst Torpedo Sieg  89.8% Energie  10.2% Zeit   0.0% | Phaser  3.9 Torpedo  3.7
+l8  | 3 Torp | 63 Akt | Scout, Torpedo zuerst                      Sieg  91.4% Energie   8.6% Zeit   0.0% | Phaser  0.1 Torpedo  7.5
+l8  | 3 Torp | 63 Akt | Allwissend                                 Sieg 100.0% Energie   0.0% Zeit   0.0% | Phaser  4.3 Torpedo  3.7
+f16 | 1 Torp | 42 Akt | Sucher ohne Sensor                         Sieg  56.6% Energie  43.4% Zeit   0.0% | Phaser  5.6 Torpedo  0.7
+f16 | 1 Torp | 42 Akt | Scout, Phaser zuerst                       Sieg  57.0% Energie  21.1% Zeit  21.9% | Phaser  6.3 Torpedo  0.4
+f16 | 1 Torp | 42 Akt | Scout, Phaser wenn moeglich, sonst Torpedo Sieg  83.2% Energie  13.7% Zeit   3.1% | Phaser  4.6 Torpedo  2.6
+f16 | 1 Torp | 42 Akt | Scout, Torpedo zuerst                      Sieg  84.0% Energie  14.5% Zeit   1.6% | Phaser  3.1 Torpedo  4.0
+f16 | 1 Torp | 42 Akt | Allwissend                                 Sieg  99.6% Energie   0.4% Zeit   0.0% | Phaser  5.8 Torpedo  2.2
+f16 | 1 Torp | 51 Akt | Sucher ohne Sensor                         Sieg  56.6% Energie  43.4% Zeit   0.0% | Phaser  5.6 Torpedo  0.7
+f16 | 1 Torp | 51 Akt | Scout, Phaser zuerst                       Sieg  78.1% Energie  21.1% Zeit   0.8% | Phaser  6.6 Torpedo  0.4
+f16 | 1 Torp | 51 Akt | Scout, Phaser wenn moeglich, sonst Torpedo Sieg  86.3% Energie  13.7% Zeit   0.0% | Phaser  4.6 Torpedo  2.6
+f16 | 1 Torp | 51 Akt | Scout, Torpedo zuerst                      Sieg  85.5% Energie  14.5% Zeit   0.0% | Phaser  3.1 Torpedo  4.1
+f16 | 1 Torp | 51 Akt | Allwissend                                 Sieg  99.6% Energie   0.4% Zeit   0.0% | Phaser  5.8 Torpedo  2.2
+f16 | 1 Torp | 63 Akt | Sucher ohne Sensor                         Sieg  56.6% Energie  43.4% Zeit   0.0% | Phaser  5.6 Torpedo  0.7
+f16 | 1 Torp | 63 Akt | Scout, Phaser zuerst                       Sieg  78.9% Energie  21.1% Zeit   0.0% | Phaser  6.6 Torpedo  0.4
+f16 | 1 Torp | 63 Akt | Scout, Phaser wenn moeglich, sonst Torpedo Sieg  86.3% Energie  13.7% Zeit   0.0% | Phaser  4.6 Torpedo  2.6
+f16 | 1 Torp | 63 Akt | Scout, Torpedo zuerst                      Sieg  85.5% Energie  14.5% Zeit   0.0% | Phaser  3.1 Torpedo  4.1
+f16 | 1 Torp | 63 Akt | Allwissend                                 Sieg  99.6% Energie   0.4% Zeit   0.0% | Phaser  5.8 Torpedo  2.2
+f16 | 2 Torp | 42 Akt | Sucher ohne Sensor                         Sieg  57.4% Energie  42.6% Zeit   0.0% | Phaser  5.5 Torpedo  1.0
+f16 | 2 Torp | 42 Akt | Scout, Phaser zuerst                       Sieg  58.6% Energie  19.5% Zeit  21.9% | Phaser  6.4 Torpedo  0.5
+f16 | 2 Torp | 42 Akt | Scout, Phaser wenn moeglich, sonst Torpedo Sieg  86.3% Energie  11.7% Zeit   2.0% | Phaser  4.0 Torpedo  3.4
+f16 | 2 Torp | 42 Akt | Scout, Torpedo zuerst                      Sieg  89.8% Energie  10.2% Zeit   0.0% | Phaser  0.9 Torpedo  6.5
+f16 | 2 Torp | 42 Akt | Allwissend                                 Sieg  99.2% Energie   0.8% Zeit   0.0% | Phaser  4.8 Torpedo  3.1
+f16 | 2 Torp | 51 Akt | Sucher ohne Sensor                         Sieg  57.4% Energie  42.6% Zeit   0.0% | Phaser  5.5 Torpedo  1.0
+f16 | 2 Torp | 51 Akt | Scout, Phaser zuerst                       Sieg  79.7% Energie  19.5% Zeit   0.8% | Phaser  6.6 Torpedo  0.5
+f16 | 2 Torp | 51 Akt | Scout, Phaser wenn moeglich, sonst Torpedo Sieg  88.3% Energie  11.7% Zeit   0.0% | Phaser  4.0 Torpedo  3.4
+f16 | 2 Torp | 51 Akt | Scout, Torpedo zuerst                      Sieg  89.8% Energie  10.2% Zeit   0.0% | Phaser  0.9 Torpedo  6.5
+f16 | 2 Torp | 51 Akt | Allwissend                                 Sieg  99.2% Energie   0.8% Zeit   0.0% | Phaser  4.8 Torpedo  3.1
+f16 | 2 Torp | 63 Akt | Sucher ohne Sensor                         Sieg  57.4% Energie  42.6% Zeit   0.0% | Phaser  5.5 Torpedo  1.0
+f16 | 2 Torp | 63 Akt | Scout, Phaser zuerst                       Sieg  80.5% Energie  19.5% Zeit   0.0% | Phaser  6.6 Torpedo  0.5
+f16 | 2 Torp | 63 Akt | Scout, Phaser wenn moeglich, sonst Torpedo Sieg  88.3% Energie  11.7% Zeit   0.0% | Phaser  4.0 Torpedo  3.4
+f16 | 2 Torp | 63 Akt | Scout, Torpedo zuerst                      Sieg  89.8% Energie  10.2% Zeit   0.0% | Phaser  0.9 Torpedo  6.5
+f16 | 2 Torp | 63 Akt | Allwissend                                 Sieg  99.2% Energie   0.8% Zeit   0.0% | Phaser  4.8 Torpedo  3.1
+f16 | 3 Torp | 42 Akt | Sucher ohne Sensor                         Sieg  57.4% Energie  42.6% Zeit   0.0% | Phaser  5.5 Torpedo  1.1
+f16 | 3 Torp | 42 Akt | Scout, Phaser zuerst                       Sieg  59.0% Energie  19.1% Zeit  21.9% | Phaser  6.4 Torpedo  0.6
+f16 | 3 Torp | 42 Akt | Scout, Phaser wenn moeglich, sonst Torpedo Sieg  87.1% Energie  10.9% Zeit   2.0% | Phaser  3.9 Torpedo  3.6
+f16 | 3 Torp | 42 Akt | Scout, Torpedo zuerst                      Sieg  91.4% Energie   8.6% Zeit   0.0% | Phaser  0.1 Torpedo  7.5
+f16 | 3 Torp | 42 Akt | Allwissend                                 Sieg 100.0% Energie   0.0% Zeit   0.0% | Phaser  4.4 Torpedo  3.6
+f16 | 3 Torp | 51 Akt | Sucher ohne Sensor                         Sieg  57.4% Energie  42.6% Zeit   0.0% | Phaser  5.5 Torpedo  1.1
+f16 | 3 Torp | 51 Akt | Scout, Phaser zuerst                       Sieg  80.1% Energie  19.1% Zeit   0.8% | Phaser  6.6 Torpedo  0.6
+f16 | 3 Torp | 51 Akt | Scout, Phaser wenn moeglich, sonst Torpedo Sieg  89.1% Energie  10.9% Zeit   0.0% | Phaser  3.9 Torpedo  3.6
+f16 | 3 Torp | 51 Akt | Scout, Torpedo zuerst                      Sieg  91.4% Energie   8.6% Zeit   0.0% | Phaser  0.1 Torpedo  7.5
+f16 | 3 Torp | 51 Akt | Allwissend                                 Sieg 100.0% Energie   0.0% Zeit   0.0% | Phaser  4.4 Torpedo  3.6
+f16 | 3 Torp | 63 Akt | Sucher ohne Sensor                         Sieg  57.4% Energie  42.6% Zeit   0.0% | Phaser  5.5 Torpedo  1.1
+f16 | 3 Torp | 63 Akt | Scout, Phaser zuerst                       Sieg  80.9% Energie  19.1% Zeit   0.0% | Phaser  6.6 Torpedo  0.6
+f16 | 3 Torp | 63 Akt | Scout, Phaser wenn moeglich, sonst Torpedo Sieg  89.1% Energie  10.9% Zeit   0.0% | Phaser  3.9 Torpedo  3.6
+f16 | 3 Torp | 63 Akt | Scout, Torpedo zuerst                      Sieg  91.4% Energie   8.6% Zeit   0.0% | Phaser  0.1 Torpedo  7.5
+f16 | 3 Torp | 63 Akt | Allwissend                                 Sieg 100.0% Energie   0.0% Zeit   0.0% | Phaser  4.4 Torpedo  3.6
+f32 | 1 Torp | 42 Akt | Sucher ohne Sensor                         Sieg  50.8% Energie  49.2% Zeit   0.0% | Phaser  4.6 Torpedo  1.0
+f32 | 1 Torp | 42 Akt | Scout, Phaser zuerst                       Sieg  42.2% Energie  28.1% Zeit  29.7% | Phaser  5.7 Torpedo  0.5
+f32 | 1 Torp | 42 Akt | Scout, Phaser wenn moeglich, sonst Torpedo Sieg  78.5% Energie  18.4% Zeit   3.1% | Phaser  4.3 Torpedo  2.6
+f32 | 1 Torp | 42 Akt | Scout, Torpedo zuerst                      Sieg  82.0% Energie  16.8% Zeit   1.2% | Phaser  2.9 Torpedo  4.1
+f32 | 1 Torp | 42 Akt | Allwissend                                 Sieg  98.8% Energie   1.2% Zeit   0.0% | Phaser  5.4 Torpedo  2.5
+f32 | 1 Torp | 51 Akt | Sucher ohne Sensor                         Sieg  50.8% Energie  49.2% Zeit   0.0% | Phaser  4.6 Torpedo  1.0
+f32 | 1 Torp | 51 Akt | Scout, Phaser zuerst                       Sieg  71.1% Energie  28.1% Zeit   0.8% | Phaser  6.0 Torpedo  0.5
+f32 | 1 Torp | 51 Akt | Scout, Phaser wenn moeglich, sonst Torpedo Sieg  81.6% Energie  18.4% Zeit   0.0% | Phaser  4.3 Torpedo  2.6
+f32 | 1 Torp | 51 Akt | Scout, Torpedo zuerst                      Sieg  83.2% Energie  16.8% Zeit   0.0% | Phaser  2.9 Torpedo  4.1
+f32 | 1 Torp | 51 Akt | Allwissend                                 Sieg  98.8% Energie   1.2% Zeit   0.0% | Phaser  5.4 Torpedo  2.5
+f32 | 1 Torp | 63 Akt | Sucher ohne Sensor                         Sieg  50.8% Energie  49.2% Zeit   0.0% | Phaser  4.6 Torpedo  1.0
+f32 | 1 Torp | 63 Akt | Scout, Phaser zuerst                       Sieg  71.9% Energie  28.1% Zeit   0.0% | Phaser  6.0 Torpedo  0.5
+f32 | 1 Torp | 63 Akt | Scout, Phaser wenn moeglich, sonst Torpedo Sieg  81.6% Energie  18.4% Zeit   0.0% | Phaser  4.3 Torpedo  2.6
+f32 | 1 Torp | 63 Akt | Scout, Torpedo zuerst                      Sieg  83.2% Energie  16.8% Zeit   0.0% | Phaser  2.9 Torpedo  4.1
+f32 | 1 Torp | 63 Akt | Allwissend                                 Sieg  98.8% Energie   1.2% Zeit   0.0% | Phaser  5.4 Torpedo  2.5
+f32 | 2 Torp | 42 Akt | Sucher ohne Sensor                         Sieg  51.2% Energie  48.8% Zeit   0.0% | Phaser  4.5 Torpedo  1.5
+f32 | 2 Torp | 42 Akt | Scout, Phaser zuerst                       Sieg  44.5% Energie  27.0% Zeit  28.5% | Phaser  5.6 Torpedo  0.8
+f32 | 2 Torp | 42 Akt | Scout, Phaser wenn moeglich, sonst Torpedo Sieg  81.6% Energie  17.2% Zeit   1.2% | Phaser  3.7 Torpedo  3.4
+f32 | 2 Torp | 42 Akt | Scout, Torpedo zuerst                      Sieg  89.1% Energie  10.9% Zeit   0.0% | Phaser  0.8 Torpedo  6.6
+f32 | 2 Torp | 42 Akt | Allwissend                                 Sieg  99.2% Energie   0.8% Zeit   0.0% | Phaser  4.5 Torpedo  3.4
+f32 | 2 Torp | 51 Akt | Sucher ohne Sensor                         Sieg  51.2% Energie  48.8% Zeit   0.0% | Phaser  4.5 Torpedo  1.5
+f32 | 2 Torp | 51 Akt | Scout, Phaser zuerst                       Sieg  72.3% Energie  27.0% Zeit   0.8% | Phaser  5.9 Torpedo  0.8
+f32 | 2 Torp | 51 Akt | Scout, Phaser wenn moeglich, sonst Torpedo Sieg  82.8% Energie  17.2% Zeit   0.0% | Phaser  3.7 Torpedo  3.4
+f32 | 2 Torp | 51 Akt | Scout, Torpedo zuerst                      Sieg  89.1% Energie  10.9% Zeit   0.0% | Phaser  0.8 Torpedo  6.6
+f32 | 2 Torp | 51 Akt | Allwissend                                 Sieg  99.2% Energie   0.8% Zeit   0.0% | Phaser  4.5 Torpedo  3.4
+f32 | 2 Torp | 63 Akt | Sucher ohne Sensor                         Sieg  51.2% Energie  48.8% Zeit   0.0% | Phaser  4.5 Torpedo  1.5
+f32 | 2 Torp | 63 Akt | Scout, Phaser zuerst                       Sieg  73.0% Energie  27.0% Zeit   0.0% | Phaser  6.0 Torpedo  0.8
+f32 | 2 Torp | 63 Akt | Scout, Phaser wenn moeglich, sonst Torpedo Sieg  82.8% Energie  17.2% Zeit   0.0% | Phaser  3.7 Torpedo  3.4
+f32 | 2 Torp | 63 Akt | Scout, Torpedo zuerst                      Sieg  89.1% Energie  10.9% Zeit   0.0% | Phaser  0.8 Torpedo  6.6
+f32 | 2 Torp | 63 Akt | Allwissend                                 Sieg  99.2% Energie   0.8% Zeit   0.0% | Phaser  4.5 Torpedo  3.4
+f32 | 3 Torp | 42 Akt | Sucher ohne Sensor                         Sieg  51.2% Energie  48.8% Zeit   0.0% | Phaser  4.4 Torpedo  1.7
+f32 | 3 Torp | 42 Akt | Scout, Phaser zuerst                       Sieg  44.9% Energie  26.6% Zeit  28.5% | Phaser  5.7 Torpedo  0.9
+f32 | 3 Torp | 42 Akt | Scout, Phaser wenn moeglich, sonst Torpedo Sieg  82.8% Energie  16.0% Zeit   1.2% | Phaser  3.6 Torpedo  3.7
+f32 | 3 Torp | 42 Akt | Scout, Torpedo zuerst                      Sieg  92.6% Energie   7.4% Zeit   0.0% | Phaser  0.1 Torpedo  7.5
+f32 | 3 Torp | 42 Akt | Allwissend                                 Sieg 100.0% Energie   0.0% Zeit   0.0% | Phaser  4.2 Torpedo  3.8
+f32 | 3 Torp | 51 Akt | Sucher ohne Sensor                         Sieg  51.2% Energie  48.8% Zeit   0.0% | Phaser  4.4 Torpedo  1.7
+f32 | 3 Torp | 51 Akt | Scout, Phaser zuerst                       Sieg  72.7% Energie  26.6% Zeit   0.8% | Phaser  6.0 Torpedo  0.9
+f32 | 3 Torp | 51 Akt | Scout, Phaser wenn moeglich, sonst Torpedo Sieg  84.0% Energie  16.0% Zeit   0.0% | Phaser  3.6 Torpedo  3.7
+f32 | 3 Torp | 51 Akt | Scout, Torpedo zuerst                      Sieg  92.6% Energie   7.4% Zeit   0.0% | Phaser  0.1 Torpedo  7.5
+f32 | 3 Torp | 51 Akt | Allwissend                                 Sieg 100.0% Energie   0.0% Zeit   0.0% | Phaser  4.2 Torpedo  3.8
+f32 | 3 Torp | 63 Akt | Sucher ohne Sensor                         Sieg  51.2% Energie  48.8% Zeit   0.0% | Phaser  4.4 Torpedo  1.7
+f32 | 3 Torp | 63 Akt | Scout, Phaser zuerst                       Sieg  73.4% Energie  26.6% Zeit   0.0% | Phaser  6.0 Torpedo  0.9
+f32 | 3 Torp | 63 Akt | Scout, Phaser wenn moeglich, sonst Torpedo Sieg  84.0% Energie  16.0% Zeit   0.0% | Phaser  3.6 Torpedo  3.7
+f32 | 3 Torp | 63 Akt | Scout, Torpedo zuerst                      Sieg  92.6% Energie   7.4% Zeit   0.0% | Phaser  0.1 Torpedo  7.5
+f32 | 3 Torp | 63 Akt | Allwissend                                 Sieg 100.0% Energie   0.0% Zeit   0.0% | Phaser  4.2 Torpedo  3.8
+l1  | 1 Torp | 42 Akt | Sucher ohne Sensor                         Sieg  71.9% Energie  28.1% Zeit   0.0% | Phaser  6.6 Torpedo  0.5
+l1  | 1 Torp | 42 Akt | Scout, Phaser zuerst                       Sieg  76.6% Energie  12.5% Zeit  10.9% | Phaser  7.0 Torpedo  0.3
+l1  | 1 Torp | 42 Akt | Scout, Phaser wenn moeglich, sonst Torpedo Sieg  89.5% Energie  10.2% Zeit   0.4% | Phaser  4.8 Torpedo  2.7
+l1  | 1 Torp | 42 Akt | Scout, Torpedo zuerst                      Sieg  87.9% Energie  10.9% Zeit   1.2% | Phaser  3.4 Torpedo  4.0
+l1  | 1 Torp | 42 Akt | Allwissend                                 Sieg  98.0% Energie   2.0% Zeit   0.0% | Phaser  6.1 Torpedo  1.8
+l1  | 1 Torp | 51 Akt | Sucher ohne Sensor                         Sieg  71.9% Energie  28.1% Zeit   0.0% | Phaser  6.6 Torpedo  0.5
+l1  | 1 Torp | 51 Akt | Scout, Phaser zuerst                       Sieg  87.5% Energie  12.5% Zeit   0.0% | Phaser  7.1 Torpedo  0.3
+l1  | 1 Torp | 51 Akt | Scout, Phaser wenn moeglich, sonst Torpedo Sieg  89.8% Energie  10.2% Zeit   0.0% | Phaser  4.8 Torpedo  2.7
+l1  | 1 Torp | 51 Akt | Scout, Torpedo zuerst                      Sieg  89.1% Energie  10.9% Zeit   0.0% | Phaser  3.4 Torpedo  4.0
+l1  | 1 Torp | 51 Akt | Allwissend                                 Sieg  98.0% Energie   2.0% Zeit   0.0% | Phaser  6.1 Torpedo  1.8
+l1  | 1 Torp | 63 Akt | Sucher ohne Sensor                         Sieg  71.9% Energie  28.1% Zeit   0.0% | Phaser  6.6 Torpedo  0.5
+l1  | 1 Torp | 63 Akt | Scout, Phaser zuerst                       Sieg  87.5% Energie  12.5% Zeit   0.0% | Phaser  7.1 Torpedo  0.3
+l1  | 1 Torp | 63 Akt | Scout, Phaser wenn moeglich, sonst Torpedo Sieg  89.8% Energie  10.2% Zeit   0.0% | Phaser  4.8 Torpedo  2.7
+l1  | 1 Torp | 63 Akt | Scout, Torpedo zuerst                      Sieg  89.1% Energie  10.9% Zeit   0.0% | Phaser  3.4 Torpedo  4.0
+l1  | 1 Torp | 63 Akt | Allwissend                                 Sieg  98.0% Energie   2.0% Zeit   0.0% | Phaser  6.1 Torpedo  1.8
+l1  | 2 Torp | 42 Akt | Sucher ohne Sensor                         Sieg  73.0% Energie  27.0% Zeit   0.0% | Phaser  6.5 Torpedo  0.8
+l1  | 2 Torp | 42 Akt | Scout, Phaser zuerst                       Sieg  78.9% Energie  10.5% Zeit  10.5% | Phaser  7.1 Torpedo  0.4
+l1  | 2 Torp | 42 Akt | Scout, Phaser wenn moeglich, sonst Torpedo Sieg  91.0% Energie   8.2% Zeit   0.8% | Phaser  4.1 Torpedo  3.5
+l1  | 2 Torp | 42 Akt | Scout, Torpedo zuerst                      Sieg  91.4% Energie   8.6% Zeit   0.0% | Phaser  1.0 Torpedo  6.6
+l1  | 2 Torp | 42 Akt | Allwissend                                 Sieg 100.0% Energie   0.0% Zeit   0.0% | Phaser  5.0 Torpedo  3.0
+l1  | 2 Torp | 51 Akt | Sucher ohne Sensor                         Sieg  73.0% Energie  27.0% Zeit   0.0% | Phaser  6.5 Torpedo  0.8
+l1  | 2 Torp | 51 Akt | Scout, Phaser zuerst                       Sieg  89.5% Energie  10.5% Zeit   0.0% | Phaser  7.2 Torpedo  0.4
+l1  | 2 Torp | 51 Akt | Scout, Phaser wenn moeglich, sonst Torpedo Sieg  91.8% Energie   8.2% Zeit   0.0% | Phaser  4.1 Torpedo  3.5
+l1  | 2 Torp | 51 Akt | Scout, Torpedo zuerst                      Sieg  91.4% Energie   8.6% Zeit   0.0% | Phaser  1.0 Torpedo  6.6
+l1  | 2 Torp | 51 Akt | Allwissend                                 Sieg 100.0% Energie   0.0% Zeit   0.0% | Phaser  5.0 Torpedo  3.0
+l1  | 2 Torp | 63 Akt | Sucher ohne Sensor                         Sieg  73.0% Energie  27.0% Zeit   0.0% | Phaser  6.5 Torpedo  0.8
+l1  | 2 Torp | 63 Akt | Scout, Phaser zuerst                       Sieg  89.5% Energie  10.5% Zeit   0.0% | Phaser  7.2 Torpedo  0.4
+l1  | 2 Torp | 63 Akt | Scout, Phaser wenn moeglich, sonst Torpedo Sieg  91.8% Energie   8.2% Zeit   0.0% | Phaser  4.1 Torpedo  3.5
+l1  | 2 Torp | 63 Akt | Scout, Torpedo zuerst                      Sieg  91.4% Energie   8.6% Zeit   0.0% | Phaser  1.0 Torpedo  6.6
+l1  | 2 Torp | 63 Akt | Allwissend                                 Sieg 100.0% Energie   0.0% Zeit   0.0% | Phaser  5.0 Torpedo  3.0
+l1  | 3 Torp | 42 Akt | Sucher ohne Sensor                         Sieg  73.0% Energie  27.0% Zeit   0.0% | Phaser  6.5 Torpedo  0.9
+l1  | 3 Torp | 42 Akt | Scout, Phaser zuerst                       Sieg  79.7% Energie   9.8% Zeit  10.5% | Phaser  7.1 Torpedo  0.4
+l1  | 3 Torp | 42 Akt | Scout, Phaser wenn moeglich, sonst Torpedo Sieg  92.6% Energie   7.0% Zeit   0.4% | Phaser  4.0 Torpedo  3.7
+l1  | 3 Torp | 42 Akt | Scout, Torpedo zuerst                      Sieg  92.2% Energie   7.8% Zeit   0.0% | Phaser  0.2 Torpedo  7.5
+l1  | 3 Torp | 42 Akt | Allwissend                                 Sieg 100.0% Energie   0.0% Zeit   0.0% | Phaser  4.5 Torpedo  3.5
+l1  | 3 Torp | 51 Akt | Sucher ohne Sensor                         Sieg  73.0% Energie  27.0% Zeit   0.0% | Phaser  6.5 Torpedo  0.9
+l1  | 3 Torp | 51 Akt | Scout, Phaser zuerst                       Sieg  90.2% Energie   9.8% Zeit   0.0% | Phaser  7.2 Torpedo  0.4
+l1  | 3 Torp | 51 Akt | Scout, Phaser wenn moeglich, sonst Torpedo Sieg  93.0% Energie   7.0% Zeit   0.0% | Phaser  4.0 Torpedo  3.7
+l1  | 3 Torp | 51 Akt | Scout, Torpedo zuerst                      Sieg  92.2% Energie   7.8% Zeit   0.0% | Phaser  0.2 Torpedo  7.5
+l1  | 3 Torp | 51 Akt | Allwissend                                 Sieg 100.0% Energie   0.0% Zeit   0.0% | Phaser  4.5 Torpedo  3.5
+l1  | 3 Torp | 63 Akt | Sucher ohne Sensor                         Sieg  73.0% Energie  27.0% Zeit   0.0% | Phaser  6.5 Torpedo  0.9
+l1  | 3 Torp | 63 Akt | Scout, Phaser zuerst                       Sieg  90.2% Energie   9.8% Zeit   0.0% | Phaser  7.2 Torpedo  0.4
+l1  | 3 Torp | 63 Akt | Scout, Phaser wenn moeglich, sonst Torpedo Sieg  93.0% Energie   7.0% Zeit   0.0% | Phaser  4.0 Torpedo  3.7
+l1  | 3 Torp | 63 Akt | Scout, Torpedo zuerst                      Sieg  92.2% Energie   7.8% Zeit   0.0% | Phaser  0.2 Torpedo  7.5
+l1  | 3 Torp | 63 Akt | Allwissend                                 Sieg 100.0% Energie   0.0% Zeit   0.0% | Phaser  4.5 Torpedo  3.5
+
+== Aktuelle Werte: 1 Basis, 1 Torpedo, 51 Aktionen, Phaser 16 je Stufe; 2 Verlaeufe je Galaxie
+Scout = Sensor je Galaxiezeile, sucht zuerst die Basis, tankt bei 5 Pixeln; Mischung = Phaser, wenn der Klingone in Schusslinie steht, sonst Torpedo
+Zufall                                     Sieg   0.0%  Energie 100.0%  Zeit   0.0%  Aktionen (Median, Sieg)    0  Phaser  0.0  Torpedo  0.0
+Sucher ohne Sensor, Phaser zuerst          Sieg  50.0%  Energie  50.0%  Zeit   0.0%  Aktionen (Median, Sieg)   33  Phaser  4.7  Torpedo  0.9
+Sucher ohne Sensor, Torpedo zuerst         Sieg  52.0%  Energie  48.0%  Zeit   0.0%  Aktionen (Median, Sieg)   32  Phaser  3.3  Torpedo  2.2
+Scout, Phaser zuerst                       Sieg  73.0%  Energie  26.4%  Zeit   0.6%  Aktionen (Median, Sieg)   40  Phaser  6.0  Torpedo  0.5
+Scout, Mischung                            Sieg  79.7%  Energie  20.3%  Zeit   0.0%  Aktionen (Median, Sieg)   35  Phaser  4.2  Torpedo  2.6
+Scout, Torpedo zuerst                      Sieg  78.7%  Energie  21.3%  Zeit   0.0%  Aktionen (Median, Sieg)   34  Phaser  2.8  Torpedo  3.9
+Scout, Mischung, tankt erst bei 1 Pixel    Sieg  60.9%  Energie  39.1%  Zeit   0.0%  Aktionen (Median, Sieg)   32  Phaser  3.9  Torpedo  2.2
+Kenner: Mischung und Gegenzeilen-Regel     Sieg  77.9%  Energie  22.1%  Zeit   0.0%  Aktionen (Median, Sieg)   32  Phaser  4.3  Torpedo  2.4
+Allwissend                                 Sieg  97.5%  Energie   2.5%  Zeit   0.0%  Aktionen (Median, Sieg)   21  Phaser  5.4  Torpedo  2.5

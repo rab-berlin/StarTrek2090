@@ -1,4 +1,4 @@
-# sim_m2.py - schnelles Regelmodell von startrek-m02 (1 Basis, 2 Torpedos, Zeit nach 51 Aktionen; gegen den Emulator geprueft: sim_check.py)
+# sim_m2.py - schnelles Regelmodell von startrek-m02 (1 Basis, 1 Torpedo, Zeit nach 51 Aktionen; gegen den Emulator geprueft: sim_check.py)
 import random
 
 
@@ -43,10 +43,11 @@ VEC = {v: k for k, v in DIRS.items()}
 class Sim:
     """Ein Spiel. Galaxie aus D = RD, E = RE beim RUN; Schaden 2 * (0..15)."""
 
-    def __init__(self, D, E, rng, dmg=None, tlimit=52, tmax=2, bases=1, navcost=3, senscost=16, sensbase=True):
+    def __init__(self, D, E, rng, dmg=None, tlimit=52, tmax=1, bases=1, navcost=3, senscost=16, sensbase=True, phcost='l16'):
         self.tlimit, self.tmax, self.bases, self.navcost, self.senscost = tlimit, tmax, bases, navcost, senscost
         self.ref = Ref([D, E, D ^ 15, E ^ 15, D, E] + [0] * 10)
         self.ref.ONE_BASE = (bases == 1)
+        self.phmode = phcost        # Phaserkosten: l16 = 16 je Stufe, f16/f32 = fest, l1 = 1 je Stufe, l8 = 8 je Stufe
         self.sensbase = sensbase      # Sensor zeigt die Basis auch neben einem Klingonen (eigene Farbe)
         self.rng = rng
         self.dmg = dmg or (lambda: 2 * rng.randrange(16))
@@ -121,7 +122,7 @@ class Sim:
     def phaser(self, d, k):
         if k == 0 or self.result: return False
         self.sens = None
-        self.energy -= 16 * k
+        self.energy -= self.phcost(k)
         if self.energy < 0:
             self.result = 'energie'; return True
         dx, dy = DIRS[d]
@@ -145,6 +146,9 @@ class Sim:
         self._kill(self.x, self.y)
         if not self.result: self._tick()
         return True
+
+    def phcost(self, k):
+        return {'l16': 16 * k, 'f16': 16, 'f32': 32, 'l1': k, 'l8': 8 * k, 'f0': 0}[self.phmode]
 
     # --- was der Spieler sieht
     def bar(self):
