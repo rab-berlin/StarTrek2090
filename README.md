@@ -18,7 +18,7 @@ Die Galaxie hat 4 x 4 Quadranten zu je 4 x 4 Sektoren und ist ringförmig geschl
 
 Am Ende siehst du auf dem Display das Ergebnis: Klingonen 0 heißt gewonnen, und der Countdown zeigt die übrige Zeit. Countdown 0 heißt, die Zeit ist abgelaufen. Steht beides noch über 0, war die Energie zu Ende. Neues Spiel: RESET, RUN.
 
-Jede Aktion lässt die Zeit weiterlaufen, auch Sensor und Andocken. Danach schießt ein Klingone im Quadranten, dann zeichnet die Matrix neu.
+Jede Aktion lässt die Zeit weiterlaufen, auch Langstrecken-Sensor und Andocken. Danach schießt ein Klingone im Quadranten, dann zeichnet die Matrix neu.
 
 ## Start
 
@@ -28,17 +28,17 @@ Jede Aktion lässt die Zeit weiterlaufen, auch Sensor und Andocken. Danach schie
 
 Die Zeit zwischen RESET und RUN bestimmt die Galaxie. Neues Spiel: RESET, RUN.
 
-**Ohne Userscript** färbt das Programm Karte und Sensor selbst, nur der Energiebalken bleibt in der Standardfarbe der Matrix.
+**Ohne Userscript** färbt das Programm Karte und Langstrecken-Sensor selbst, nur der Energiebalken bleibt in der Standardfarbe der Matrix.
 
 ## Anzeige
 
-![Spielfeld nach einem Sensor-Scan](bilder/spielfeld.png)
+![Spielfeld nach einem Scan des Langstrecken-Sensors](bilder/spielfeld.png)
 
 | Wo | Was |
 |---|---|
 | Matrix, Zeile 7 | Energiebalken, je 32 Energie ein Pixel (8 Pixel = 224 bis 255, 1 Pixel = unter 32). Grün, die letzten beiden rot (unter 64) |
 | Matrix, unten links 4 x 4 | der eigene Quadrant: weiß Enterprise, rot Klingone, blau Basis, gelb Sterne |
-| Matrix, unten rechts 3 x 3 (Zeilen 0-2, Spalten 5-7) | Sensor: die Quadranten rund um den eigenen (Mitte), oben ist oben in der Galaxie. Es leuchten die beiden gewählten Nachbarn: rot Klingone, blau Basis, violett beides, sonst dunkel |
+| Matrix, unten rechts 3 x 3 (Zeilen 0-2, Spalten 5-7) | Langstrecken-Sensor: die Quadranten rund um den eigenen (Mitte), oben ist oben in der Galaxie. Es leuchten die beiden gewählten Nachbarn: rot Klingone, blau Basis, violett beides, sonst dunkel |
 | Anzeige des Microtronic | beim Warten auf eine Taste und am Ende drei Ziffern: Countdown F-0, Klingonen übrig, Torpedos. `E81` heißt Countdown E, 8 Klingonen, 1 Torpedo. Der Countdown zählt alle 3 bis 4 Aktionen eins herunter; nach 0 ist die Zeit abgelaufen |
 
 Die Anzeige im Display wird ausgeschaltet, solange die Matrix zeichnet.
@@ -50,7 +50,7 @@ Jeder Zug beginnt mit einer Taste am Microtronic.
 | Taste | Befehl | danach | Kosten | Wirkung |
 |---|---|---|---|---|
 | 0 | Navigation | Richtung, Entfernung 1-F | 4 Energie je Feld | fliegt Feld für Feld, hält vor Stern oder Klingone; in eine Basis = andocken |
-| 1 | Sensor | Richtung | 32 Energie | zeigt den Nachbarquadranten in dieser Richtung und den gegenüberliegenden, bis zur nächsten Aktion. Im Quadranten der Basis stört die Basis den Sensor: dort passiert nichts |
+| 1 | Langstrecken-Sensor | Richtung | 32 Energie | zeigt den Nachbarquadranten in dieser Richtung und den gegenüberliegenden, bis zur nächsten Aktion. Im Quadranten der Basis stört die Basis den Langstrecken-Sensor: dort passiert nichts |
 | 2 | Phaser | Richtung, Energie 1-F | 16 Energie je Stufe | der Strahl fliegt so viele Felder weit und trifft das erste Objekt; einen nahen Klingonen zerstört er mit höherer, einen fernen mit niedrigerer Wahrscheinlichkeit |
 | 3 | Torpedo | – | 1 Torpedo | zerstört den Klingonen im eigenen Quadranten meistens, aber nicht immer; ohne Gegner oder Torpedo geschieht nichts |
 
@@ -68,7 +68,7 @@ Vorsicht: Ein Phaser mit F kostet 240 Energie - die Selbstzerstörung für eine 
 
 ## Spieltipps
 
-- Der Sensor zeigt immer zwei gegenüberliegende Nachbarn: Richtung 6 die Galaxiezeile, 9 die Galaxiespalte, 8 und A die Diagonalen. Wer jeweils die Achse mit zwei unbekannten Quadranten wählt, spart viel Suchen.
+- Der Langstrecken-Sensor zeigt immer zwei gegenüberliegende Nachbarn: Richtung 6 die Galaxiezeile, 9 die Galaxiespalte, 8 und A die Diagonalen. Wer jeweils die Achse mit zwei unbekannten Quadranten wählt, spart viel Suchen.
 - Im Quadranten der Basis kann man nicht scannen. Wer die Nachbarquadranten der Basis kennen will, scannt vorher oder nachher von außerhalb.
 - Die Basis zuerst suchen. Wer sie kennt, kann rechtzeitig tanken; wer sie erst mit leerem Balken sucht, kommt meist nicht mehr an.
 - Umwege kosten mehr Energie als alles andere. Lieber früh tanken, beim fünften Pixel, als spät; wer erst beim letzten Pixel losfliegt, kommt fast nie an.
@@ -85,7 +85,7 @@ Alle Werte sind Konstanten im Programm und lassen sich ohne zusätzliche Schritt
 | Treffer des Torpedos | 71 | `14B` (`MOVI 4,B`) | trifft, wenn der Zufall 0-F mindestens 4 ist. `10B` = immer, höhere Werte = seltener |
 | Zeitlimit | 1F | `55A` (`ADDI 5,A`) | je Aktion + 5, Ende nach 52 Zählungen (51 Aktionen). `54A` = 63, `56A` = 42 Aktionen |
 | Energie bei Start und Andocken | 0E, 0F | `1F8`, `1F9` | FFh = 255; der Balken rechnet mit 32 je Pixel |
-| Sensor | 7E | `729` (`SUBI 2,9`) | 2 x 16 = 32 Energie |
+| Langstrecken-Sensor | 7E | `729` (`SUBI 2,9`) | 2 x 16 = 32 Energie |
 | Navigation | AE | `748` (`SUBI 4,8`) | 4 Energie je Feld; `738` = 3, `758` = 5 |
 
 ## Wie es gemacht ist
@@ -93,11 +93,11 @@ Alle Werte sind Konstanten im Programm und lassen sich ohne zusätzliche Schritt
 Der 2090 kennt keine indirekte Adressierung und nur eine Rücksprungadresse. 256 Felder Galaxie kann er also weder speichern noch durchsuchen. Deshalb wird die Galaxie bei Bedarf berechnet.
 
 - **Galaxie aus drei Ziffern.** `RND` am Anfang liest den Zähler, der seit RESET läuft. Aus seinen Ziffern D und E entstehen die Klingonen-Reihen D, E, nicht D, nicht E (je ein Bit je Quadrant, zusammen immer 8 Klingonen). Deshalb hat von zwei Quadranten derselben Spalte, zwei Galaxiezeilen auseinander, immer genau einer einen Klingonen. Zwei Startwerte, D + F und E, legen für jeden Quadranten die Sektoren von Klingone, Basis und Sternen fest. Die Basis liegt im Quadranten mit der Nummer E. Das ergibt bis zu 4096 verschiedene Galaxien: 256 Verteilungen der Klingonen auf die Quadranten, jede mit 16 Anordnungen innerhalb der Quadranten. Die oberste Ziffer F wächst nur langsam (etwa alle 1,25 Sekunden eins weiter), deshalb hängt die Vielfalt auch davon ab, wie lange man zwischen RESET und RUN wartet.
-- **Sensorfarbe gerechnet.** Die Farbe des Sensorpixels ist 8 bei einer Basis, sonst 0; ein Klingone addiert 3. So entstehen rot (3), blau (8) und violett (11) ohne zusätzlichen Befehl.
-- **Ein Unterprogramm für alles.** `LQ` (64 Schritte) berechnet zu einem beliebigen Feld den Quadranten und liefert, was auf dem Feld liegt. Flug, Phaser, Sensor und Bild benutzen es alle; der Sensor springt hinter den ersten beiden Befehlen ein und gibt das Feld direkt vor.
+- **Farben des Langstrecken-Sensors gerechnet.** Die Farbe eines Pixels im Langstrecken-Sensor ist 8 bei einer Basis, sonst 0; ein Klingone addiert 3. So entstehen rot (3), blau (8) und violett (11) ohne zusätzlichen Befehl.
+- **Ein Unterprogramm für alles.** `LQ` (64 Schritte) berechnet zu einem beliebigen Feld den Quadranten und liefert, was auf dem Feld liegt. Flug, Phaser, Langstrecken-Sensor und Bild benutzen es alle; der Langstrecken-Sensor springt hinter den ersten beiden Befehlen ein und gibt das Feld direkt vor.
 - **Reihen drehen statt adressieren.** Die vier Klingonen-Reihen liegen in M0-M3. Um Reihe y zu lesen, dreht das Programm die vier Register, bis sie in M0 liegt, und merkt sich den Drehstand.
 - **Energie als Linie.** Der Balken ist ein einziger Linienbefehl der Matrix bis zum Pixel Energie / 32. Das ist die obere Ziffer der Energie, einmal nach rechts geschoben: zwei Befehle statt einer Schleife. Die Farben der Zeile setzt das Userscript; das Programm schaltet die Pixel nur an und aus.
-- **Sensor ohne Tabelle.** Die Matrixzeile des Sensors ist dy + 1 (Zeilen 0 bis 2); dieselbe Zahl mal 4 minus 4 ist der Versatz −4, 0 oder +4 zum Nachbarquadranten. Die Gegenrichtung ist 2 minus Zeile und −dx; ein Zähler in R0 sorgt für genau zwei Durchgänge.
+- **Langstrecken-Sensor ohne Tabelle.** Die Matrixzeile des Langstrecken-Sensors ist dy + 1 (Zeilen 0 bis 2); dieselbe Zahl mal 4 minus 4 ist der Versatz −4, 0 oder +4 zum Nachbarquadranten. Die Gegenrichtung ist 2 minus Zeile und −dx; ein Zähler in R0 sorgt für genau zwei Durchgänge.
 - **Ein Würfel für beide Waffen.** Der Phaser merkt sich seine Stufen in R7; beim Treffer ist R7 minus der Rest in R5 die Entfernung. Torpedo und Phaser legen ihre Schwelle (4 bzw. Entfernung) in RB ab und teilen sich den Trefferwurf: `RND`, Vergleich, bei einem Fehlschuss zurück ins Bild. Ob der Phaser überhaupt einen Klingonen erreicht hat, prüft `SUBI F,F`: nur bei F borgt es nicht.
 - **Torpedo mit Übertrag.** `SUBI 1,C` zieht einen Torpedo ab; war keiner mehr da, macht `ADC C` aus F wieder 0 und lässt den Übertrag stehen, der den Schuss abbricht. Das spart die getrennte Abfrage.
 - **Bank offen lassen.** Treffer des Klingonen, Sternzeit und Energiebalken laufen in einem Stück in der Bank (M8-MF). Der Matrixbefehl braucht nur R4 bis R7 und funktioniert deshalb auch dort; das spart vier Bankwechsel und zwei Unterprogramme.

@@ -3,7 +3,7 @@
 ;   Zeile 7: Energiebalken, Energie / 32 + 1 Pixel (8 = 224-255), Farben aus startrek_farben.py (Pixel 0-1 rot, 2-7 gruen)
 ;   Zeilen 0-3, Spalten 0-3: der Quadrant, ein Pixel je Sektor:
 ;   Farbe 5 Enterprise, 3 Klingone, 7 Basis, 9/1 Stern
-;   Zeilen 0-2, Spalten 5-7: Sensor, 3 x 3 Quadranten um den eigenen (Mitte), in Galaxie-Orientierung;
+;   Zeilen 0-2, Spalten 5-7: Langstrecken-Sensor, 3 x 3 Quadranten um den eigenen (Mitte), in Galaxie-Orientierung;
 ;   gezeigt werden die beiden Nachbarn in der gewaehlten Richtung und gegenueber,
 ;   Farbe 3 Klingone, B Klingone und Basis, 8 Basis, sonst dunkel
 ; Display (beim Warten auf den Befehl und am Ende): C N T = Countdown F-0 (alle 3-4 Aktionen eins weniger), Klingonen uebrig, Torpedos
@@ -11,7 +11,7 @@
 ;        Die Zeit von RESET bis RUN bestimmt die Galaxie.
 ; Befehle:
 ;   0 Navigation: Richtung, Entfernung 1-F (0 = Abbruch); 4 Energie je Feld
-;   1 Sensor: Richtung; zeigt den Nachbarquadranten in dieser Richtung und den gegenueber bis zur naechsten Aktion; kostet 32 Energie;
+;   1 Langstrecken-Sensor: Richtung; zeigt den Nachbarquadranten in dieser Richtung und den gegenueber bis zur naechsten Aktion; kostet 32 Energie;
 ;     im Quadranten der Basis gestoert: dort passiert nichts
 ;   2 Phaser: Richtung, Energie 1-F; jede Stufe kostet 16 Energie und reicht 1 Feld weiter;
 ;     trifft das erste Objekt auf dem Weg; einen Klingonen in Entfernung e zerstoert er mit (16 - e) / 16
