@@ -9,16 +9,16 @@ Star Trek im Stil von 1971 für den Busch Microtronic 2090 mit dem [ESP2090 Stud
 
 Die Galaxie hat 4 x 4 Quadranten zu je 4 x 4 Sektoren und ist ringförmig geschlossen: Wer rechts hinausfliegt, kommt links wieder herein, ebenso oben und unten. Die Matrix zeigt immer nur den Quadranten, in dem die Enterprise gerade steht.
 
-- **Klingonen:** 8, höchstens einer je Quadrant. Sie bewegen sich nicht. Steht die Enterprise in einem Quadranten mit Klingone, schießt er nach jeder Aktion: 0 bis 30 Energie.
+- **Klingonen:** 8, höchstens einer je Quadrant. Sie bewegen sich nicht. Steht die Enterprise in einem Quadranten mit Klingone, schießt er nach jeder Aktion: 0 bis 30 Schaden.
 - **Basis:** genau eine, irgendwo in der Galaxie. Wer hineinfliegt, dockt an: wieder 255 Energie und 1 Torpedo. Die Enterprise bleibt vor der Basis stehen. Am Anfang hat sie ebenfalls 255 Energie und 1 Torpedo.
 - **Sterne:** 2 je Quadrant. Sie halten Flug und Phaser auf.
-- **Start:** Die Enterprise startet in der linken unteren Ecke der Galaxie.
+- **Start:** Die Enterprise startet in der linken unteren Ecke eines Quadranten der Galaxie.
 - **Gewonnen:** alle 8 Klingonen zerstört, bevor der Countdown abgelaufen ist.
 - **Verloren:** Energie unter 0 oder der Countdown abgelaufen (51 Aktionen).
 
 Am Ende bleibt das Display stehen und zeigt den Ausgang: Klingonen 0 heißt gewonnen, und der Countdown zeigt die übrige Zeit. Countdown 0 heißt, die Zeit ist abgelaufen. Steht beides noch über 0, war die Energie zu Ende. Neues Spiel: RESET, RUN.
 
-Jede Aktion lässt die Zeit weiterlaufen, auch Sensor und Andocken. Danach schießt ein Klingone im Quadranten, dann zeichnet die Matrix neu (etwa 3,5 Sekunden).
+Jede Aktion lässt die Zeit weiterlaufen, auch Sensor und Andocken. Danach schießt ein Klingone im Quadranten, dann zeichnet die Matrix neu.
 
 ## Start
 
