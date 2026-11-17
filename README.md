@@ -16,7 +16,7 @@ Die Galaxie hat 4 x 4 Quadranten zu je 4 x 4 Sektoren und ist ringförmig geschl
 - **Gewonnen:** alle 8 Klingonen zerstört, bevor der Countdown abgelaufen ist.
 - **Verloren:** Energie unter 0 oder der Countdown abgelaufen (51 Aktionen).
 
-Am Ende bleibt das Display stehen und zeigt den Ausgang: Klingonen 0 heißt gewonnen, und der Countdown zeigt die übrige Zeit. Countdown 0 heißt, die Zeit ist abgelaufen. Steht beides noch über 0, war die Energie zu Ende. Neues Spiel: RESET, RUN.
+Am Ende siehst du auf dem Display das Ergebnis: Klingonen 0 heißt gewonnen, und der Countdown zeigt die übrige Zeit. Countdown 0 heißt, die Zeit ist abgelaufen. Steht beides noch über 0, war die Energie zu Ende. Neues Spiel: RESET, RUN.
 
 Jede Aktion lässt die Zeit weiterlaufen, auch Sensor und Andocken. Danach schießt ein Klingone im Quadranten, dann zeichnet die Matrix neu.
 
@@ -41,7 +41,7 @@ Die Zeit zwischen RESET und RUN bestimmt die Galaxie. Neues Spiel: RESET, RUN.
 | Matrix, unten rechts 3 x 3 (Zeilen 0-2, Spalten 5-7) | Sensor: die Quadranten rund um den eigenen (Mitte), oben ist oben in der Galaxie. Es leuchten die beiden gewählten Nachbarn: rot Klingone, blau Basis, violett beides, sonst dunkel |
 | Anzeige des Microtronic | beim Warten auf eine Taste und am Ende drei Ziffern: Countdown F-0, Klingonen übrig, Torpedos. `E81` heißt Countdown E, 8 Klingonen, 1 Torpedo. Der Countdown zählt alle 3 bis 4 Aktionen eins herunter; nach 0 ist die Zeit abgelaufen |
 
-Die Anzeige ist dunkel, solange die Matrix zeichnet: Mit eingeschalteter Anzeige braucht jeder Befehl 20,5 statt 9,3 ms, und dann schafft die Matrix den Handshake nicht.
+Die Anzeige im Display wird ausgeschaltet, solange die Matrix zeichnet.
 
 ## Befehle
 
